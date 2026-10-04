@@ -6,7 +6,7 @@
 
 **IEEE OneAquaHealth Global Hackathon 2026 · Track 2: Data-to-Insight**
 
-- **Live demo:** [add URL after deployment]
+- **Live demo:** https://undercurrent-oneaquahealth.vercel.app/
 - **Demo video:** [add link]
 - **Team:** [add names]
 
@@ -177,7 +177,3 @@ python pipeline/build_results.py
 `build_results.py` writes both `data/results.json` and `frontend/src/data/results.json`, so no manual copy is needed before rebuilding the front end. Optional fresh API pull: `pip install requests` then `python pipeline/fetch_data.py`.
 
 ---
-
-## Licence
-
-MIT. See [LICENSE](LICENSE).
