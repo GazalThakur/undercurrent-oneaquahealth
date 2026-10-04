@@ -1,0 +1,8552 @@
+{
+ "meta": {
+  "generated_utc": "2026-10-03T20:40:03.388692+00:00",
+  "n_sites": 96,
+  "demo_site": "T10",
+  "flag_rules": {
+   "masked_arg": "faecal rank in lowest quarter AND ARG rank in highest quarter",
+   "composite_understates": "a component ranks at least half the dataset higher than the composite does"
+  },
+  "limitations": [
+   "One sampling date per site (May to September 2023, one site in 2024)",
+   "City and sampling season are confounded; analyses are within-city",
+   "Cross-sectional association, not causation or prediction",
+   "Measurement noise: one sampling date per site cannot separate true ARG differences from sampling variability",
+   "OpenStreetMap completeness differs between cities, so nearby counts reflect mapping effort as well as what is present; counts use feature centroids and under-count large parks",
+   "Screening tool: flagged sites need direct measurement, not conclusions"
+  ],
+  "nearby_coverage_mean_features_500m": {
+   "Benevento": 0.6,
+   "Coimbra": 2.7,
+   "Ghent": 1.1,
+   "Oslo": 13.5,
+   "Toulouse": 3.6
+  },
+  "osm_raw_elements_per_city": {
+   "Benevento": 92,
+   "Coimbra": 280,
+   "Ghent": 279,
+   "Oslo": 3036,
+   "Toulouse": 1941
+  },
+  "methods_notes": [
+   "Pathogen scores take a few coarse values at the low end, so rank differences among low-pathogen sites carry little meaning.",
+   "The composite does not always miss ARG: some sites with the highest ARG scores also rank highly overall.",
+   "Flag rules are rank thresholds, not natural categories; 4 sites lie within 3 rank positions of a threshold, so the list is illustrative.",
+   "Nearby features: same-named features of one category are merged per site; unnamed features cannot be merged, so counts are upper bounds."
+  ],
+  "nearby_note": "Counts within 250/500/1000 m are a presentation choice ('nearby'), not an analysis-derived risk radius.",
+  "attribution": [
+   "Data: OneAquaHealth project via the public Resilience Map API (ENORA). Rights remain with OneAquaHealth and partners.",
+   "Map data: OpenStreetMap contributors (ODbL)."
+  ],
+  "snapshot": {
+   "sites": {
+    "url": "https://api.enora-oah.eu/api/sites/all",
+    "fetched_utc": "2026-10-03T09:52:52.911096+00:00",
+    "bytes": 128541,
+    "sha256": "c0272962378fbe64befae344acb410386fbb71b94777d03c9ad4fe795cf0c632"
+   },
+   "health_risks": {
+    "url": "https://api.enora-oah.eu/api/resilience-map/health-risks",
+    "fetched_utc": "2026-10-03T09:52:54.144036+00:00",
+    "bytes": 16576,
+    "sha256": "3aee00272cc6ff02a3a5bcdf6975372875ef4056d37f2ebb0253bc12edbf5aa8"
+   },
+   "urban_parameters": {
+    "url": "https://api.enora-oah.eu/api/resilience-map/urban-parameters",
+    "fetched_utc": "2026-10-03T09:52:55.818301+00:00",
+    "bytes": 149435,
+    "sha256": "b83169cee0d6a4be9ff88136ec4de9cedb45da7d07eb46673019c47fee89cf54"
+   },
+   "cities": {
+    "url": "https://api.enora-oah.eu/api/cities/all",
+    "fetched_utc": "2026-10-03T09:52:57.041565+00:00",
+    "bytes": 357,
+    "sha256": "14fac66444658ee557e385b105cb4aff6a9550cf261a655770aa24f7889d0920"
+   }
+  }
+ },
+ "claims": [
+  {
+   "id": "independence",
+   "text": "In this dataset, ARG risk shows no detectable relationship with faecal risk (within-city Spearman -0.03, 95% CI -0.25 to +0.18) and at most a weak one with pathogen risk (+0.18, 95% CI -0.02 to +0.36)."
+  },
+  {
+   "id": "blind_spots",
+   "text": "8 of 96 sites are flagged: 5 with low faecal but high ARG risk, and 3 where the composite averages away a hazard. These are illustrations of the composite's limits, not a prevalence estimate."
+  },
+  {
+   "id": "chance_expectation",
+   "text": "If faecal and ARG risk were completely independent, about 6 of 96 sites would show the 'low faecal, high ARG' pattern by chance; 5 were observed. The point is that faecal indicators cannot screen for ARG risk, not that these sites are unusual outliers."
+  },
+  {
+   "id": "landscape_null",
+   "text": "No tested landscape or infrastructure variable explained ARG risk after city adjustment and multiple-testing correction (24 distinct tests; smallest q for ARG = 0.67). With n = 96, only within-city correlations of about 0.29 or larger could be detected, so small effects cannot be ruled out."
+  },
+  {
+   "id": "arg_scale_null",
+   "text": "No landscape metric showed a supported scale of effect for ARG risk across 8 buffer radii (50 to 2000 m); smallest adjusted q = 0.63."
+  }
+ ],
+ "exploratory": [
+  {
+   "hazard": "faecal",
+   "metric": "Human density proxy",
+   "best_radius_m": 1500,
+   "rho": 0.324,
+   "q": 0.1319,
+   "scale": "well-defined",
+   "status": "exploratory, does not survive strict correction",
+   "show_on_map": false
+  },
+  {
+   "hazard": "pathogen",
+   "metric": "Vegetation cover",
+   "best_radius_m": 1000,
+   "rho": 0.297,
+   "q": 0.1499,
+   "scale": "unresolved",
+   "status": "exploratory, does not survive strict correction",
+   "show_on_map": false
+  }
+ ],
+ "seasonality": {
+  "Benevento": {
+   "2023-06": 12,
+   "2023-07": 7,
+   "2024-08": 1
+  },
+  "Coimbra": {
+   "2023-06": 18
+  },
+  "Ghent": {
+   "2023-05": 17
+  },
+  "Oslo": {
+   "2023-09": 20
+  },
+  "Toulouse": {
+   "2023-05": 21
+  }
+ },
+ "summary": {
+  "flagged": 8,
+  "by_type": {
+   "composite_understates": 3,
+   "masked_arg": 5
+  },
+  "by_city": {
+   "Coimbra": 2,
+   "Ghent": 1,
+   "Oslo": 3,
+   "Toulouse": 2
+  },
+  "by_tier": {
+   "secondary": 3,
+   "primary": 5
+  },
+  "chance_expected_masked": 6.25,
+  "borderline_sites": [
+   "G15",
+   "O14",
+   "O15",
+   "T12"
+  ]
+ },
+ "sites": [
+  {
+   "site": "BN1",
+   "name": "Capodimonte",
+   "city": "Benevento",
+   "lat": 41.13231,
+   "lon": 14.80039,
+   "sampling_month": "2023-06",
+   "scores": {
+    "pathogen": 0.2054,
+    "faecal": 0.2427,
+    "arg": 0.4792,
+    "composite": 0.3091
+   },
+   "percentiles": {
+    "pathogen": 0.646,
+    "faecal": 0.323,
+    "arg": 0.802,
+    "composite": 0.573
+   },
+   "flag_type": "none",
+   "hidden_hazard": null,
+   "flagged": false,
+   "borderline": false,
+   "tier": null,
+   "insight": null,
+   "nearby": {
+    "counts": {
+     "250": {
+      "school": 0,
+      "kindergarten": 0,
+      "playground": 0,
+      "park": 0,
+      "allotments": 0
+     },
+     "500": {
+      "school": 0,
+      "kindergarten": 1,
+      "playground": 0,
+      "park": 1,
+      "allotments": 0
+     },
+     "1000": {
+      "school": 1,
+      "kindergarten": 1,
+      "playground": 0,
+      "park": 2,
+      "allotments": 0
+     }
+    },
+    "nearest": [
+     {
+      "category": "kindergarten",
+      "name": "Scuole Pubbliche Scuole Materne",
+      "distance_m": 436
+     },
+     {
+      "category": "park",
+      "name": "parchetto madonnina Capodimonte",
+      "distance_m": 490
+     },
+     {
+      "category": "park",
+      "name": "Giardino Andrea Annaloro",
+      "distance_m": 690
+     },
+     {
+      "category": "school",
+      "name": null,
+      "distance_m": 805
+     }
+    ],
+    "n_within_1000m": 4
+   }
+  },
+  {
+   "site": "BN10",
+   "name": "Malacagna",
+   "city": "Benevento",
+   "lat": 41.14607,
+   "lon": 14.76353,
+   "sampling_month": "2023-06",
+   "scores": {
+    "pathogen": 0.762,
+    "faecal": 0.8423,
+    "arg": 0.2686,
+    "composite": 0.6243
+   },
+   "percentiles": {
+    "pathogen": 0.99,
+    "faecal": 0.969,
+    "arg": 0.229,
+    "composite": 0.979
+   },
+   "flag_type": "none",
+   "hidden_hazard": null,
+   "flagged": false,
+   "borderline": false,
+   "tier": null,
+   "insight": null,
+   "nearby": {
+    "counts": {
+     "250": {
+      "school": 0,
+      "kindergarten": 0,
+      "playground": 0,
+      "park": 0,
+      "allotments": 0
+     },
+     "500": {
+      "school": 0,
+      "kindergarten": 0,
+      "playground": 0,
+      "park": 0,
+      "allotments": 0
+     },
+     "1000": {
+      "school": 2,
+      "kindergarten": 0,
+      "playground": 0,
+      "park": 0,
+      "allotments": 0
+     }
+    },
+    "nearest": [
+     {
+      "category": "school",
+      "name": "IIS Galilei-Vetrone",
+      "distance_m": 593
+     },
+     {
+      "category": "school",
+      "name": "Istituto Comprensivo Giuseppe Moscati",
+      "distance_m": 839
+     }
+    ],
+    "n_within_1000m": 2
+   }
+  },
+  {
+   "site": "BN11",
+   "name": "Masseria Roseto",
+   "city": "Benevento",
+   "lat": 41.16124,
+   "lon": 14.75972,
+   "sampling_month": "2023-06",
+   "scores": {
+    "pathogen": 0.0754,
+    "faecal": 0.2158,
+    "arg": 0.0329,
+    "composite": 0.108
+   },
+   "percentiles": {
+    "pathogen": 0.292,
+    "faecal": 0.271,
+    "arg": 0.042,
+    "composite": 0.031
+   },
+   "flag_type": "none",
+   "hidden_hazard": null,
+   "flagged": false,
+   "borderline": false,
+   "tier": null,
+   "insight": null,
+   "nearby": {
+    "counts": {
+     "250": {
+      "school": 0,
+      "kindergarten": 0,
+      "playground": 0,
+      "park": 0,
+      "allotments": 0
+     },
+     "500": {
+      "school": 0,
+      "kindergarten": 0,
+      "playground": 0,
+      "park": 0,
+      "allotments": 0
+     },
+     "1000": {
+      "school": 0,
+      "kindergarten": 0,
+      "playground": 0,
+      "park": 0,
+      "allotments": 0
+     }
+    },
+    "nearest": [],
+    "n_within_1000m": 0
+   }
+  },
+  {
+   "site": "BN12",
+   "name": "Vallone S. Vitale",
+   "city": "Benevento",
+   "lat": 41.13628,
+   "lon": 14.73193,
+   "sampling_month": "2023-06",
+   "scores": {
+    "pathogen": 0.0748,
+    "faecal": 0.1445,
+    "arg": 0.0491,
+    "composite": 0.0895
+   },
+   "percentiles": {
+    "pathogen": 0.26,
+    "faecal": 0.146,
+    "arg": 0.062,
+    "composite": 0.021
+   },
+   "flag_type": "none",
+   "hidden_hazard": null,
+   "flagged": false,
+   "borderline": false,
+   "tier": null,
+   "insight": null,
+   "nearby": {
+    "counts": {
+     "250": {
+      "school": 0,
+      "kindergarten": 0,
+      "playground": 0,
+      "park": 0,
+      "allotments": 0
+     },
+     "500": {
+      "school": 0,
+      "kindergarten": 0,
+      "playground": 0,
+      "park": 0,
+      "allotments": 0
+     },
+     "1000": {
+      "school": 0,
+      "kindergarten": 0,
+      "playground": 0,
+      "park": 0,
+      "allotments": 0
+     }
+    },
+    "nearest": [],
+    "n_within_1000m": 0
+   }
+  },
+  {
+   "site": "BN13",
+   "name": "Vallone la Ripa",
+   "city": "Benevento",
+   "lat": 41.11727,
+   "lon": 14.73683,
+   "sampling_month": "2023-07",
+   "scores": {
+    "pathogen": 0.1003,
+    "faecal": 0.3295,
+    "arg": 0.2723,
+    "composite": 0.234
+   },
+   "percentiles": {
+    "pathogen": 0.385,
+    "faecal": 0.542,
+    "arg": 0.271,
+    "composite": 0.365
+   },
+   "flag_type": "none",
+   "hidden_hazard": null,
+   "flagged": false,
+   "borderline": false,
+   "tier": null,
+   "insight": null,
+   "nearby": {
+    "counts": {
+     "250": {
+      "school": 0,
+      "kindergarten": 0,
+      "playground": 0,
+      "park": 0,
+      "allotments": 0
+     },
+     "500": {
+      "school": 0,
+      "kindergarten": 0,
+      "playground": 0,
+      "park": 0,
+      "allotments": 0
+     },
+     "1000": {
+      "school": 0,
+      "kindergarten": 0,
+      "playground": 0,
+      "park": 1,
+      "allotments": 0
+     }
+    },
+    "nearest": [
+     {
+      "category": "park",
+      "name": "Parco Verde",
+      "distance_m": 780
+     }
+    ],
+    "n_within_1000m": 1
+   }
+  },
+  {
+   "site": "BN14",
+   "name": "Rocca - Tufara",
+   "city": "Benevento",
+   "lat": 41.06014,
+   "lon": 14.70843,
+   "sampling_month": "2024-08",
+   "scores": {
+    "pathogen": 0.1101,
+    "faecal": 0.2119,
+    "arg": 0.181,
+    "composite": 0.1676
+   },
+   "percentiles": {
+    "pathogen": 0.406,
+    "faecal": 0.25,
+    "arg": 0.146,
+    "composite": 0.104
+   },
+   "flag_type": "none",
+   "hidden_hazard": null,
+   "flagged": false,
+   "borderline": false,
+   "tier": null,
+   "insight": null,
+   "nearby": {
+    "counts": {
+     "250": {
+      "school": 0,
+      "kindergarten": 0,
+      "playground": 0,
+      "park": 0,
+      "allotments": 0
+     },
+     "500": {
+      "school": 1,
+      "kindergarten": 0,
+      "playground": 0,
+      "park": 0,
+      "allotments": 0
+     },
+     "1000": {
+      "school": 1,
+      "kindergarten": 0,
+      "playground": 0,
+      "park": 0,
+      "allotments": 0
+     }
+    },
+    "nearest": [
+     {
+      "category": "school",
+      "name": "Scuola elementare",
+      "distance_m": 313
+     }
+    ],
+    "n_within_1000m": 1
+   }
+  },
+  {
+   "site": "BN15",
+   "name": "Corvo Tressanti",
+   "city": "Benevento",
+   "lat": 41.06921,
+   "lon": 14.70959,
+   "sampling_month": "2023-06",
+   "scores": {
+    "pathogen": 0.3487,
+    "faecal": 0.3778,
+    "arg": 0.3881,
+    "composite": 0.3715
+   },
+   "percentiles": {
+    "pathogen": 0.833,
+    "faecal": 0.625,
+    "arg": 0.625,
+    "composite": 0.76
+   },
+   "flag_type": "none",
+   "hidden_hazard": null,
+   "flagged": false,
+   "borderline": false,
+   "tier": null,
+   "insight": null,
+   "nearby": {
+    "counts": {
+     "250": {
+      "school": 0,
+      "kindergarten": 0,
+      "playground": 0,
+      "park": 0,
+      "allotments": 0
+     },
+     "500": {
+      "school": 0,
+      "kindergarten": 0,
+      "playground": 0,
+      "park": 0,
+      "allotments": 0
+     },
+     "1000": {
+      "school": 0,
+      "kindergarten": 0,
+      "playground": 0,
+      "park": 0,
+      "allotments": 0
+     }
+    },
+    "nearest": [],
+    "n_within_1000m": 0
+   }
+  },
+  {
+   "site": "BN16",
+   "name": "Ranno",
+   "city": "Benevento",
+   "lat": 41.06923,
+   "lon": 14.70876,
+   "sampling_month": "2023-06",
+   "scores": {
+    "pathogen": 0.1258,
+    "faecal": 0.4229,
+    "arg": 0.1122,
+    "composite": 0.2203
+   },
+   "percentiles": {
+    "pathogen": 0.49,
+    "faecal": 0.719,
+    "arg": 0.083,
+    "composite": 0.292
+   },
+   "flag_type": "none",
+   "hidden_hazard": null,
+   "flagged": false,
+   "borderline": false,
+   "tier": null,
+   "insight": null,
+   "nearby": {
+    "counts": {
+     "250": {
+      "school": 0,
+      "kindergarten": 0,
+      "playground": 0,
+      "park": 0,
+      "allotments": 0
+     },
+     "500": {
+      "school": 0,
+      "kindergarten": 0,
+      "playground": 0,
+      "park": 0,
+      "allotments": 0
+     },
+     "1000": {
+      "school": 0,
+      "kindergarten": 0,
+      "playground": 0,
+      "park": 0,
+      "allotments": 0
+     }
+    },
+    "nearest": [],
+    "n_within_1000m": 0
+   }
+  },
+  {
+   "site": "BN17",
+   "name": "Lossauro",
+   "city": "Benevento",
+   "lat": 41.13221,
+   "lon": 14.7127,
+   "sampling_month": "2023-07",
+   "scores": {
+    "pathogen": 0.4909,
+    "faecal": 0.6187,
+    "arg": 0.0307,
+    "composite": 0.3801
+   },
+   "percentiles": {
+    "pathogen": 0.938,
+    "faecal": 0.927,
+    "arg": 0.031,
+    "composite": 0.771
+   },
+   "flag_type": "none",
+   "hidden_hazard": null,
+   "flagged": false,
+   "borderline": false,
+   "tier": null,
+   "insight": null,
+   "nearby": {
+    "counts": {
+     "250": {
+      "school": 0,
+      "kindergarten": 0,
+      "playground": 0,
+      "park": 0,
+      "allotments": 0
+     },
+     "500": {
+      "school": 0,
+      "kindergarten": 0,
+      "playground": 0,
+      "park": 0,
+      "allotments": 0
+     },
+     "1000": {
+      "school": 0,
+      "kindergarten": 0,
+      "playground": 0,
+      "park": 0,
+      "allotments": 0
+     }
+    },
+    "nearest": [],
+    "n_within_1000m": 0
+   }
+  },
+  {
+   "site": "BN18",
+   "name": "Jenga",
+   "city": "Benevento",
+   "lat": 41.15126,
+   "lon": 14.70936,
+   "sampling_month": "2023-06",
+   "scores": {
+    "pathogen": 0.3149,
+    "faecal": 0.4429,
+    "arg": 0.4485,
+    "composite": 0.4021
+   },
+   "percentiles": {
+    "pathogen": 0.792,
+    "faecal": 0.75,
+    "arg": 0.729,
+    "composite": 0.802
+   },
+   "flag_type": "none",
+   "hidden_hazard": null,
+   "flagged": false,
+   "borderline": false,
+   "tier": null,
+   "insight": null,
+   "nearby": {
+    "counts": {
+     "250": {
+      "school": 0,
+      "kindergarten": 0,
+      "playground": 0,
+      "park": 0,
+      "allotments": 0
+     },
+     "500": {
+      "school": 0,
+      "kindergarten": 0,
+      "playground": 0,
+      "park": 0,
+      "allotments": 0
+     },
+     "1000": {
+      "school": 0,
+      "kindergarten": 0,
+      "playground": 0,
+      "park": 0,
+      "allotments": 0
+     }
+    },
+    "nearest": [],
+    "n_within_1000m": 0
+   }
+  },
+  {
+   "site": "BN19",
+   "name": "Foeniculum",
+   "city": "Benevento",
+   "lat": 41.185791,
+   "lon": 14.719005,
+   "sampling_month": "2023-07",
+   "scores": {
+    "pathogen": 0.2572,
+    "faecal": 0.3391,
+    "arg": 0.1262,
+    "composite": 0.2408
+   },
+   "percentiles": {
+    "pathogen": 0.729,
+    "faecal": 0.594,
+    "arg": 0.104,
+    "composite": 0.406
+   },
+   "flag_type": "none",
+   "hidden_hazard": null,
+   "flagged": false,
+   "borderline": false,
+   "tier": null,
+   "insight": null,
+   "nearby": {
+    "counts": {
+     "250": {
+      "school": 0,
+      "kindergarten": 0,
+      "playground": 0,
+      "park": 0,
+      "allotments": 0
+     },
+     "500": {
+      "school": 0,
+      "kindergarten": 0,
+      "playground": 0,
+      "park": 0,
+      "allotments": 0
+     },
+     "1000": {
+      "school": 0,
+      "kindergarten": 0,
+      "playground": 0,
+      "park": 0,
+      "allotments": 0
+     }
+    },
+    "nearest": [],
+    "n_within_1000m": 0
+   }
+  },
+  {
+   "site": "BN2",
+   "name": "Cretarossa",
+   "city": "Benevento",
+   "lat": 41.12679,
+   "lon": 14.80333,
+   "sampling_month": "2023-06",
+   "scores": {
+    "pathogen": 0.6456,
+    "faecal": 0.5343,
+    "arg": 1.0,
+    "composite": 0.7266
+   },
+   "percentiles": {
+    "pathogen": 0.969,
+    "faecal": 0.875,
+    "arg": 1.0,
+    "composite": 0.99
+   },
+   "flag_type": "none",
+   "hidden_hazard": null,
+   "flagged": false,
+   "borderline": false,
+   "tier": null,
+   "insight": null,
+   "nearby": {
+    "counts": {
+     "250": {
+      "school": 0,
+      "kindergarten": 0,
+      "playground": 0,
+      "park": 0,
+      "allotments": 0
+     },
+     "500": {
+      "school": 0,
+      "kindergarten": 1,
+      "playground": 0,
+      "park": 0,
+      "allotments": 0
+     },
+     "1000": {
+      "school": 1,
+      "kindergarten": 1,
+      "playground": 0,
+      "park": 1,
+      "allotments": 0
+     }
+    },
+    "nearest": [
+     {
+      "category": "kindergarten",
+      "name": "Scuole Pubbliche Scuole Materne",
+      "distance_m": 390
+     },
+     {
+      "category": "school",
+      "name": null,
+      "distance_m": 598
+     },
+     {
+      "category": "park",
+      "name": "Giardino Andrea Annaloro",
+      "distance_m": 791
+     }
+    ],
+    "n_within_1000m": 3
+   }
+  },
+  {
+   "site": "BN20",
+   "name": "Lenta",
+   "city": "Benevento",
+   "lat": 41.213825,
+   "lon": 14.68999,
+   "sampling_month": "2023-07",
+   "scores": {
+    "pathogen": 0.3881,
+    "faecal": 0.5078,
+    "arg": 0.3661,
+    "composite": 0.4207
+   },
+   "percentiles": {
+    "pathogen": 0.875,
+    "faecal": 0.844,
+    "arg": 0.542,
+    "composite": 0.854
+   },
+   "flag_type": "none",
+   "hidden_hazard": null,
+   "flagged": false,
+   "borderline": false,
+   "tier": null,
+   "insight": null,
+   "nearby": {
+    "counts": {
+     "250": {
+      "school": 1,
+      "kindergarten": 0,
+      "playground": 1,
+      "park": 0,
+      "allotments": 0
+     },
+     "500": {
+      "school": 1,
+      "kindergarten": 0,
+      "playground": 1,
+      "park": 0,
+      "allotments": 0
+     },
+     "1000": {
+      "school": 3,
+      "kindergarten": 0,
+      "playground": 3,
+      "park": 1,
+      "allotments": 0
+     }
+    },
+    "nearest": [
+     {
+      "category": "playground",
+      "name": "Happylandia Ludoteca",
+      "distance_m": 170
+     },
+     {
+      "category": "school",
+      "name": "Scuola Elementare \"Giovanni Di Pietto\"",
+      "distance_m": 245
+     },
+     {
+      "category": "school",
+      "name": "Scuola materna \"Domenico Ocone\"",
+      "distance_m": 511
+     },
+     {
+      "category": "park",
+      "name": "Villa Comunale",
+      "distance_m": 635
+     },
+     {
+      "category": "playground",
+      "name": "Le Follie di Mickey",
+      "distance_m": 643
+     },
+     {
+      "category": "playground",
+      "name": null,
+      "distance_m": 768
+     },
+     {
+      "category": "school",
+      "name": "Scuola Media \"Mario De Mennato\"",
+      "distance_m": 830
+     }
+    ],
+    "n_within_1000m": 7
+   }
+  },
+  {
+   "site": "BN3",
+   "name": "Ponticelli",
+   "city": "Benevento",
+   "lat": 41.13348,
+   "lon": 14.78614,
+   "sampling_month": "2023-06",
+   "scores": {
+    "pathogen": 0.3554,
+    "faecal": 0.7104,
+    "arg": 0.0,
+    "composite": 0.3553
+   },
+   "percentiles": {
+    "pathogen": 0.844,
+    "faecal": 0.948,
+    "arg": 0.01,
+    "composite": 0.703
+   },
+   "flag_type": "none",
+   "hidden_hazard": null,
+   "flagged": false,
+   "borderline": false,
+   "tier": null,
+   "insight": null,
+   "nearby": {
+    "counts": {
+     "250": {
+      "school": 1,
+      "kindergarten": 0,
+      "playground": 0,
+      "park": 0,
+      "allotments": 0
+     },
+     "500": {
+      "school": 4,
+      "kindergarten": 0,
+      "playground": 0,
+      "park": 1,
+      "allotments": 0
+     },
+     "1000": {
+      "school": 6,
+      "kindergarten": 1,
+      "playground": 2,
+      "park": 8,
+      "allotments": 0
+     }
+    },
+    "nearest": [
+     {
+      "category": "school",
+      "name": "Istituto Comprensivo \"Giovanni Pascoli\"",
+      "distance_m": 204
+     },
+     {
+      "category": "school",
+      "name": "Liceo Classico \"Pietro Giannone\"",
+      "distance_m": 328
+     },
+     {
+      "category": "school",
+      "name": "Plesso ex \"G. Mazzini\"",
+      "distance_m": 338
+     },
+     {
+      "category": "school",
+      "name": "Conservatorio Statale di Musica \"Nicola Sala\"",
+      "distance_m": 429
+     },
+     {
+      "category": "park",
+      "name": null,
+      "distance_m": 497
+     },
+     {
+      "category": "school",
+      "name": "Liceo Artistico Statale",
+      "distance_m": 570
+     },
+     {
+      "category": "park",
+      "name": "Giardini della Rocca dei Rettori",
+      "distance_m": 643
+     },
+     {
+      "category": "playground",
+      "name": null,
+      "distance_m": 651
+     },
+     {
+      "category": "park",
+      "name": "Villa Comunale di Benevento",
+      "distance_m": 667
+     },
+     {
+      "category": "kindergarten",
+      "name": null,
+      "distance_m": 687
+     },
+     {
+      "category": "playground",
+      "name": "Parco giochi Centrale della Villa",
+      "distance_m": 689
+     },
+     {
+      "category": "park",
+      "name": null,
+      "distance_m": 710
+     }
+    ],
+    "n_within_1000m": 17
+   }
+  },
+  {
+   "site": "BN4",
+   "name": "Serretelle 4",
+   "city": "Benevento",
+   "lat": 41.12414,
+   "lon": 14.74864,
+   "sampling_month": "2023-07",
+   "scores": {
+    "pathogen": 0.3065,
+    "faecal": 0.4667,
+    "arg": 0.3717,
+    "composite": 0.3817
+   },
+   "percentiles": {
+    "pathogen": 0.781,
+    "faecal": 0.792,
+    "arg": 0.562,
+    "composite": 0.781
+   },
+   "flag_type": "none",
+   "hidden_hazard": null,
+   "flagged": false,
+   "borderline": false,
+   "tier": null,
+   "insight": null,
+   "nearby": {
+    "counts": {
+     "250": {
+      "school": 0,
+      "kindergarten": 0,
+      "playground": 0,
+      "park": 0,
+      "allotments": 0
+     },
+     "500": {
+      "school": 0,
+      "kindergarten": 0,
+      "playground": 0,
+      "park": 0,
+      "allotments": 0
+     },
+     "1000": {
+      "school": 0,
+      "kindergarten": 0,
+      "playground": 0,
+      "park": 0,
+      "allotments": 0
+     }
+    },
+    "nearest": [],
+    "n_within_1000m": 0
+   }
+  },
+  {
+   "site": "BN5",
+   "name": "Serretelle 5",
+   "city": "Benevento",
+   "lat": 41.10429,
+   "lon": 14.74295,
+   "sampling_month": "2023-07",
+   "scores": {
+    "pathogen": 0.0758,
+    "faecal": 0.2193,
+    "arg": 0.3856,
+    "composite": 0.2269
+   },
+   "percentiles": {
+    "pathogen": 0.307,
+    "faecal": 0.281,
+    "arg": 0.615,
+    "composite": 0.344
+   },
+   "flag_type": "none",
+   "hidden_hazard": null,
+   "flagged": false,
+   "borderline": false,
+   "tier": null,
+   "insight": null,
+   "nearby": {
+    "counts": {
+     "250": {
+      "school": 0,
+      "kindergarten": 0,
+      "playground": 0,
+      "park": 0,
+      "allotments": 0
+     },
+     "500": {
+      "school": 0,
+      "kindergarten": 0,
+      "playground": 0,
+      "park": 0,
+      "allotments": 0
+     },
+     "1000": {
+      "school": 0,
+      "kindergarten": 0,
+      "playground": 0,
+      "park": 1,
+      "allotments": 0
+     }
+    },
+    "nearest": [
+     {
+      "category": "park",
+      "name": "Parco Verde",
+      "distance_m": 754
+     }
+    ],
+    "n_within_1000m": 1
+   }
+  },
+  {
+   "site": "BN6",
+   "name": "Pezzapiano",
+   "city": "Benevento",
+   "lat": 41.14775,
+   "lon": 14.78437,
+   "sampling_month": "2023-06",
+   "scores": {
+    "pathogen": 0.2056,
+    "faecal": 0.4619,
+    "arg": 0.3583,
+    "composite": 0.342
+   },
+   "percentiles": {
+    "pathogen": 0.656,
+    "faecal": 0.771,
+    "arg": 0.51,
+    "composite": 0.635
+   },
+   "flag_type": "none",
+   "hidden_hazard": null,
+   "flagged": false,
+   "borderline": false,
+   "tier": null,
+   "insight": null,
+   "nearby": {
+    "counts": {
+     "250": {
+      "school": 0,
+      "kindergarten": 0,
+      "playground": 0,
+      "park": 0,
+      "allotments": 0
+     },
+     "500": {
+      "school": 0,
+      "kindergarten": 0,
+      "playground": 0,
+      "park": 1,
+      "allotments": 0
+     },
+     "1000": {
+      "school": 0,
+      "kindergarten": 0,
+      "playground": 0,
+      "park": 1,
+      "allotments": 0
+     }
+    },
+    "nearest": [
+     {
+      "category": "park",
+      "name": "Parco di Pezzapiana",
+      "distance_m": 287
+     }
+    ],
+    "n_within_1000m": 1
+   }
+  },
+  {
+   "site": "BN7",
+   "name": "Margiacca",
+   "city": "Benevento",
+   "lat": 41.14905,
+   "lon": 14.81407,
+   "sampling_month": "2023-06",
+   "scores": {
+    "pathogen": 0.4126,
+    "faecal": 0.5393,
+    "arg": 0.3509,
+    "composite": 0.4343
+   },
+   "percentiles": {
+    "pathogen": 0.906,
+    "faecal": 0.885,
+    "arg": 0.5,
+    "composite": 0.896
+   },
+   "flag_type": "none",
+   "hidden_hazard": null,
+   "flagged": false,
+   "borderline": false,
+   "tier": null,
+   "insight": null,
+   "nearby": {
+    "counts": {
+     "250": {
+      "school": 0,
+      "kindergarten": 0,
+      "playground": 0,
+      "park": 0,
+      "allotments": 0
+     },
+     "500": {
+      "school": 0,
+      "kindergarten": 0,
+      "playground": 0,
+      "park": 0,
+      "allotments": 0
+     },
+     "1000": {
+      "school": 0,
+      "kindergarten": 0,
+      "playground": 0,
+      "park": 0,
+      "allotments": 0
+     }
+    },
+    "nearest": [],
+    "n_within_1000m": 0
+   }
+  },
+  {
+   "site": "BN8",
+   "name": "Paduli",
+   "city": "Benevento",
+   "lat": 41.15405,
+   "lon": 14.8345,
+   "sampling_month": "2023-07",
+   "scores": {
+    "pathogen": 0.3383,
+    "faecal": 0.477,
+    "arg": 0.4015,
+    "composite": 0.4056
+   },
+   "percentiles": {
+    "pathogen": 0.823,
+    "faecal": 0.802,
+    "arg": 0.656,
+    "composite": 0.823
+   },
+   "flag_type": "none",
+   "hidden_hazard": null,
+   "flagged": false,
+   "borderline": false,
+   "tier": null,
+   "insight": null,
+   "nearby": {
+    "counts": {
+     "250": {
+      "school": 0,
+      "kindergarten": 0,
+      "playground": 0,
+      "park": 0,
+      "allotments": 0
+     },
+     "500": {
+      "school": 0,
+      "kindergarten": 0,
+      "playground": 0,
+      "park": 0,
+      "allotments": 0
+     },
+     "1000": {
+      "school": 0,
+      "kindergarten": 0,
+      "playground": 0,
+      "park": 0,
+      "allotments": 0
+     }
+    },
+    "nearest": [],
+    "n_within_1000m": 0
+   }
+  },
+  {
+   "site": "BN9",
+   "name": "Vallone Cornacchie",
+   "city": "Benevento",
+   "lat": 41.11089,
+   "lon": 14.8325,
+   "sampling_month": "2023-06",
+   "scores": {
+    "pathogen": 0.2515,
+    "faecal": 0.4117,
+    "arg": 0.384,
+    "composite": 0.3491
+   },
+   "percentiles": {
+    "pathogen": 0.708,
+    "faecal": 0.698,
+    "arg": 0.594,
+    "composite": 0.677
+   },
+   "flag_type": "none",
+   "hidden_hazard": null,
+   "flagged": false,
+   "borderline": false,
+   "tier": null,
+   "insight": null,
+   "nearby": {
+    "counts": {
+     "250": {
+      "school": 0,
+      "kindergarten": 0,
+      "playground": 0,
+      "park": 0,
+      "allotments": 0
+     },
+     "500": {
+      "school": 0,
+      "kindergarten": 0,
+      "playground": 0,
+      "park": 0,
+      "allotments": 0
+     },
+     "1000": {
+      "school": 0,
+      "kindergarten": 0,
+      "playground": 0,
+      "park": 0,
+      "allotments": 0
+     }
+    },
+    "nearest": [],
+    "n_within_1000m": 0
+   }
+  },
+  {
+   "site": "C1",
+   "name": "Exploratório",
+   "city": "Coimbra",
+   "lat": 40.19787,
+   "lon": -8.42865,
+   "sampling_month": "2023-06",
+   "scores": {
+    "pathogen": 0.0746,
+    "faecal": 0.2477,
+    "arg": 0.3374,
+    "composite": 0.2199
+   },
+   "percentiles": {
+    "pathogen": 0.245,
+    "faecal": 0.344,
+    "arg": 0.458,
+    "composite": 0.271
+   },
+   "flag_type": "none",
+   "hidden_hazard": null,
+   "flagged": false,
+   "borderline": false,
+   "tier": null,
+   "insight": null,
+   "nearby": {
+    "counts": {
+     "250": {
+      "school": 0,
+      "kindergarten": 0,
+      "playground": 0,
+      "park": 0,
+      "allotments": 0
+     },
+     "500": {
+      "school": 1,
+      "kindergarten": 0,
+      "playground": 2,
+      "park": 3,
+      "allotments": 0
+     },
+     "1000": {
+      "school": 4,
+      "kindergarten": 3,
+      "playground": 7,
+      "park": 7,
+      "allotments": 0
+     }
+    },
+    "nearest": [
+     {
+      "category": "school",
+      "name": "Escola Secundária Dom Duarte",
+      "distance_m": 271
+     },
+     {
+      "category": "park",
+      "name": "Parque do Choupalinho",
+      "distance_m": 277
+     },
+     {
+      "category": "park",
+      "name": null,
+      "distance_m": 400
+     },
+     {
+      "category": "playground",
+      "name": null,
+      "distance_m": 411
+     },
+     {
+      "category": "playground",
+      "name": null,
+      "distance_m": 428
+     },
+     {
+      "category": "park",
+      "name": "Parque Verde do Mondego",
+      "distance_m": 499
+     },
+     {
+      "category": "playground",
+      "name": null,
+      "distance_m": 547
+     },
+     {
+      "category": "playground",
+      "name": null,
+      "distance_m": 556
+     },
+     {
+      "category": "playground",
+      "name": "Aeroporto dos Pequenitos",
+      "distance_m": 580
+     },
+     {
+      "category": "kindergarten",
+      "name": "Casa da Criança Rainha Santa Isabel",
+      "distance_m": 600
+     },
+     {
+      "category": "playground",
+      "name": null,
+      "distance_m": 604
+     },
+     {
+      "category": "park",
+      "name": "Parque Verde do Mondego - Entrada Poente",
+      "distance_m": 659
+     }
+    ],
+    "n_within_1000m": 21
+   }
+  },
+  {
+   "site": "C10",
+   "name": "Arregaça",
+   "city": "Coimbra",
+   "lat": 40.19776,
+   "lon": -8.41773,
+   "sampling_month": "2023-06",
+   "scores": {
+    "pathogen": 0.05,
+    "faecal": 0.4146,
+    "arg": 0.0906,
+    "composite": 0.1851
+   },
+   "percentiles": {
+    "pathogen": 0.198,
+    "faecal": 0.708,
+    "arg": 0.073,
+    "composite": 0.146
+   },
+   "flag_type": "composite_understates",
+   "hidden_hazard": "faecal",
+   "flagged": true,
+   "borderline": false,
+   "tier": "secondary",
+   "insight": "C10 (Coimbra): faecal risk is moderately elevated (the 29th highest of 96), but the composite score of 0.19 ranks only the 83rd highest of 96 because the other components are lower. The composite averages this signal away.",
+   "nearby": {
+    "counts": {
+     "250": {
+      "school": 0,
+      "kindergarten": 1,
+      "playground": 0,
+      "park": 0,
+      "allotments": 0
+     },
+     "500": {
+      "school": 2,
+      "kindergarten": 2,
+      "playground": 3,
+      "park": 1,
+      "allotments": 0
+     },
+     "1000": {
+      "school": 7,
+      "kindergarten": 5,
+      "playground": 7,
+      "park": 10,
+      "allotments": 0
+     }
+    },
+    "nearest": [
+     {
+      "category": "kindergarten",
+      "name": "Jardim de Infância d'A Previdência Portuguesa",
+      "distance_m": 86
+     },
+     {
+      "category": "playground",
+      "name": null,
+      "distance_m": 350
+     },
+     {
+      "category": "kindergarten",
+      "name": "A Escolinha Encantada",
+      "distance_m": 380
+     },
+     {
+      "category": "playground",
+      "name": null,
+      "distance_m": 383
+     },
+     {
+      "category": "school",
+      "name": "Colégio de São Teotónio",
+      "distance_m": 388
+     },
+     {
+      "category": "park",
+      "name": "Parque do Vale das Flores",
+      "distance_m": 459
+     },
+     {
+      "category": "playground",
+      "name": null,
+      "distance_m": 463
+     },
+     {
+      "category": "school",
+      "name": "Escola Básica do 1º ciclo do Bairro Norton de Matos",
+      "distance_m": 499
+     },
+     {
+      "category": "school",
+      "name": "Colégio da Rainha Santa Isabel",
+      "distance_m": 514
+     },
+     {
+      "category": "playground",
+      "name": null,
+      "distance_m": 646
+     },
+     {
+      "category": "kindergarten",
+      "name": "Jardim Escola João de Deus",
+      "distance_m": 683
+     },
+     {
+      "category": "kindergarten",
+      "name": "Jardim-Escola e Centro Infantil João de Deus de Coimbra",
+      "distance_m": 702
+     }
+    ],
+    "n_within_1000m": 29
+   }
+  },
+  {
+   "site": "C11",
+   "name": "Bairro São Miguel",
+   "city": "Coimbra",
+   "lat": 40.22752,
+   "lon": -8.43757,
+   "sampling_month": "2023-06",
+   "scores": {
+    "pathogen": 0.0509,
+    "faecal": 0.187,
+    "arg": 0.1456,
+    "composite": 0.1278
+   },
+   "percentiles": {
+    "pathogen": 0.219,
+    "faecal": 0.188,
+    "arg": 0.125,
+    "composite": 0.042
+   },
+   "flag_type": "none",
+   "hidden_hazard": null,
+   "flagged": false,
+   "borderline": false,
+   "tier": null,
+   "insight": null,
+   "nearby": {
+    "counts": {
+     "250": {
+      "school": 0,
+      "kindergarten": 0,
+      "playground": 1,
+      "park": 1,
+      "allotments": 0
+     },
+     "500": {
+      "school": 0,
+      "kindergarten": 0,
+      "playground": 1,
+      "park": 1,
+      "allotments": 0
+     },
+     "1000": {
+      "school": 2,
+      "kindergarten": 2,
+      "playground": 6,
+      "park": 3,
+      "allotments": 0
+     }
+    },
+    "nearest": [
+     {
+      "category": "park",
+      "name": "Jardim de Eiras",
+      "distance_m": 26
+     },
+     {
+      "category": "playground",
+      "name": null,
+      "distance_m": 200
+     },
+     {
+      "category": "playground",
+      "name": null,
+      "distance_m": 571
+     },
+     {
+      "category": "playground",
+      "name": null,
+      "distance_m": 577
+     },
+     {
+      "category": "park",
+      "name": "Mata do Monte Formoso",
+      "distance_m": 622
+     },
+     {
+      "category": "kindergarten",
+      "name": "Jardim de Infância MilSorrisos",
+      "distance_m": 653
+     },
+     {
+      "category": "school",
+      "name": "Centro Escolar do Loreto",
+      "distance_m": 715
+     },
+     {
+      "category": "kindergarten",
+      "name": "Jardim de Infância do Loreto",
+      "distance_m": 721
+     },
+     {
+      "category": "playground",
+      "name": null,
+      "distance_m": 731
+     },
+     {
+      "category": "playground",
+      "name": "Parque Infantil do Ingote",
+      "distance_m": 894
+     },
+     {
+      "category": "school",
+      "name": "Escola Básica do 1º Ciclo do Ingote",
+      "distance_m": 923
+     },
+     {
+      "category": "playground",
+      "name": "Parque Infantil da Casa do Sal",
+      "distance_m": 944
+     }
+    ],
+    "n_within_1000m": 13
+   }
+  },
+  {
+   "site": "C12",
+   "name": "Escola Agrária",
+   "city": "Coimbra",
+   "lat": 40.20386,
+   "lon": -8.45302,
+   "sampling_month": "2023-06",
+   "scores": {
+    "pathogen": 0.4217,
+    "faecal": 0.8051,
+    "arg": 0.3704,
+    "composite": 0.5324
+   },
+   "percentiles": {
+    "pathogen": 0.917,
+    "faecal": 0.958,
+    "arg": 0.552,
+    "composite": 0.958
+   },
+   "flag_type": "none",
+   "hidden_hazard": null,
+   "flagged": false,
+   "borderline": false,
+   "tier": null,
+   "insight": null,
+   "nearby": {
+    "counts": {
+     "250": {
+      "school": 0,
+      "kindergarten": 0,
+      "playground": 0,
+      "park": 0,
+      "allotments": 0
+     },
+     "500": {
+      "school": 0,
+      "kindergarten": 0,
+      "playground": 1,
+      "park": 0,
+      "allotments": 0
+     },
+     "1000": {
+      "school": 2,
+      "kindergarten": 2,
+      "playground": 4,
+      "park": 0,
+      "allotments": 1
+     }
+    },
+    "nearest": [
+     {
+      "category": "playground",
+      "name": null,
+      "distance_m": 356
+     },
+     {
+      "category": "playground",
+      "name": null,
+      "distance_m": 640
+     },
+     {
+      "category": "playground",
+      "name": null,
+      "distance_m": 650
+     },
+     {
+      "category": "kindergarten",
+      "name": "Jardim de Infância Xica Larica",
+      "distance_m": 714
+     },
+     {
+      "category": "kindergarten",
+      "name": "Jardim de Infância \"Os Pimentinhas\"",
+      "distance_m": 760
+     },
+     {
+      "category": "allotments",
+      "name": null,
+      "distance_m": 800
+     },
+     {
+      "category": "school",
+      "name": "Escola Básica de São Martinho do Bispo",
+      "distance_m": 816
+     },
+     {
+      "category": "school",
+      "name": "Escola Básica de Póvoa",
+      "distance_m": 842
+     },
+     {
+      "category": "playground",
+      "name": null,
+      "distance_m": 869
+     }
+    ],
+    "n_within_1000m": 9
+   }
+  },
+  {
+   "site": "C13",
+   "name": "Condeixa",
+   "city": "Coimbra",
+   "lat": 40.11106,
+   "lon": -8.49052,
+   "sampling_month": "2023-06",
+   "scores": {
+    "pathogen": 0.1499,
+    "faecal": 0.2287,
+    "arg": 0.2708,
+    "composite": 0.2165
+   },
+   "percentiles": {
+    "pathogen": 0.552,
+    "faecal": 0.292,
+    "arg": 0.26,
+    "composite": 0.26
+   },
+   "flag_type": "none",
+   "hidden_hazard": null,
+   "flagged": false,
+   "borderline": false,
+   "tier": null,
+   "insight": null,
+   "nearby": {
+    "counts": {
+     "250": {
+      "school": 0,
+      "kindergarten": 0,
+      "playground": 0,
+      "park": 1,
+      "allotments": 0
+     },
+     "500": {
+      "school": 1,
+      "kindergarten": 0,
+      "playground": 1,
+      "park": 1,
+      "allotments": 0
+     },
+     "1000": {
+      "school": 6,
+      "kindergarten": 2,
+      "playground": 2,
+      "park": 5,
+      "allotments": 0
+     }
+    },
+    "nearest": [
+     {
+      "category": "park",
+      "name": "Parque Verde da Ribeira de Bruscos - Condeixa",
+      "distance_m": 111
+     },
+     {
+      "category": "playground",
+      "name": null,
+      "distance_m": 268
+     },
+     {
+      "category": "school",
+      "name": null,
+      "distance_m": 435
+     },
+     {
+      "category": "kindergarten",
+      "name": "Creche e Jardim de Infância \"Pintaínhos D'Ouro\"",
+      "distance_m": 513
+     },
+     {
+      "category": "school",
+      "name": "Instituto Tecnológico e Profissional",
+      "distance_m": 549
+     },
+     {
+      "category": "park",
+      "name": null,
+      "distance_m": 594
+     },
+     {
+      "category": "park",
+      "name": "Parque dos Silvais",
+      "distance_m": 644
+     },
+     {
+      "category": "school",
+      "name": "Escola Básica do 1º Ciclo e Jardim de Infância n.º 1 de Condeixa-a-Nova",
+      "distance_m": 673
+     },
+     {
+      "category": "school",
+      "name": "Escola Básica n.º 2 de Condeixa-a-Nova",
+      "distance_m": 680
+     },
+     {
+      "category": "school",
+      "name": "Escola Secundária Fernando Namora",
+      "distance_m": 713
+     },
+     {
+      "category": "park",
+      "name": null,
+      "distance_m": 747
+     },
+     {
+      "category": "school",
+      "name": "Escola Básica n.º 3 de Condeixa-a-Nova",
+      "distance_m": 775
+     }
+    ],
+    "n_within_1000m": 15
+   }
+  },
+  {
+   "site": "C14",
+   "name": "Antanhol",
+   "city": "Coimbra",
+   "lat": 40.16719,
+   "lon": -8.47817,
+   "sampling_month": "2023-06",
+   "scores": {
+    "pathogen": 0.2241,
+    "faecal": 0.1143,
+    "arg": 0.3343,
+    "composite": 0.2243
+   },
+   "percentiles": {
+    "pathogen": 0.667,
+    "faecal": 0.078,
+    "arg": 0.438,
+    "composite": 0.302
+   },
+   "flag_type": "none",
+   "hidden_hazard": null,
+   "flagged": false,
+   "borderline": false,
+   "tier": null,
+   "insight": null,
+   "nearby": {
+    "counts": {
+     "250": {
+      "school": 0,
+      "kindergarten": 0,
+      "playground": 1,
+      "park": 0,
+      "allotments": 0
+     },
+     "500": {
+      "school": 0,
+      "kindergarten": 0,
+      "playground": 1,
+      "park": 0,
+      "allotments": 0
+     },
+     "1000": {
+      "school": 0,
+      "kindergarten": 0,
+      "playground": 1,
+      "park": 0,
+      "allotments": 0
+     }
+    },
+    "nearest": [
+     {
+      "category": "playground",
+      "name": null,
+      "distance_m": 246
+     }
+    ],
+    "n_within_1000m": 1
+   }
+  },
+  {
+   "site": "C15",
+   "name": "Copeira",
+   "city": "Coimbra",
+   "lat": 40.17943,
+   "lon": -8.42117,
+   "sampling_month": "2023-06",
+   "scores": {
+    "pathogen": 0.3791,
+    "faecal": 0.3851,
+    "arg": 0.2706,
+    "composite": 0.3449
+   },
+   "percentiles": {
+    "pathogen": 0.854,
+    "faecal": 0.646,
+    "arg": 0.245,
+    "composite": 0.656
+   },
+   "flag_type": "none",
+   "hidden_hazard": null,
+   "flagged": false,
+   "borderline": false,
+   "tier": null,
+   "insight": null,
+   "nearby": {
+    "counts": {
+     "250": {
+      "school": 0,
+      "kindergarten": 0,
+      "playground": 0,
+      "park": 0,
+      "allotments": 0
+     },
+     "500": {
+      "school": 0,
+      "kindergarten": 0,
+      "playground": 0,
+      "park": 0,
+      "allotments": 1
+     },
+     "1000": {
+      "school": 0,
+      "kindergarten": 0,
+      "playground": 0,
+      "park": 0,
+      "allotments": 1
+     }
+    },
+    "nearest": [
+     {
+      "category": "allotments",
+      "name": null,
+      "distance_m": 458
+     }
+    ],
+    "n_within_1000m": 1
+   }
+  },
+  {
+   "site": "C16",
+   "name": "Rio Velho",
+   "city": "Coimbra",
+   "lat": 40.22461,
+   "lon": -8.44304,
+   "sampling_month": "2023-06",
+   "scores": {
+    "pathogen": 0.5063,
+    "faecal": 0.2531,
+    "arg": 0.3008,
+    "composite": 0.3534
+   },
+   "percentiles": {
+    "pathogen": 0.948,
+    "faecal": 0.354,
+    "arg": 0.344,
+    "composite": 0.688
+   },
+   "flag_type": "none",
+   "hidden_hazard": null,
+   "flagged": false,
+   "borderline": false,
+   "tier": null,
+   "insight": null,
+   "nearby": {
+    "counts": {
+     "250": {
+      "school": 0,
+      "kindergarten": 0,
+      "playground": 0,
+      "park": 0,
+      "allotments": 0
+     },
+     "500": {
+      "school": 0,
+      "kindergarten": 0,
+      "playground": 0,
+      "park": 0,
+      "allotments": 0
+     },
+     "1000": {
+      "school": 1,
+      "kindergarten": 1,
+      "playground": 3,
+      "park": 3,
+      "allotments": 0
+     }
+    },
+    "nearest": [
+     {
+      "category": "playground",
+      "name": null,
+      "distance_m": 550
+     },
+     {
+      "category": "park",
+      "name": "Jardim de Eiras",
+      "distance_m": 553
+     },
+     {
+      "category": "playground",
+      "name": null,
+      "distance_m": 632
+     },
+     {
+      "category": "kindergarten",
+      "name": "Jardim de Infância MilSorrisos",
+      "distance_m": 778
+     },
+     {
+      "category": "park",
+      "name": "Mata do Monte Formoso",
+      "distance_m": 780
+     },
+     {
+      "category": "playground",
+      "name": "Parque Infantil da Casa do Sal",
+      "distance_m": 804
+     },
+     {
+      "category": "park",
+      "name": "Jardim da Casa do Sal",
+      "distance_m": 823
+     },
+     {
+      "category": "school",
+      "name": "Centro Escolar do Loreto",
+      "distance_m": 998
+     }
+    ],
+    "n_within_1000m": 8
+   }
+  },
+  {
+   "site": "C19",
+   "name": "Escravote",
+   "city": "Coimbra",
+   "lat": 40.24812,
+   "lon": -8.41159,
+   "sampling_month": "2023-06",
+   "scores": {
+    "pathogen": 0.3044,
+    "faecal": 0.4625,
+    "arg": 0.5433,
+    "composite": 0.4367
+   },
+   "percentiles": {
+    "pathogen": 0.771,
+    "faecal": 0.781,
+    "arg": 0.917,
+    "composite": 0.911
+   },
+   "flag_type": "none",
+   "hidden_hazard": null,
+   "flagged": false,
+   "borderline": false,
+   "tier": null,
+   "insight": null,
+   "nearby": {
+    "counts": {
+     "250": {
+      "school": 0,
+      "kindergarten": 0,
+      "playground": 0,
+      "park": 1,
+      "allotments": 0
+     },
+     "500": {
+      "school": 1,
+      "kindergarten": 0,
+      "playground": 0,
+      "park": 1,
+      "allotments": 0
+     },
+     "1000": {
+      "school": 1,
+      "kindergarten": 1,
+      "playground": 0,
+      "park": 1,
+      "allotments": 0
+     }
+    },
+    "nearest": [
+     {
+      "category": "park",
+      "name": "Parque do Escravote",
+      "distance_m": 35
+     },
+     {
+      "category": "school",
+      "name": "Escola Básica de Eiras",
+      "distance_m": 278
+     },
+     {
+      "category": "kindergarten",
+      "name": "Colégio \"Beija-Flor\"",
+      "distance_m": 738
+     }
+    ],
+    "n_within_1000m": 3
+   }
+  },
+  {
+   "site": "C2",
+   "name": "Estação Cbr-B",
+   "city": "Coimbra",
+   "lat": 40.22483,
+   "lon": -8.44135,
+   "sampling_month": "2023-06",
+   "scores": {
+    "pathogen": 0.507,
+    "faecal": 0.5072,
+    "arg": 0.2522,
+    "composite": 0.4221
+   },
+   "percentiles": {
+    "pathogen": 0.958,
+    "faecal": 0.833,
+    "arg": 0.198,
+    "composite": 0.865
+   },
+   "flag_type": "none",
+   "hidden_hazard": null,
+   "flagged": false,
+   "borderline": false,
+   "tier": null,
+   "insight": null,
+   "nearby": {
+    "counts": {
+     "250": {
+      "school": 0,
+      "kindergarten": 0,
+      "playground": 0,
+      "park": 0,
+      "allotments": 0
+     },
+     "500": {
+      "school": 0,
+      "kindergarten": 0,
+      "playground": 1,
+      "park": 1,
+      "allotments": 0
+     },
+     "1000": {
+      "school": 1,
+      "kindergarten": 2,
+      "playground": 5,
+      "park": 3,
+      "allotments": 0
+     }
+    },
+    "nearest": [
+     {
+      "category": "park",
+      "name": "Jardim de Eiras",
+      "distance_m": 429
+     },
+     {
+      "category": "playground",
+      "name": null,
+      "distance_m": 442
+     },
+     {
+      "category": "playground",
+      "name": null,
+      "distance_m": 535
+     },
+     {
+      "category": "park",
+      "name": "Mata do Monte Formoso",
+      "distance_m": 653
+     },
+     {
+      "category": "kindergarten",
+      "name": "Jardim de Infância MilSorrisos",
+      "distance_m": 656
+     },
+     {
+      "category": "playground",
+      "name": "Parque Infantil da Casa do Sal",
+      "distance_m": 742
+     },
+     {
+      "category": "park",
+      "name": "Jardim da Casa do Sal",
+      "distance_m": 758
+     },
+     {
+      "category": "playground",
+      "name": null,
+      "distance_m": 922
+     },
+     {
+      "category": "school",
+      "name": "Centro Escolar do Loreto",
+      "distance_m": 957
+     },
+     {
+      "category": "kindergarten",
+      "name": "Jardim de Infância do Loreto",
+      "distance_m": 964
+     },
+     {
+      "category": "playground",
+      "name": null,
+      "distance_m": 969
+     }
+    ],
+    "n_within_1000m": 11
+   }
+  },
+  {
+   "site": "C20",
+   "name": "Corujeira",
+   "city": "Coimbra",
+   "lat": 40.21085,
+   "lon": -8.47667,
+   "sampling_month": "2023-06",
+   "scores": {
+    "pathogen": 0.2243,
+    "faecal": 0.2044,
+    "arg": 0.5623,
+    "composite": 0.3304
+   },
+   "percentiles": {
+    "pathogen": 0.677,
+    "faecal": 0.208,
+    "arg": 0.927,
+    "composite": 0.615
+   },
+   "flag_type": "masked_arg",
+   "hidden_hazard": null,
+   "flagged": true,
+   "borderline": false,
+   "tier": "primary",
+   "insight": "C20 (Coimbra): faecal risk is low (the 20th lowest of 96) but resistance-gene (ARG) risk is high (the 8th highest of 96). The composite score of 0.33 ranks the 38th highest of 96, so the composite does not hide it, but faecal indicators alone would not have signalled it. In this dataset ARG risk is not predicted by faecal risk or land cover, so this site is a candidate for direct ARG testing.",
+   "nearby": {
+    "counts": {
+     "250": {
+      "school": 0,
+      "kindergarten": 0,
+      "playground": 0,
+      "park": 0,
+      "allotments": 0
+     },
+     "500": {
+      "school": 0,
+      "kindergarten": 1,
+      "playground": 1,
+      "park": 0,
+      "allotments": 0
+     },
+     "1000": {
+      "school": 1,
+      "kindergarten": 1,
+      "playground": 1,
+      "park": 0,
+      "allotments": 0
+     }
+    },
+    "nearest": [
+     {
+      "category": "playground",
+      "name": null,
+      "distance_m": 280
+     },
+     {
+      "category": "kindergarten",
+      "name": "Centro Social de São João",
+      "distance_m": 355
+     },
+     {
+      "category": "school",
+      "name": "Escola Básica de Casais",
+      "distance_m": 766
+     }
+    ],
+    "n_within_1000m": 3
+   }
+  },
+  {
+   "site": "C3",
+   "name": "Vale das Flores",
+   "city": "Coimbra",
+   "lat": 40.19307,
+   "lon": -8.41945,
+   "sampling_month": "2023-06",
+   "scores": {
+    "pathogen": 0.2973,
+    "faecal": 0.2051,
+    "arg": 0.2283,
+    "composite": 0.2436
+   },
+   "percentiles": {
+    "pathogen": 0.75,
+    "faecal": 0.219,
+    "arg": 0.177,
+    "composite": 0.427
+   },
+   "flag_type": "none",
+   "hidden_hazard": null,
+   "flagged": false,
+   "borderline": false,
+   "tier": null,
+   "insight": null,
+   "nearby": {
+    "counts": {
+     "250": {
+      "school": 0,
+      "kindergarten": 0,
+      "playground": 0,
+      "park": 1,
+      "allotments": 0
+     },
+     "500": {
+      "school": 1,
+      "kindergarten": 1,
+      "playground": 0,
+      "park": 1,
+      "allotments": 0
+     },
+     "1000": {
+      "school": 7,
+      "kindergarten": 2,
+      "playground": 3,
+      "park": 2,
+      "allotments": 0
+     }
+    },
+    "nearest": [
+     {
+      "category": "park",
+      "name": "Parque do Vale das Flores",
+      "distance_m": 225
+     },
+     {
+      "category": "school",
+      "name": "Escola de Hotelaria e Turismo de Coimbra",
+      "distance_m": 344
+     },
+     {
+      "category": "kindergarten",
+      "name": "Jardim de Infância d'A Previdência Portuguesa",
+      "distance_m": 482
+     },
+     {
+      "category": "park",
+      "name": "Lapa dos Esteios",
+      "distance_m": 576
+     },
+     {
+      "category": "playground",
+      "name": null,
+      "distance_m": 624
+     },
+     {
+      "category": "school",
+      "name": "Escola Básica do 1º Ciclo da Associação Portuguesa de Paralisia Cerebral",
+      "distance_m": 719
+     },
+     {
+      "category": "playground",
+      "name": null,
+      "distance_m": 763
+     },
+     {
+      "category": "school",
+      "name": "Colégio de São Teotónio",
+      "distance_m": 830
+     },
+     {
+      "category": "kindergarten",
+      "name": "A Escolinha Encantada",
+      "distance_m": 870
+     },
+     {
+      "category": "school",
+      "name": "Escola Básica do 1º ciclo do Bairro Norton de Matos",
+      "distance_m": 898
+     },
+     {
+      "category": "school",
+      "name": "Conservatório de Música de Coimbra",
+      "distance_m": 909
+     },
+     {
+      "category": "school",
+      "name": "Escola Básica e Secundária Quinta das Flores",
+      "distance_m": 917
+     }
+    ],
+    "n_within_1000m": 14
+   }
+  },
+  {
+   "site": "C4",
+   "name": "Eiras",
+   "city": "Coimbra",
+   "lat": 40.25289,
+   "lon": -8.43659,
+   "sampling_month": "2023-06",
+   "scores": {
+    "pathogen": 0.0496,
+    "faecal": 0.1409,
+    "arg": 0.0339,
+    "composite": 0.0748
+   },
+   "percentiles": {
+    "pathogen": 0.161,
+    "faecal": 0.125,
+    "arg": 0.052,
+    "composite": 0.01
+   },
+   "flag_type": "none",
+   "hidden_hazard": null,
+   "flagged": false,
+   "borderline": false,
+   "tier": null,
+   "insight": null,
+   "nearby": {
+    "counts": {
+     "250": {
+      "school": 0,
+      "kindergarten": 0,
+      "playground": 1,
+      "park": 0,
+      "allotments": 0
+     },
+     "500": {
+      "school": 2,
+      "kindergarten": 0,
+      "playground": 2,
+      "park": 0,
+      "allotments": 0
+     },
+     "1000": {
+      "school": 3,
+      "kindergarten": 1,
+      "playground": 2,
+      "park": 0,
+      "allotments": 0
+     }
+    },
+    "nearest": [
+     {
+      "category": "playground",
+      "name": null,
+      "distance_m": 157
+     },
+     {
+      "category": "playground",
+      "name": null,
+      "distance_m": 282
+     },
+     {
+      "category": "school",
+      "name": "Escola Básica de Santa Apolónia",
+      "distance_m": 298
+     },
+     {
+      "category": "school",
+      "name": "Escola Básica do 2º e 3º Ciclo Rainha Santa Isabel",
+      "distance_m": 357
+     },
+     {
+      "category": "kindergarten",
+      "name": "Jardim de Infância do Centro de Solidariedade Social de Adémia",
+      "distance_m": 680
+     },
+     {
+      "category": "school",
+      "name": "Escola Básica da Adémia",
+      "distance_m": 735
+     }
+    ],
+    "n_within_1000m": 6
+   }
+  },
+  {
+   "site": "C5",
+   "name": "Mina Hospital",
+   "city": "Coimbra",
+   "lat": 40.2186,
+   "lon": -8.42733,
+   "sampling_month": "2023-06",
+   "scores": {
+    "pathogen": 1.0,
+    "faecal": 1.0,
+    "arg": 0.3465,
+    "composite": 0.7822
+   },
+   "percentiles": {
+    "pathogen": 1.0,
+    "faecal": 1.0,
+    "arg": 0.479,
+    "composite": 1.0
+   },
+   "flag_type": "none",
+   "hidden_hazard": null,
+   "flagged": false,
+   "borderline": false,
+   "tier": null,
+   "insight": null,
+   "nearby": {
+    "counts": {
+     "250": {
+      "school": 0,
+      "kindergarten": 0,
+      "playground": 0,
+      "park": 0,
+      "allotments": 0
+     },
+     "500": {
+      "school": 2,
+      "kindergarten": 1,
+      "playground": 2,
+      "park": 0,
+      "allotments": 0
+     },
+     "1000": {
+      "school": 7,
+      "kindergarten": 5,
+      "playground": 7,
+      "park": 4,
+      "allotments": 0
+     }
+    },
+    "nearest": [
+     {
+      "category": "kindergarten",
+      "name": "Centro de Bem Estar Social da Sagrada Família",
+      "distance_m": 319
+     },
+     {
+      "category": "playground",
+      "name": null,
+      "distance_m": 372
+     },
+     {
+      "category": "school",
+      "name": "Escola Básica do 1º Ciclo da Conchada",
+      "distance_m": 388
+     },
+     {
+      "category": "school",
+      "name": "Colégio de São José",
+      "distance_m": 392
+     },
+     {
+      "category": "playground",
+      "name": "Parque Infantil Rua de Aveiro",
+      "distance_m": 468
+     },
+     {
+      "category": "kindergarten",
+      "name": "O Pátio",
+      "distance_m": 717
+     },
+     {
+      "category": "playground",
+      "name": null,
+      "distance_m": 722
+     },
+     {
+      "category": "kindergarten",
+      "name": "Jardim de Infância MilSorrisos",
+      "distance_m": 723
+     },
+     {
+      "category": "park",
+      "name": "Mata do Monte Formoso",
+      "distance_m": 733
+     },
+     {
+      "category": "school",
+      "name": "Escola Secundária Jaime Cortesão",
+      "distance_m": 755
+     },
+     {
+      "category": "kindergarten",
+      "name": "Jardim de Infância de Montes Claros",
+      "distance_m": 760
+     },
+     {
+      "category": "playground",
+      "name": null,
+      "distance_m": 764
+     }
+    ],
+    "n_within_1000m": 23
+   }
+  },
+  {
+   "site": "C6",
+   "name": "Casa do Sal",
+   "city": "Coimbra",
+   "lat": 40.21942,
+   "lon": -8.43772,
+   "sampling_month": "2023-06",
+   "scores": {
+    "pathogen": 0.7351,
+    "faecal": 0.6664,
+    "arg": 0.3841,
+    "composite": 0.5952
+   },
+   "percentiles": {
+    "pathogen": 0.979,
+    "faecal": 0.938,
+    "arg": 0.604,
+    "composite": 0.969
+   },
+   "flag_type": "none",
+   "hidden_hazard": null,
+   "flagged": false,
+   "borderline": false,
+   "tier": null,
+   "insight": null,
+   "nearby": {
+    "counts": {
+     "250": {
+      "school": 0,
+      "kindergarten": 0,
+      "playground": 1,
+      "park": 1,
+      "allotments": 0
+     },
+     "500": {
+      "school": 0,
+      "kindergarten": 1,
+      "playground": 2,
+      "park": 2,
+      "allotments": 0
+     },
+     "1000": {
+      "school": 1,
+      "kindergarten": 2,
+      "playground": 5,
+      "park": 3,
+      "allotments": 0
+     }
+    },
+    "nearest": [
+     {
+      "category": "playground",
+      "name": "Parque Infantil da Casa do Sal",
+      "distance_m": 74
+     },
+     {
+      "category": "park",
+      "name": "Jardim da Casa do Sal",
+      "distance_m": 98
+     },
+     {
+      "category": "playground",
+      "name": null,
+      "distance_m": 326
+     },
+     {
+      "category": "kindergarten",
+      "name": "Jardim de Infância MilSorrisos",
+      "distance_m": 410
+     },
+     {
+      "category": "park",
+      "name": "Mata do Monte Formoso",
+      "distance_m": 452
+     },
+     {
+      "category": "school",
+      "name": "Escola Básica do 1º Ciclo da Conchada",
+      "distance_m": 590
+     },
+     {
+      "category": "kindergarten",
+      "name": "Centro de Bem Estar Social da Sagrada Família",
+      "distance_m": 628
+     },
+     {
+      "category": "playground",
+      "name": null,
+      "distance_m": 662
+     },
+     {
+      "category": "playground",
+      "name": "Parque Infantil Rua de Aveiro",
+      "distance_m": 886
+     },
+     {
+      "category": "playground",
+      "name": null,
+      "distance_m": 886
+     },
+     {
+      "category": "park",
+      "name": "Jardim de Eiras",
+      "distance_m": 912
+     }
+    ],
+    "n_within_1000m": 11
+   }
+  },
+  {
+   "site": "C7",
+   "name": "São Romão",
+   "city": "Coimbra",
+   "lat": 40.22243,
+   "lon": -8.40165,
+   "sampling_month": "2023-06",
+   "scores": {
+    "pathogen": 0.1783,
+    "faecal": 0.5702,
+    "arg": 0.0027,
+    "composite": 0.2504
+   },
+   "percentiles": {
+    "pathogen": 0.625,
+    "faecal": 0.906,
+    "arg": 0.021,
+    "composite": 0.458
+   },
+   "flag_type": "none",
+   "hidden_hazard": null,
+   "flagged": false,
+   "borderline": false,
+   "tier": null,
+   "insight": null,
+   "nearby": {
+    "counts": {
+     "250": {
+      "school": 0,
+      "kindergarten": 0,
+      "playground": 0,
+      "park": 0,
+      "allotments": 0
+     },
+     "500": {
+      "school": 1,
+      "kindergarten": 0,
+      "playground": 0,
+      "park": 1,
+      "allotments": 0
+     },
+     "1000": {
+      "school": 3,
+      "kindergarten": 2,
+      "playground": 3,
+      "park": 3,
+      "allotments": 0
+     }
+    },
+    "nearest": [
+     {
+      "category": "park",
+      "name": null,
+      "distance_m": 445
+     },
+     {
+      "category": "school",
+      "name": "Centro Educativo dos Olivais",
+      "distance_m": 457
+     },
+     {
+      "category": "kindergarten",
+      "name": "Jardim de Infância dos Olivais",
+      "distance_m": 545
+     },
+     {
+      "category": "playground",
+      "name": null,
+      "distance_m": 546
+     },
+     {
+      "category": "school",
+      "name": "International House dos Olivais",
+      "distance_m": 550
+     },
+     {
+      "category": "park",
+      "name": "Penedo da Meditação",
+      "distance_m": 624
+     },
+     {
+      "category": "school",
+      "name": "Escola Básica dos Olivais",
+      "distance_m": 834
+     },
+     {
+      "category": "park",
+      "name": "Parque da Quinta da Maia",
+      "distance_m": 851
+     },
+     {
+      "category": "playground",
+      "name": null,
+      "distance_m": 936
+     },
+     {
+      "category": "playground",
+      "name": null,
+      "distance_m": 980
+     },
+     {
+      "category": "kindergarten",
+      "name": "Creche Margarida Brandão",
+      "distance_m": 995
+     }
+    ],
+    "n_within_1000m": 11
+   }
+  },
+  {
+   "site": "C8",
+   "name": "Covões",
+   "city": "Coimbra",
+   "lat": 40.19133,
+   "lon": -8.46002,
+   "sampling_month": "2023-06",
+   "scores": {
+    "pathogen": 0.406,
+    "faecal": 0.4457,
+    "arg": 0.432,
+    "composite": 0.4279
+   },
+   "percentiles": {
+    "pathogen": 0.896,
+    "faecal": 0.76,
+    "arg": 0.698,
+    "composite": 0.885
+   },
+   "flag_type": "none",
+   "hidden_hazard": null,
+   "flagged": false,
+   "borderline": false,
+   "tier": null,
+   "insight": null,
+   "nearby": {
+    "counts": {
+     "250": {
+      "school": 1,
+      "kindergarten": 0,
+      "playground": 0,
+      "park": 0,
+      "allotments": 0
+     },
+     "500": {
+      "school": 1,
+      "kindergarten": 0,
+      "playground": 0,
+      "park": 0,
+      "allotments": 0
+     },
+     "1000": {
+      "school": 2,
+      "kindergarten": 0,
+      "playground": 1,
+      "park": 0,
+      "allotments": 0
+     }
+    },
+    "nearest": [
+     {
+      "category": "school",
+      "name": "Escola Básica do 2º e 3º Ciclo Inês de Castro",
+      "distance_m": 194
+     },
+     {
+      "category": "school",
+      "name": "Escola Básica de Póvoa",
+      "distance_m": 700
+     },
+     {
+      "category": "playground",
+      "name": null,
+      "distance_m": 791
+     }
+    ],
+    "n_within_1000m": 3
+   }
+  },
+  {
+   "site": "C9",
+   "name": "Fornos",
+   "city": "Coimbra",
+   "lat": 40.27702,
+   "lon": -8.4272,
+   "sampling_month": "2023-06",
+   "scores": {
+    "pathogen": 0.1265,
+    "faecal": 0.1443,
+    "arg": 0.3186,
+    "composite": 0.1964
+   },
+   "percentiles": {
+    "pathogen": 0.5,
+    "faecal": 0.135,
+    "arg": 0.406,
+    "composite": 0.177
+   },
+   "flag_type": "none",
+   "hidden_hazard": null,
+   "flagged": false,
+   "borderline": false,
+   "tier": null,
+   "insight": null,
+   "nearby": {
+    "counts": {
+     "250": {
+      "school": 0,
+      "kindergarten": 0,
+      "playground": 0,
+      "park": 0,
+      "allotments": 0
+     },
+     "500": {
+      "school": 0,
+      "kindergarten": 0,
+      "playground": 0,
+      "park": 0,
+      "allotments": 0
+     },
+     "1000": {
+      "school": 1,
+      "kindergarten": 0,
+      "playground": 0,
+      "park": 0,
+      "allotments": 0
+     }
+    },
+    "nearest": [
+     {
+      "category": "school",
+      "name": "Escola Básica de Vilela",
+      "distance_m": 811
+     }
+    ],
+    "n_within_1000m": 1
+   }
+  },
+  {
+   "site": "G10",
+   "name": "Zwalm6 (Zw6)",
+   "city": "Ghent",
+   "lat": 50.88344,
+   "lon": 3.71431,
+   "sampling_month": "2023-05",
+   "scores": {
+    "pathogen": 0.0248,
+    "faecal": 0.1193,
+    "arg": 0.3591,
+    "composite": 0.1677
+   },
+   "percentiles": {
+    "pathogen": 0.052,
+    "faecal": 0.094,
+    "arg": 0.521,
+    "composite": 0.115
+   },
+   "flag_type": "none",
+   "hidden_hazard": null,
+   "flagged": false,
+   "borderline": false,
+   "tier": null,
+   "insight": null,
+   "nearby": {
+    "counts": {
+     "250": {
+      "school": 0,
+      "kindergarten": 0,
+      "playground": 0,
+      "park": 0,
+      "allotments": 0
+     },
+     "500": {
+      "school": 0,
+      "kindergarten": 0,
+      "playground": 0,
+      "park": 0,
+      "allotments": 0
+     },
+     "1000": {
+      "school": 1,
+      "kindergarten": 0,
+      "playground": 0,
+      "park": 0,
+      "allotments": 1
+     }
+    },
+    "nearest": [
+     {
+      "category": "allotments",
+      "name": null,
+      "distance_m": 860
+     },
+     {
+      "category": "school",
+      "name": "Het Groene Lilare",
+      "distance_m": 875
+     }
+    ],
+    "n_within_1000m": 2
+   }
+  },
+  {
+   "site": "G11",
+   "name": "Zwalm8 (Zw8)",
+   "city": "Ghent",
+   "lat": 50.88437,
+   "lon": 3.68791,
+   "sampling_month": "2023-05",
+   "scores": {
+    "pathogen": 0.1253,
+    "faecal": 0.2544,
+    "arg": 0.2956,
+    "composite": 0.2251
+   },
+   "percentiles": {
+    "pathogen": 0.474,
+    "faecal": 0.365,
+    "arg": 0.333,
+    "composite": 0.333
+   },
+   "flag_type": "none",
+   "hidden_hazard": null,
+   "flagged": false,
+   "borderline": false,
+   "tier": null,
+   "insight": null,
+   "nearby": {
+    "counts": {
+     "250": {
+      "school": 0,
+      "kindergarten": 0,
+      "playground": 0,
+      "park": 0,
+      "allotments": 0
+     },
+     "500": {
+      "school": 0,
+      "kindergarten": 0,
+      "playground": 0,
+      "park": 0,
+      "allotments": 0
+     },
+     "1000": {
+      "school": 0,
+      "kindergarten": 0,
+      "playground": 0,
+      "park": 0,
+      "allotments": 0
+     }
+    },
+    "nearest": [],
+    "n_within_1000m": 0
+   }
+  },
+  {
+   "site": "G12",
+   "name": "Zwalm9 (Zw9)",
+   "city": "Ghent",
+   "lat": 50.88541,
+   "lon": 3.68606,
+   "sampling_month": "2023-05",
+   "scores": {
+    "pathogen": 0.0995,
+    "faecal": 0.2129,
+    "arg": 0.3624,
+    "composite": 0.225
+   },
+   "percentiles": {
+    "pathogen": 0.354,
+    "faecal": 0.26,
+    "arg": 0.531,
+    "composite": 0.323
+   },
+   "flag_type": "none",
+   "hidden_hazard": null,
+   "flagged": false,
+   "borderline": false,
+   "tier": null,
+   "insight": null,
+   "nearby": {
+    "counts": {
+     "250": {
+      "school": 0,
+      "kindergarten": 0,
+      "playground": 0,
+      "park": 0,
+      "allotments": 0
+     },
+     "500": {
+      "school": 0,
+      "kindergarten": 0,
+      "playground": 0,
+      "park": 0,
+      "allotments": 0
+     },
+     "1000": {
+      "school": 0,
+      "kindergarten": 0,
+      "playground": 0,
+      "park": 0,
+      "allotments": 0
+     }
+    },
+    "nearest": [],
+    "n_within_1000m": 0
+   }
+  },
+  {
+   "site": "G13",
+   "name": "Merelbeke1 (Mr1)",
+   "city": "Ghent",
+   "lat": 50.97958,
+   "lon": 3.72241,
+   "sampling_month": "2023-05",
+   "scores": {
+    "pathogen": 0.0752,
+    "faecal": 0.2104,
+    "arg": 0.345,
+    "composite": 0.2102
+   },
+   "percentiles": {
+    "pathogen": 0.276,
+    "faecal": 0.24,
+    "arg": 0.469,
+    "composite": 0.208
+   },
+   "flag_type": "none",
+   "hidden_hazard": null,
+   "flagged": false,
+   "borderline": false,
+   "tier": null,
+   "insight": null,
+   "nearby": {
+    "counts": {
+     "250": {
+      "school": 0,
+      "kindergarten": 0,
+      "playground": 0,
+      "park": 0,
+      "allotments": 0
+     },
+     "500": {
+      "school": 0,
+      "kindergarten": 0,
+      "playground": 1,
+      "park": 1,
+      "allotments": 0
+     },
+     "1000": {
+      "school": 1,
+      "kindergarten": 0,
+      "playground": 2,
+      "park": 1,
+      "allotments": 0
+     }
+    },
+    "nearest": [
+     {
+      "category": "park",
+      "name": null,
+      "distance_m": 393
+     },
+     {
+      "category": "playground",
+      "name": null,
+      "distance_m": 477
+     },
+     {
+      "category": "school",
+      "name": "Sint-Elooischool",
+      "distance_m": 598
+     },
+     {
+      "category": "playground",
+      "name": null,
+      "distance_m": 878
+     }
+    ],
+    "n_within_1000m": 4
+   }
+  },
+  {
+   "site": "G14",
+   "name": "Merelbeke2 (Mr2)",
+   "city": "Ghent",
+   "lat": 50.99821,
+   "lon": 3.73925,
+   "sampling_month": "2023-05",
+   "scores": {
+    "pathogen": 0.0,
+    "faecal": 0.1323,
+    "arg": 0.3366,
+    "composite": 0.1563
+   },
+   "percentiles": {
+    "pathogen": 0.016,
+    "faecal": 0.115,
+    "arg": 0.448,
+    "composite": 0.094
+   },
+   "flag_type": "none",
+   "hidden_hazard": null,
+   "flagged": false,
+   "borderline": false,
+   "tier": null,
+   "insight": null,
+   "nearby": {
+    "counts": {
+     "250": {
+      "school": 0,
+      "kindergarten": 0,
+      "playground": 0,
+      "park": 0,
+      "allotments": 0
+     },
+     "500": {
+      "school": 1,
+      "kindergarten": 0,
+      "playground": 0,
+      "park": 1,
+      "allotments": 0
+     },
+     "1000": {
+      "school": 3,
+      "kindergarten": 0,
+      "playground": 0,
+      "park": 2,
+      "allotments": 0
+     }
+    },
+    "nearest": [
+     {
+      "category": "school",
+      "name": "Technisch Atheneum",
+      "distance_m": 357
+     },
+     {
+      "category": "park",
+      "name": null,
+      "distance_m": 414
+     },
+     {
+      "category": "school",
+      "name": "Basisschool Paus Johannescollege",
+      "distance_m": 785
+     },
+     {
+      "category": "school",
+      "name": "GILKO Bergwegel",
+      "distance_m": 855
+     },
+     {
+      "category": "park",
+      "name": null,
+      "distance_m": 912
+     }
+    ],
+    "n_within_1000m": 5
+   }
+  },
+  {
+   "site": "G15",
+   "name": "Melle1 (Ml1)",
+   "city": "Ghent",
+   "lat": 50.98975,
+   "lon": 3.80615,
+   "sampling_month": "2023-05",
+   "scores": {
+    "pathogen": 0.0513,
+    "faecal": 0.1673,
+    "arg": 0.4544,
+    "composite": 0.2244
+   },
+   "percentiles": {
+    "pathogen": 0.229,
+    "faecal": 0.167,
+    "arg": 0.74,
+    "composite": 0.312
+   },
+   "flag_type": "none",
+   "hidden_hazard": null,
+   "flagged": false,
+   "borderline": true,
+   "tier": null,
+   "insight": null,
+   "nearby": {
+    "counts": {
+     "250": {
+      "school": 0,
+      "kindergarten": 0,
+      "playground": 0,
+      "park": 0,
+      "allotments": 0
+     },
+     "500": {
+      "school": 0,
+      "kindergarten": 0,
+      "playground": 1,
+      "park": 0,
+      "allotments": 0
+     },
+     "1000": {
+      "school": 1,
+      "kindergarten": 0,
+      "playground": 4,
+      "park": 2,
+      "allotments": 0
+     }
+    },
+    "nearest": [
+     {
+      "category": "playground",
+      "name": null,
+      "distance_m": 389
+     },
+     {
+      "category": "playground",
+      "name": null,
+      "distance_m": 604
+     },
+     {
+      "category": "playground",
+      "name": null,
+      "distance_m": 633
+     },
+     {
+      "category": "park",
+      "name": null,
+      "distance_m": 739
+     },
+     {
+      "category": "playground",
+      "name": null,
+      "distance_m": 801
+     },
+     {
+      "category": "park",
+      "name": null,
+      "distance_m": 802
+     },
+     {
+      "category": "school",
+      "name": "Sint-Vincentiusschool Melle - Gontrode",
+      "distance_m": 917
+     }
+    ],
+    "n_within_1000m": 7
+   }
+  },
+  {
+   "site": "G16",
+   "name": "Melle2 (Ml2)",
+   "city": "Ghent",
+   "lat": 50.99491,
+   "lon": 3.80568,
+   "sampling_month": "2023-05",
+   "scores": {
+    "pathogen": 0.2484,
+    "faecal": 0.2897,
+    "arg": 0.3971,
+    "composite": 0.3117
+   },
+   "percentiles": {
+    "pathogen": 0.688,
+    "faecal": 0.396,
+    "arg": 0.635,
+    "composite": 0.583
+   },
+   "flag_type": "none",
+   "hidden_hazard": null,
+   "flagged": false,
+   "borderline": false,
+   "tier": null,
+   "insight": null,
+   "nearby": {
+    "counts": {
+     "250": {
+      "school": 0,
+      "kindergarten": 0,
+      "playground": 2,
+      "park": 0,
+      "allotments": 0
+     },
+     "500": {
+      "school": 0,
+      "kindergarten": 0,
+      "playground": 3,
+      "park": 1,
+      "allotments": 0
+     },
+     "1000": {
+      "school": 3,
+      "kindergarten": 0,
+      "playground": 4,
+      "park": 5,
+      "allotments": 0
+     }
+    },
+    "nearest": [
+     {
+      "category": "playground",
+      "name": null,
+      "distance_m": 65
+     },
+     {
+      "category": "playground",
+      "name": null,
+      "distance_m": 69
+     },
+     {
+      "category": "park",
+      "name": null,
+      "distance_m": 312
+     },
+     {
+      "category": "playground",
+      "name": null,
+      "distance_m": 319
+     },
+     {
+      "category": "park",
+      "name": null,
+      "distance_m": 605
+     },
+     {
+      "category": "playground",
+      "name": null,
+      "distance_m": 619
+     },
+     {
+      "category": "park",
+      "name": null,
+      "distance_m": 625
+     },
+     {
+      "category": "school",
+      "name": "College Paters Jozefieten",
+      "distance_m": 670
+     },
+     {
+      "category": "school",
+      "name": "Gemeenteschool",
+      "distance_m": 768
+     },
+     {
+      "category": "school",
+      "name": "Parkschool Melle",
+      "distance_m": 797
+     },
+     {
+      "category": "park",
+      "name": "Elsdriespark",
+      "distance_m": 830
+     },
+     {
+      "category": "park",
+      "name": null,
+      "distance_m": 961
+     }
+    ],
+    "n_within_1000m": 12
+   }
+  },
+  {
+   "site": "G2",
+   "name": "Zottegem1 (Zo1)",
+   "city": "Ghent",
+   "lat": 50.85943,
+   "lon": 3.79794,
+   "sampling_month": "2023-05",
+   "scores": {
+    "pathogen": 0.1242,
+    "faecal": 0.2672,
+    "arg": 0.4669,
+    "composite": 0.2861
+   },
+   "percentiles": {
+    "pathogen": 0.427,
+    "faecal": 0.375,
+    "arg": 0.781,
+    "composite": 0.531
+   },
+   "flag_type": "none",
+   "hidden_hazard": null,
+   "flagged": false,
+   "borderline": false,
+   "tier": null,
+   "insight": null,
+   "nearby": {
+    "counts": {
+     "250": {
+      "school": 0,
+      "kindergarten": 0,
+      "playground": 0,
+      "park": 0,
+      "allotments": 0
+     },
+     "500": {
+      "school": 0,
+      "kindergarten": 0,
+      "playground": 0,
+      "park": 0,
+      "allotments": 0
+     },
+     "1000": {
+      "school": 1,
+      "kindergarten": 0,
+      "playground": 0,
+      "park": 0,
+      "allotments": 0
+     }
+    },
+    "nearest": [
+     {
+      "category": "school",
+      "name": "KA Zottegem",
+      "distance_m": 907
+     }
+    ],
+    "n_within_1000m": 1
+   }
+  },
+  {
+   "site": "G21",
+   "name": "Zottegem4 (Zo4)",
+   "city": "Ghent",
+   "lat": 50.89162,
+   "lon": 3.81558,
+   "sampling_month": "2023-05",
+   "scores": {
+    "pathogen": 0.0499,
+    "faecal": 0.3255,
+    "arg": 0.4933,
+    "composite": 0.2896
+   },
+   "percentiles": {
+    "pathogen": 0.188,
+    "faecal": 0.531,
+    "arg": 0.812,
+    "composite": 0.542
+   },
+   "flag_type": "none",
+   "hidden_hazard": null,
+   "flagged": false,
+   "borderline": false,
+   "tier": null,
+   "insight": null,
+   "nearby": {
+    "counts": {
+     "250": {
+      "school": 0,
+      "kindergarten": 0,
+      "playground": 0,
+      "park": 0,
+      "allotments": 0
+     },
+     "500": {
+      "school": 0,
+      "kindergarten": 0,
+      "playground": 0,
+      "park": 0,
+      "allotments": 0
+     },
+     "1000": {
+      "school": 0,
+      "kindergarten": 0,
+      "playground": 0,
+      "park": 0,
+      "allotments": 0
+     }
+    },
+    "nearest": [],
+    "n_within_1000m": 0
+   }
+  },
+  {
+   "site": "G22",
+   "name": "Zwalm7 (Zw7)",
+   "city": "Ghent",
+   "lat": 50.88527,
+   "lon": 3.692821,
+   "sampling_month": "2023-05",
+   "scores": {
+    "pathogen": 0.1501,
+    "faecal": 0.2921,
+    "arg": 0.1152,
+    "composite": 0.1858
+   },
+   "percentiles": {
+    "pathogen": 0.562,
+    "faecal": 0.417,
+    "arg": 0.094,
+    "composite": 0.156
+   },
+   "flag_type": "none",
+   "hidden_hazard": null,
+   "flagged": false,
+   "borderline": false,
+   "tier": null,
+   "insight": null,
+   "nearby": {
+    "counts": {
+     "250": {
+      "school": 0,
+      "kindergarten": 0,
+      "playground": 0,
+      "park": 0,
+      "allotments": 0
+     },
+     "500": {
+      "school": 0,
+      "kindergarten": 0,
+      "playground": 0,
+      "park": 0,
+      "allotments": 0
+     },
+     "1000": {
+      "school": 1,
+      "kindergarten": 0,
+      "playground": 0,
+      "park": 0,
+      "allotments": 0
+     }
+    },
+    "nearest": [
+     {
+      "category": "school",
+      "name": "Het Groene Lilare",
+      "distance_m": 978
+     }
+    ],
+    "n_within_1000m": 1
+   }
+  },
+  {
+   "site": "G3",
+   "name": "Zottegem2 (Zo2)",
+   "city": "Ghent",
+   "lat": 50.87604,
+   "lon": 3.75174,
+   "sampling_month": "2023-05",
+   "scores": {
+    "pathogen": 0.1004,
+    "faecal": 0.3096,
+    "arg": 0.1812,
+    "composite": 0.1971
+   },
+   "percentiles": {
+    "pathogen": 0.396,
+    "faecal": 0.479,
+    "arg": 0.156,
+    "composite": 0.188
+   },
+   "flag_type": "none",
+   "hidden_hazard": null,
+   "flagged": false,
+   "borderline": false,
+   "tier": null,
+   "insight": null,
+   "nearby": {
+    "counts": {
+     "250": {
+      "school": 0,
+      "kindergarten": 0,
+      "playground": 0,
+      "park": 0,
+      "allotments": 0
+     },
+     "500": {
+      "school": 0,
+      "kindergarten": 0,
+      "playground": 0,
+      "park": 0,
+      "allotments": 0
+     },
+     "1000": {
+      "school": 0,
+      "kindergarten": 0,
+      "playground": 1,
+      "park": 0,
+      "allotments": 0
+     }
+    },
+    "nearest": [
+     {
+      "category": "playground",
+      "name": null,
+      "distance_m": 758
+     }
+    ],
+    "n_within_1000m": 1
+   }
+  },
+  {
+   "site": "G4",
+   "name": "Zottegem3 (Zo3)",
+   "city": "Ghent",
+   "lat": 50.87507,
+   "lon": 3.80222,
+   "sampling_month": "2023-05",
+   "scores": {
+    "pathogen": 0.0503,
+    "faecal": 0.1824,
+    "arg": 0.4763,
+    "composite": 0.2363
+   },
+   "percentiles": {
+    "pathogen": 0.208,
+    "faecal": 0.177,
+    "arg": 0.792,
+    "composite": 0.385
+   },
+   "flag_type": "masked_arg",
+   "hidden_hazard": null,
+   "flagged": true,
+   "borderline": false,
+   "tier": "primary",
+   "insight": "G4 (Ghent): faecal risk is low (the 17th lowest of 96) but resistance-gene (ARG) risk is high (the 21st highest of 96). The composite score of 0.24 ranks the 60th highest of 96, so the composite understates it. In this dataset ARG risk is not predicted by faecal risk or land cover, so this site is a candidate for direct ARG testing.",
+   "nearby": {
+    "counts": {
+     "250": {
+      "school": 0,
+      "kindergarten": 0,
+      "playground": 0,
+      "park": 1,
+      "allotments": 0
+     },
+     "500": {
+      "school": 0,
+      "kindergarten": 0,
+      "playground": 0,
+      "park": 3,
+      "allotments": 0
+     },
+     "1000": {
+      "school": 1,
+      "kindergarten": 0,
+      "playground": 0,
+      "park": 3,
+      "allotments": 1
+     }
+    },
+    "nearest": [
+     {
+      "category": "park",
+      "name": "Beislovenpark",
+      "distance_m": 196
+     },
+     {
+      "category": "park",
+      "name": "Egmontpark - Park van Egmont",
+      "distance_m": 454
+     },
+     {
+      "category": "park",
+      "name": "Archeologisch park Egmontkasteel",
+      "distance_m": 485
+     },
+     {
+      "category": "allotments",
+      "name": null,
+      "distance_m": 830
+     },
+     {
+      "category": "school",
+      "name": "Sint-Barbaracollege",
+      "distance_m": 983
+     }
+    ],
+    "n_within_1000m": 5
+   }
+  },
+  {
+   "site": "G5",
+   "name": "Zwalm1 (Zw1)",
+   "city": "Ghent",
+   "lat": 50.87539,
+   "lon": 3.74917,
+   "sampling_month": "2023-05",
+   "scores": {
+    "pathogen": 0.0496,
+    "faecal": 0.3549,
+    "arg": 0.313,
+    "composite": 0.2392
+   },
+   "percentiles": {
+    "pathogen": 0.161,
+    "faecal": 0.604,
+    "arg": 0.385,
+    "composite": 0.396
+   },
+   "flag_type": "none",
+   "hidden_hazard": null,
+   "flagged": false,
+   "borderline": false,
+   "tier": null,
+   "insight": null,
+   "nearby": {
+    "counts": {
+     "250": {
+      "school": 0,
+      "kindergarten": 0,
+      "playground": 0,
+      "park": 0,
+      "allotments": 0
+     },
+     "500": {
+      "school": 0,
+      "kindergarten": 0,
+      "playground": 0,
+      "park": 0,
+      "allotments": 0
+     },
+     "1000": {
+      "school": 1,
+      "kindergarten": 0,
+      "playground": 1,
+      "park": 0,
+      "allotments": 0
+     }
+    },
+    "nearest": [
+     {
+      "category": "playground",
+      "name": null,
+      "distance_m": 637
+     },
+     {
+      "category": "school",
+      "name": "GO! De zonnewijzer",
+      "distance_m": 997
+     }
+    ],
+    "n_within_1000m": 2
+   }
+  },
+  {
+   "site": "G6",
+   "name": "Zwalm2 (Zw2)",
+   "city": "Ghent",
+   "lat": 50.87579,
+   "lon": 3.75151,
+   "sampling_month": "2023-05",
+   "scores": {
+    "pathogen": 0.1738,
+    "faecal": 0.3113,
+    "arg": 0.175,
+    "composite": 0.2201
+   },
+   "percentiles": {
+    "pathogen": 0.604,
+    "faecal": 0.49,
+    "arg": 0.135,
+    "composite": 0.281
+   },
+   "flag_type": "none",
+   "hidden_hazard": null,
+   "flagged": false,
+   "borderline": false,
+   "tier": null,
+   "insight": null,
+   "nearby": {
+    "counts": {
+     "250": {
+      "school": 0,
+      "kindergarten": 0,
+      "playground": 0,
+      "park": 0,
+      "allotments": 0
+     },
+     "500": {
+      "school": 0,
+      "kindergarten": 0,
+      "playground": 0,
+      "park": 0,
+      "allotments": 0
+     },
+     "1000": {
+      "school": 0,
+      "kindergarten": 0,
+      "playground": 1,
+      "park": 0,
+      "allotments": 0
+     }
+    },
+    "nearest": [
+     {
+      "category": "playground",
+      "name": null,
+      "distance_m": 755
+     }
+    ],
+    "n_within_1000m": 1
+   }
+  },
+  {
+   "site": "G7",
+   "name": "Zwalm3 (Zw3)",
+   "city": "Ghent",
+   "lat": 50.86216,
+   "lon": 3.76577,
+   "sampling_month": "2023-05",
+   "scores": {
+    "pathogen": 0.0746,
+    "faecal": 0.2452,
+    "arg": 0.261,
+    "composite": 0.1936
+   },
+   "percentiles": {
+    "pathogen": 0.245,
+    "faecal": 0.333,
+    "arg": 0.219,
+    "composite": 0.167
+   },
+   "flag_type": "none",
+   "hidden_hazard": null,
+   "flagged": false,
+   "borderline": false,
+   "tier": null,
+   "insight": null,
+   "nearby": {
+    "counts": {
+     "250": {
+      "school": 0,
+      "kindergarten": 0,
+      "playground": 0,
+      "park": 0,
+      "allotments": 0
+     },
+     "500": {
+      "school": 0,
+      "kindergarten": 0,
+      "playground": 0,
+      "park": 0,
+      "allotments": 0
+     },
+     "1000": {
+      "school": 0,
+      "kindergarten": 0,
+      "playground": 0,
+      "park": 0,
+      "allotments": 0
+     }
+    },
+    "nearest": [],
+    "n_within_1000m": 0
+   }
+  },
+  {
+   "site": "G8",
+   "name": "Zwalm4 (Zw4)",
+   "city": "Ghent",
+   "lat": 50.87971,
+   "lon": 3.73771,
+   "sampling_month": "2023-05",
+   "scores": {
+    "pathogen": 0.0993,
+    "faecal": 0.2305,
+    "arg": 0.3183,
+    "composite": 0.2161
+   },
+   "percentiles": {
+    "pathogen": 0.333,
+    "faecal": 0.302,
+    "arg": 0.396,
+    "composite": 0.25
+   },
+   "flag_type": "none",
+   "hidden_hazard": null,
+   "flagged": false,
+   "borderline": false,
+   "tier": null,
+   "insight": null,
+   "nearby": {
+    "counts": {
+     "250": {
+      "school": 0,
+      "kindergarten": 0,
+      "playground": 0,
+      "park": 0,
+      "allotments": 0
+     },
+     "500": {
+      "school": 2,
+      "kindergarten": 0,
+      "playground": 1,
+      "park": 0,
+      "allotments": 0
+     },
+     "1000": {
+      "school": 2,
+      "kindergarten": 0,
+      "playground": 3,
+      "park": 1,
+      "allotments": 0
+     }
+    },
+    "nearest": [
+     {
+      "category": "playground",
+      "name": null,
+      "distance_m": 309
+     },
+     {
+      "category": "school",
+      "name": "GO! De zonnewijzer",
+      "distance_m": 336
+     },
+     {
+      "category": "school",
+      "name": "Vrije Basisschool Zwalm",
+      "distance_m": 425
+     },
+     {
+      "category": "park",
+      "name": null,
+      "distance_m": 555
+     },
+     {
+      "category": "playground",
+      "name": null,
+      "distance_m": 593
+     },
+     {
+      "category": "playground",
+      "name": null,
+      "distance_m": 620
+     }
+    ],
+    "n_within_1000m": 6
+   }
+  },
+  {
+   "site": "G9",
+   "name": "Zwalm5 (Zw5)",
+   "city": "Ghent",
+   "lat": 50.87366,
+   "lon": 3.73125,
+   "sampling_month": "2023-05",
+   "scores": {
+    "pathogen": 0.1492,
+    "faecal": 0.3966,
+    "arg": 0.5202,
+    "composite": 0.3553
+   },
+   "percentiles": {
+    "pathogen": 0.542,
+    "faecal": 0.667,
+    "arg": 0.865,
+    "composite": 0.703
+   },
+   "flag_type": "none",
+   "hidden_hazard": null,
+   "flagged": false,
+   "borderline": false,
+   "tier": null,
+   "insight": null,
+   "nearby": {
+    "counts": {
+     "250": {
+      "school": 0,
+      "kindergarten": 0,
+      "playground": 0,
+      "park": 0,
+      "allotments": 0
+     },
+     "500": {
+      "school": 1,
+      "kindergarten": 0,
+      "playground": 2,
+      "park": 1,
+      "allotments": 0
+     },
+     "1000": {
+      "school": 2,
+      "kindergarten": 0,
+      "playground": 3,
+      "park": 1,
+      "allotments": 0
+     }
+    },
+    "nearest": [
+     {
+      "category": "playground",
+      "name": null,
+      "distance_m": 272
+     },
+     {
+      "category": "playground",
+      "name": null,
+      "distance_m": 332
+     },
+     {
+      "category": "park",
+      "name": null,
+      "distance_m": 354
+     },
+     {
+      "category": "school",
+      "name": "GO! De zonnewijzer",
+      "distance_m": 476
+     },
+     {
+      "category": "school",
+      "name": "Vrije Basisschool Zwalm",
+      "distance_m": 530
+     },
+     {
+      "category": "playground",
+      "name": null,
+      "distance_m": 938
+     }
+    ],
+    "n_within_1000m": 6
+   }
+  },
+  {
+   "site": "O1",
+   "name": "Gaustadbekken-Skådalen",
+   "city": "Oslo",
+   "lat": 59.9561,
+   "lon": 10.7153,
+   "sampling_month": "2023-09",
+   "scores": {
+    "pathogen": 0.0993,
+    "faecal": 0.2919,
+    "arg": 0.3826,
+    "composite": 0.2579
+   },
+   "percentiles": {
+    "pathogen": 0.333,
+    "faecal": 0.406,
+    "arg": 0.583,
+    "composite": 0.49
+   },
+   "flag_type": "none",
+   "hidden_hazard": null,
+   "flagged": false,
+   "borderline": false,
+   "tier": null,
+   "insight": null,
+   "nearby": {
+    "counts": {
+     "250": {
+      "school": 1,
+      "kindergarten": 1,
+      "playground": 0,
+      "park": 0,
+      "allotments": 0
+     },
+     "500": {
+      "school": 1,
+      "kindergarten": 4,
+      "playground": 3,
+      "park": 0,
+      "allotments": 0
+     },
+     "1000": {
+      "school": 2,
+      "kindergarten": 9,
+      "playground": 21,
+      "park": 5,
+      "allotments": 6
+     }
+    },
+    "nearest": [
+     {
+      "category": "school",
+      "name": "Nordre Aker skole, Sogn",
+      "distance_m": 172
+     },
+     {
+      "category": "kindergarten",
+      "name": "Norlandia Gaustadskogen barnehage",
+      "distance_m": 197
+     },
+     {
+      "category": "kindergarten",
+      "name": "Eplehagen Kanvas-barnehage",
+      "distance_m": 344
+     },
+     {
+      "category": "kindergarten",
+      "name": null,
+      "distance_m": 360
+     },
+     {
+      "category": "kindergarten",
+      "name": "Hompetitten Kanvas-barnehage",
+      "distance_m": 362
+     },
+     {
+      "category": "playground",
+      "name": null,
+      "distance_m": 395
+     },
+     {
+      "category": "playground",
+      "name": null,
+      "distance_m": 447
+     },
+     {
+      "category": "playground",
+      "name": null,
+      "distance_m": 485
+     },
+     {
+      "category": "playground",
+      "name": null,
+      "distance_m": 510
+     },
+     {
+      "category": "allotments",
+      "name": "Avdeling 5",
+      "distance_m": 564
+     },
+     {
+      "category": "playground",
+      "name": null,
+      "distance_m": 576
+     },
+     {
+      "category": "playground",
+      "name": null,
+      "distance_m": 632
+     }
+    ],
+    "n_within_1000m": 43
+   }
+  },
+  {
+   "site": "O10",
+   "name": "Frognerelva - VInderen",
+   "city": "Oslo",
+   "lat": 59.9414,
+   "lon": 10.7097,
+   "sampling_month": "2023-09",
+   "scores": {
+    "pathogen": 0.0249,
+    "faecal": 0.3387,
+    "arg": 0.2706,
+    "composite": 0.2114
+   },
+   "percentiles": {
+    "pathogen": 0.089,
+    "faecal": 0.583,
+    "arg": 0.245,
+    "composite": 0.219
+   },
+   "flag_type": "none",
+   "hidden_hazard": null,
+   "flagged": false,
+   "borderline": false,
+   "tier": null,
+   "insight": null,
+   "nearby": {
+    "counts": {
+     "250": {
+      "school": 1,
+      "kindergarten": 1,
+      "playground": 1,
+      "park": 2,
+      "allotments": 0
+     },
+     "500": {
+      "school": 2,
+      "kindergarten": 5,
+      "playground": 1,
+      "park": 2,
+      "allotments": 0
+     },
+     "1000": {
+      "school": 2,
+      "kindergarten": 26,
+      "playground": 8,
+      "park": 4,
+      "allotments": 1
+     }
+    },
+    "nearest": [
+     {
+      "category": "park",
+      "name": null,
+      "distance_m": 78
+     },
+     {
+      "category": "park",
+      "name": null,
+      "distance_m": 130
+     },
+     {
+      "category": "school",
+      "name": "Vinderen skole",
+      "distance_m": 174
+     },
+     {
+      "category": "playground",
+      "name": null,
+      "distance_m": 215
+     },
+     {
+      "category": "kindergarten",
+      "name": "Hvitveisen barnehage",
+      "distance_m": 229
+     },
+     {
+      "category": "kindergarten",
+      "name": "Universitetets barnehage",
+      "distance_m": 326
+     },
+     {
+      "category": "kindergarten",
+      "name": "Forskningsparken Montessori",
+      "distance_m": 369
+     },
+     {
+      "category": "kindergarten",
+      "name": "Barnebo barnehage",
+      "distance_m": 401
+     },
+     {
+      "category": "kindergarten",
+      "name": "Diakonhjemmet barnehage Steinerud",
+      "distance_m": 472
+     },
+     {
+      "category": "school",
+      "name": "Ris skole",
+      "distance_m": 474
+     },
+     {
+      "category": "park",
+      "name": "UB-parken",
+      "distance_m": 628
+     },
+     {
+      "category": "allotments",
+      "name": null,
+      "distance_m": 632
+     }
+    ],
+    "n_within_1000m": 41
+   }
+  },
+  {
+   "site": "O11",
+   "name": "Mærradalsbekken - Radiumhospital",
+   "city": "Oslo",
+   "lat": 59.9297,
+   "lon": 10.6594,
+   "sampling_month": "2023-09",
+   "scores": {
+    "pathogen": 0.1734,
+    "faecal": 0.3317,
+    "arg": 0.6038,
+    "composite": 0.3696
+   },
+   "percentiles": {
+    "pathogen": 0.594,
+    "faecal": 0.552,
+    "arg": 0.943,
+    "composite": 0.75
+   },
+   "flag_type": "none",
+   "hidden_hazard": null,
+   "flagged": false,
+   "borderline": false,
+   "tier": null,
+   "insight": null,
+   "nearby": {
+    "counts": {
+     "250": {
+      "school": 0,
+      "kindergarten": 2,
+      "playground": 1,
+      "park": 0,
+      "allotments": 0
+     },
+     "500": {
+      "school": 1,
+      "kindergarten": 2,
+      "playground": 8,
+      "park": 2,
+      "allotments": 0
+     },
+     "1000": {
+      "school": 4,
+      "kindergarten": 19,
+      "playground": 17,
+      "park": 3,
+      "allotments": 0
+     }
+    },
+    "nearest": [
+     {
+      "category": "kindergarten",
+      "name": "Hasselkroken Kanvas-barnehage",
+      "distance_m": 32
+     },
+     {
+      "category": "kindergarten",
+      "name": "Mærradalen barnehage",
+      "distance_m": 63
+     },
+     {
+      "category": "playground",
+      "name": null,
+      "distance_m": 121
+     },
+     {
+      "category": "playground",
+      "name": null,
+      "distance_m": 252
+     },
+     {
+      "category": "park",
+      "name": null,
+      "distance_m": 277
+     },
+     {
+      "category": "playground",
+      "name": null,
+      "distance_m": 288
+     },
+     {
+      "category": "school",
+      "name": "Ullern videregående skole",
+      "distance_m": 309
+     },
+     {
+      "category": "playground",
+      "name": null,
+      "distance_m": 347
+     },
+     {
+      "category": "playground",
+      "name": null,
+      "distance_m": 349
+     },
+     {
+      "category": "park",
+      "name": null,
+      "distance_m": 352
+     },
+     {
+      "category": "playground",
+      "name": null,
+      "distance_m": 385
+     },
+     {
+      "category": "playground",
+      "name": null,
+      "distance_m": 459
+     }
+    ],
+    "n_within_1000m": 43
+   }
+  },
+  {
+   "site": "O12",
+   "name": "Makrellbekken – ring3",
+   "city": "Oslo",
+   "lat": 59.9356,
+   "lon": 10.6736,
+   "sampling_month": "2023-09",
+   "scores": {
+    "pathogen": 0.0997,
+    "faecal": 0.3184,
+    "arg": 0.6845,
+    "composite": 0.3675
+   },
+   "percentiles": {
+    "pathogen": 0.37,
+    "faecal": 0.51,
+    "arg": 0.99,
+    "composite": 0.74
+   },
+   "flag_type": "none",
+   "hidden_hazard": null,
+   "flagged": false,
+   "borderline": false,
+   "tier": null,
+   "insight": null,
+   "nearby": {
+    "counts": {
+     "250": {
+      "school": 0,
+      "kindergarten": 0,
+      "playground": 0,
+      "park": 0,
+      "allotments": 0
+     },
+     "500": {
+      "school": 0,
+      "kindergarten": 2,
+      "playground": 4,
+      "park": 1,
+      "allotments": 0
+     },
+     "1000": {
+      "school": 2,
+      "kindergarten": 6,
+      "playground": 13,
+      "park": 7,
+      "allotments": 0
+     }
+    },
+    "nearest": [
+     {
+      "category": "park",
+      "name": null,
+      "distance_m": 310
+     },
+     {
+      "category": "playground",
+      "name": null,
+      "distance_m": 313
+     },
+     {
+      "category": "kindergarten",
+      "name": "Monoliten familiebarnehage",
+      "distance_m": 401
+     },
+     {
+      "category": "playground",
+      "name": null,
+      "distance_m": 415
+     },
+     {
+      "category": "playground",
+      "name": null,
+      "distance_m": 418
+     },
+     {
+      "category": "kindergarten",
+      "name": "Linden Steinerbarnehage",
+      "distance_m": 461
+     },
+     {
+      "category": "playground",
+      "name": null,
+      "distance_m": 496
+     },
+     {
+      "category": "kindergarten",
+      "name": "Smestad barnehage",
+      "distance_m": 508
+     },
+     {
+      "category": "kindergarten",
+      "name": "Priorveien barnehage",
+      "distance_m": 532
+     },
+     {
+      "category": "playground",
+      "name": null,
+      "distance_m": 542
+     },
+     {
+      "category": "playground",
+      "name": null,
+      "distance_m": 581
+     },
+     {
+      "category": "school",
+      "name": "Smestad skole",
+      "distance_m": 591
+     }
+    ],
+    "n_within_1000m": 28
+   }
+  },
+  {
+   "site": "O13",
+   "name": "Mærradalsbekken – Huseby skole",
+   "city": "Oslo",
+   "lat": 59.945,
+   "lon": 10.6503,
+   "sampling_month": "2023-09",
+   "scores": {
+    "pathogen": 0.1242,
+    "faecal": 0.295,
+    "arg": 0.5408,
+    "composite": 0.32
+   },
+   "percentiles": {
+    "pathogen": 0.427,
+    "faecal": 0.438,
+    "arg": 0.896,
+    "composite": 0.594
+   },
+   "flag_type": "none",
+   "hidden_hazard": null,
+   "flagged": false,
+   "borderline": false,
+   "tier": null,
+   "insight": null,
+   "nearby": {
+    "counts": {
+     "250": {
+      "school": 1,
+      "kindergarten": 0,
+      "playground": 3,
+      "park": 0,
+      "allotments": 0
+     },
+     "500": {
+      "school": 3,
+      "kindergarten": 3,
+      "playground": 6,
+      "park": 0,
+      "allotments": 0
+     },
+     "1000": {
+      "school": 5,
+      "kindergarten": 24,
+      "playground": 27,
+      "park": 4,
+      "allotments": 1
+     }
+    },
+    "nearest": [
+     {
+      "category": "playground",
+      "name": "Store skolegård",
+      "distance_m": 169
+     },
+     {
+      "category": "school",
+      "name": "Huseby skole",
+      "distance_m": 204
+     },
+     {
+      "category": "playground",
+      "name": "Lille skolegård",
+      "distance_m": 243
+     },
+     {
+      "category": "playground",
+      "name": null,
+      "distance_m": 247
+     },
+     {
+      "category": "playground",
+      "name": null,
+      "distance_m": 257
+     },
+     {
+      "category": "school",
+      "name": "Persbråten videregående skole",
+      "distance_m": 403
+     },
+     {
+      "category": "kindergarten",
+      "name": "Hamborg barnehage",
+      "distance_m": 406
+     },
+     {
+      "category": "kindergarten",
+      "name": null,
+      "distance_m": 424
+     },
+     {
+      "category": "school",
+      "name": "Lilleborg skole",
+      "distance_m": 457
+     },
+     {
+      "category": "playground",
+      "name": null,
+      "distance_m": 482
+     },
+     {
+      "category": "kindergarten",
+      "name": "Huseby barnehage",
+      "distance_m": 485
+     },
+     {
+      "category": "playground",
+      "name": null,
+      "distance_m": 498
+     }
+    ],
+    "n_within_1000m": 61
+   }
+  },
+  {
+   "site": "O14",
+   "name": "Hovinbekken - Krokliveien",
+   "city": "Oslo",
+   "lat": 59.9392,
+   "lon": 10.8214,
+   "sampling_month": "2023-09",
+   "scores": {
+    "pathogen": 0.0249,
+    "faecal": 0.112,
+    "arg": 0.6038,
+    "composite": 0.2469
+   },
+   "percentiles": {
+    "pathogen": 0.089,
+    "faecal": 0.062,
+    "arg": 0.943,
+    "composite": 0.438
+   },
+   "flag_type": "masked_arg",
+   "hidden_hazard": "arg",
+   "flagged": true,
+   "borderline": true,
+   "tier": "primary",
+   "insight": "O14 (Oslo): faecal risk is low (the 6th lowest of 96) but resistance-gene (ARG) risk is high (around the 7th highest of 96). The composite score of 0.25 ranks the 55th highest of 96, so the composite understates it. In this dataset ARG risk is not predicted by faecal risk or land cover, so this site is a candidate for direct ARG testing.",
+   "nearby": {
+    "counts": {
+     "250": {
+      "school": 0,
+      "kindergarten": 1,
+      "playground": 7,
+      "park": 1,
+      "allotments": 0
+     },
+     "500": {
+      "school": 1,
+      "kindergarten": 6,
+      "playground": 25,
+      "park": 4,
+      "allotments": 1
+     },
+     "1000": {
+      "school": 6,
+      "kindergarten": 21,
+      "playground": 60,
+      "park": 9,
+      "allotments": 2
+     }
+    },
+    "nearest": [
+     {
+      "category": "park",
+      "name": "Bjerkedalen park",
+      "distance_m": 49
+     },
+     {
+      "category": "playground",
+      "name": null,
+      "distance_m": 61
+     },
+     {
+      "category": "kindergarten",
+      "name": "Bjerkedalen barnehage",
+      "distance_m": 73
+     },
+     {
+      "category": "playground",
+      "name": null,
+      "distance_m": 89
+     },
+     {
+      "category": "playground",
+      "name": null,
+      "distance_m": 167
+     },
+     {
+      "category": "playground",
+      "name": null,
+      "distance_m": 171
+     },
+     {
+      "category": "playground",
+      "name": null,
+      "distance_m": 177
+     },
+     {
+      "category": "playground",
+      "name": null,
+      "distance_m": 208
+     },
+     {
+      "category": "playground",
+      "name": null,
+      "distance_m": 245
+     },
+     {
+      "category": "kindergarten",
+      "name": "Barnehagenvår Sofus",
+      "distance_m": 255
+     },
+     {
+      "category": "playground",
+      "name": null,
+      "distance_m": 266
+     },
+     {
+      "category": "playground",
+      "name": null,
+      "distance_m": 267
+     }
+    ],
+    "n_within_1000m": 98
+   }
+  },
+  {
+   "site": "O15",
+   "name": "Hovinbekken - Hovin",
+   "city": "Oslo",
+   "lat": 59.9206,
+   "lon": 10.8006,
+   "sampling_month": "2023-09",
+   "scores": {
+    "pathogen": 0.0495,
+    "faecal": 0.1143,
+    "arg": 0.4447,
+    "composite": 0.2028
+   },
+   "percentiles": {
+    "pathogen": 0.135,
+    "faecal": 0.078,
+    "arg": 0.719,
+    "composite": 0.198
+   },
+   "flag_type": "composite_understates",
+   "hidden_hazard": "arg",
+   "flagged": true,
+   "borderline": true,
+   "tier": "secondary",
+   "insight": "O15 (Oslo): antimicrobial-resistance gene (ARG) risk is moderately elevated (the 28th highest of 96), but the composite score of 0.20 ranks only the 78th highest of 96 because the other components are lower. The composite averages this signal away. ARG risk cannot be inferred from faecal indicators or land cover in this dataset.",
+   "nearby": {
+    "counts": {
+     "250": {
+      "school": 0,
+      "kindergarten": 3,
+      "playground": 4,
+      "park": 1,
+      "allotments": 0
+     },
+     "500": {
+      "school": 2,
+      "kindergarten": 8,
+      "playground": 13,
+      "park": 3,
+      "allotments": 0
+     },
+     "1000": {
+      "school": 7,
+      "kindergarten": 28,
+      "playground": 68,
+      "park": 21,
+      "allotments": 0
+     }
+    },
+    "nearest": [
+     {
+      "category": "playground",
+      "name": null,
+      "distance_m": 110
+     },
+     {
+      "category": "playground",
+      "name": null,
+      "distance_m": 160
+     },
+     {
+      "category": "kindergarten",
+      "name": "Valle barnehage",
+      "distance_m": 166
+     },
+     {
+      "category": "playground",
+      "name": null,
+      "distance_m": 182
+     },
+     {
+      "category": "park",
+      "name": null,
+      "distance_m": 185
+     },
+     {
+      "category": "kindergarten",
+      "name": "Hovin barnehage",
+      "distance_m": 220
+     },
+     {
+      "category": "playground",
+      "name": null,
+      "distance_m": 220
+     },
+     {
+      "category": "kindergarten",
+      "name": null,
+      "distance_m": 241
+     },
+     {
+      "category": "playground",
+      "name": null,
+      "distance_m": 262
+     },
+     {
+      "category": "park",
+      "name": null,
+      "distance_m": 303
+     },
+     {
+      "category": "playground",
+      "name": null,
+      "distance_m": 320
+     },
+     {
+      "category": "playground",
+      "name": null,
+      "distance_m": 354
+     }
+    ],
+    "n_within_1000m": 124
+   }
+  },
+  {
+   "site": "O16",
+   "name": "Alna - Kværnerfossene",
+   "city": "Oslo",
+   "lat": 59.9044,
+   "lon": 10.7944,
+   "sampling_month": "2023-09",
+   "scores": {
+    "pathogen": 0.251,
+    "faecal": 0.4781,
+    "arg": 0.4964,
+    "composite": 0.4085
+   },
+   "percentiles": {
+    "pathogen": 0.698,
+    "faecal": 0.812,
+    "arg": 0.823,
+    "composite": 0.833
+   },
+   "flag_type": "none",
+   "hidden_hazard": null,
+   "flagged": false,
+   "borderline": false,
+   "tier": null,
+   "insight": null,
+   "nearby": {
+    "counts": {
+     "250": {
+      "school": 0,
+      "kindergarten": 3,
+      "playground": 3,
+      "park": 2,
+      "allotments": 0
+     },
+     "500": {
+      "school": 1,
+      "kindergarten": 6,
+      "playground": 20,
+      "park": 4,
+      "allotments": 2
+     },
+     "1000": {
+      "school": 5,
+      "kindergarten": 28,
+      "playground": 58,
+      "park": 17,
+      "allotments": 4
+     }
+    },
+    "nearest": [
+     {
+      "category": "kindergarten",
+      "name": "Eitillstad FUS barnehage",
+      "distance_m": 66
+     },
+     {
+      "category": "park",
+      "name": "Svartdalsparken",
+      "distance_m": 88
+     },
+     {
+      "category": "playground",
+      "name": null,
+      "distance_m": 166
+     },
+     {
+      "category": "playground",
+      "name": null,
+      "distance_m": 195
+     },
+     {
+      "category": "kindergarten",
+      "name": "Kværnerdalen barnehage",
+      "distance_m": 199
+     },
+     {
+      "category": "park",
+      "name": "Kværnerparken",
+      "distance_m": 208
+     },
+     {
+      "category": "kindergarten",
+      "name": null,
+      "distance_m": 227
+     },
+     {
+      "category": "playground",
+      "name": null,
+      "distance_m": 233
+     },
+     {
+      "category": "playground",
+      "name": null,
+      "distance_m": 260
+     },
+     {
+      "category": "playground",
+      "name": null,
+      "distance_m": 267
+     },
+     {
+      "category": "playground",
+      "name": null,
+      "distance_m": 275
+     },
+     {
+      "category": "playground",
+      "name": null,
+      "distance_m": 279
+     }
+    ],
+    "n_within_1000m": 112
+   }
+  },
+  {
+   "site": "O17",
+   "name": "Alna – Bryn stasjon",
+   "city": "Oslo",
+   "lat": 59.9078,
+   "lon": 10.8128,
+   "sampling_month": "2023-09",
+   "scores": {
+    "pathogen": 0.3364,
+    "faecal": 0.4261,
+    "arg": 0.497,
+    "composite": 0.4198
+   },
+   "percentiles": {
+    "pathogen": 0.812,
+    "faecal": 0.729,
+    "arg": 0.833,
+    "composite": 0.844
+   },
+   "flag_type": "none",
+   "hidden_hazard": null,
+   "flagged": false,
+   "borderline": false,
+   "tier": null,
+   "insight": null,
+   "nearby": {
+    "counts": {
+     "250": {
+      "school": 1,
+      "kindergarten": 0,
+      "playground": 1,
+      "park": 0,
+      "allotments": 0
+     },
+     "500": {
+      "school": 1,
+      "kindergarten": 1,
+      "playground": 4,
+      "park": 0,
+      "allotments": 0
+     },
+     "1000": {
+      "school": 4,
+      "kindergarten": 11,
+      "playground": 44,
+      "park": 7,
+      "allotments": 1
+     }
+    },
+    "nearest": [
+     {
+      "category": "playground",
+      "name": null,
+      "distance_m": 89
+     },
+     {
+      "category": "school",
+      "name": "Brynseng skole",
+      "distance_m": 140
+     },
+     {
+      "category": "playground",
+      "name": null,
+      "distance_m": 324
+     },
+     {
+      "category": "playground",
+      "name": null,
+      "distance_m": 466
+     },
+     {
+      "category": "playground",
+      "name": null,
+      "distance_m": 475
+     },
+     {
+      "category": "kindergarten",
+      "name": "Etterstadjordet barnehage",
+      "distance_m": 476
+     },
+     {
+      "category": "playground",
+      "name": null,
+      "distance_m": 501
+     },
+     {
+      "category": "playground",
+      "name": null,
+      "distance_m": 515
+     },
+     {
+      "category": "park",
+      "name": "Høyenhallparken",
+      "distance_m": 519
+     },
+     {
+      "category": "playground",
+      "name": null,
+      "distance_m": 550
+     },
+     {
+      "category": "park",
+      "name": "Øvre park",
+      "distance_m": 587
+     },
+     {
+      "category": "playground",
+      "name": null,
+      "distance_m": 594
+     }
+    ],
+    "n_within_1000m": 67
+   }
+  },
+  {
+   "site": "O18",
+   "name": "Alna – v Tveita / plantasjen-",
+   "city": "Oslo",
+   "lat": 59.9219,
+   "lon": 10.8369,
+   "sampling_month": "2023-09",
+   "scores": {
+    "pathogen": 0.1488,
+    "faecal": 0.4071,
+    "arg": 0.4311,
+    "composite": 0.329
+   },
+   "percentiles": {
+    "pathogen": 0.521,
+    "faecal": 0.688,
+    "arg": 0.688,
+    "composite": 0.604
+   },
+   "flag_type": "none",
+   "hidden_hazard": null,
+   "flagged": false,
+   "borderline": false,
+   "tier": null,
+   "insight": null,
+   "nearby": {
+    "counts": {
+     "250": {
+      "school": 0,
+      "kindergarten": 0,
+      "playground": 0,
+      "park": 0,
+      "allotments": 0
+     },
+     "500": {
+      "school": 0,
+      "kindergarten": 0,
+      "playground": 5,
+      "park": 0,
+      "allotments": 0
+     },
+     "1000": {
+      "school": 3,
+      "kindergarten": 5,
+      "playground": 21,
+      "park": 5,
+      "allotments": 1
+     }
+    },
+    "nearest": [
+     {
+      "category": "playground",
+      "name": null,
+      "distance_m": 411
+     },
+     {
+      "category": "playground",
+      "name": null,
+      "distance_m": 427
+     },
+     {
+      "category": "playground",
+      "name": null,
+      "distance_m": 466
+     },
+     {
+      "category": "playground",
+      "name": null,
+      "distance_m": 471
+     },
+     {
+      "category": "playground",
+      "name": null,
+      "distance_m": 498
+     },
+     {
+      "category": "kindergarten",
+      "name": "Smalvollskogen barnehage",
+      "distance_m": 560
+     },
+     {
+      "category": "kindergarten",
+      "name": "Lohøgda barnehage",
+      "distance_m": 585
+     },
+     {
+      "category": "playground",
+      "name": null,
+      "distance_m": 612
+     },
+     {
+      "category": "park",
+      "name": null,
+      "distance_m": 619
+     },
+     {
+      "category": "park",
+      "name": null,
+      "distance_m": 628
+     },
+     {
+      "category": "playground",
+      "name": null,
+      "distance_m": 628
+     },
+     {
+      "category": "playground",
+      "name": null,
+      "distance_m": 628
+     }
+    ],
+    "n_within_1000m": 35
+   }
+  },
+  {
+   "site": "O19",
+   "name": "Alna - Grorud",
+   "city": "Oslo",
+   "lat": 59.9525,
+   "lon": 10.9017,
+   "sampling_month": "2023-09",
+   "scores": {
+    "pathogen": 0.1739,
+    "faecal": 0.3078,
+    "arg": 0.289,
+    "composite": 0.2569
+   },
+   "percentiles": {
+    "pathogen": 0.615,
+    "faecal": 0.469,
+    "arg": 0.323,
+    "composite": 0.479
+   },
+   "flag_type": "none",
+   "hidden_hazard": null,
+   "flagged": false,
+   "borderline": false,
+   "tier": null,
+   "insight": null,
+   "nearby": {
+    "counts": {
+     "250": {
+      "school": 0,
+      "kindergarten": 0,
+      "playground": 4,
+      "park": 0,
+      "allotments": 0
+     },
+     "500": {
+      "school": 0,
+      "kindergarten": 4,
+      "playground": 14,
+      "park": 1,
+      "allotments": 0
+     },
+     "1000": {
+      "school": 4,
+      "kindergarten": 19,
+      "playground": 49,
+      "park": 5,
+      "allotments": 4
+     }
+    },
+    "nearest": [
+     {
+      "category": "playground",
+      "name": null,
+      "distance_m": 210
+     },
+     {
+      "category": "playground",
+      "name": null,
+      "distance_m": 237
+     },
+     {
+      "category": "playground",
+      "name": null,
+      "distance_m": 240
+     },
+     {
+      "category": "playground",
+      "name": null,
+      "distance_m": 244
+     },
+     {
+      "category": "playground",
+      "name": null,
+      "distance_m": 270
+     },
+     {
+      "category": "playground",
+      "name": null,
+      "distance_m": 343
+     },
+     {
+      "category": "playground",
+      "name": null,
+      "distance_m": 365
+     },
+     {
+      "category": "playground",
+      "name": null,
+      "distance_m": 382
+     },
+     {
+      "category": "kindergarten",
+      "name": "Linjen barnehage",
+      "distance_m": 388
+     },
+     {
+      "category": "playground",
+      "name": null,
+      "distance_m": 390
+     },
+     {
+      "category": "kindergarten",
+      "name": "Haugen barnehage",
+      "distance_m": 397
+     },
+     {
+      "category": "kindergarten",
+      "name": "Norlandia Valhall barnehage",
+      "distance_m": 401
+     }
+    ],
+    "n_within_1000m": 81
+   }
+  },
+  {
+   "site": "O2",
+   "name": "Hoffsbekken",
+   "city": "Oslo",
+   "lat": 59.9514,
+   "lon": 10.6806,
+   "sampling_month": "2023-09",
+   "scores": {
+    "pathogen": 0.0495,
+    "faecal": 0.2932,
+    "arg": 0.3814,
+    "composite": 0.2414
+   },
+   "percentiles": {
+    "pathogen": 0.135,
+    "faecal": 0.427,
+    "arg": 0.573,
+    "composite": 0.417
+   },
+   "flag_type": "none",
+   "hidden_hazard": null,
+   "flagged": false,
+   "borderline": false,
+   "tier": null,
+   "insight": null,
+   "nearby": {
+    "counts": {
+     "250": {
+      "school": 0,
+      "kindergarten": 2,
+      "playground": 2,
+      "park": 0,
+      "allotments": 0
+     },
+     "500": {
+      "school": 1,
+      "kindergarten": 2,
+      "playground": 6,
+      "park": 0,
+      "allotments": 0
+     },
+     "1000": {
+      "school": 3,
+      "kindergarten": 9,
+      "playground": 19,
+      "park": 0,
+      "allotments": 0
+     }
+    },
+    "nearest": [
+     {
+      "category": "playground",
+      "name": null,
+      "distance_m": 17
+     },
+     {
+      "category": "playground",
+      "name": null,
+      "distance_m": 161
+     },
+     {
+      "category": "kindergarten",
+      "name": "Villa Utsikten Frilufts- og idrettsbarnehage",
+      "distance_m": 162
+     },
+     {
+      "category": "kindergarten",
+      "name": null,
+      "distance_m": 168
+     },
+     {
+      "category": "playground",
+      "name": null,
+      "distance_m": 286
+     },
+     {
+      "category": "playground",
+      "name": null,
+      "distance_m": 341
+     },
+     {
+      "category": "school",
+      "name": "Holmen skole",
+      "distance_m": 354
+     },
+     {
+      "category": "playground",
+      "name": null,
+      "distance_m": 406
+     },
+     {
+      "category": "playground",
+      "name": null,
+      "distance_m": 412
+     },
+     {
+      "category": "playground",
+      "name": null,
+      "distance_m": 545
+     },
+     {
+      "category": "kindergarten",
+      "name": "Davinas",
+      "distance_m": 633
+     },
+     {
+      "category": "playground",
+      "name": null,
+      "distance_m": 652
+     }
+    ],
+    "n_within_1000m": 31
+   }
+  },
+  {
+   "site": "O20",
+   "name": "Makrellbekken - Njård",
+   "city": "Oslo",
+   "lat": 59.9432,
+   "lon": 10.6736,
+   "sampling_month": "2023-09",
+   "scores": {
+    "pathogen": 0.1253,
+    "faecal": 0.3354,
+    "arg": 0.4327,
+    "composite": 0.2978
+   },
+   "percentiles": {
+    "pathogen": 0.474,
+    "faecal": 0.573,
+    "arg": 0.708,
+    "composite": 0.552
+   },
+   "flag_type": "none",
+   "hidden_hazard": null,
+   "flagged": false,
+   "borderline": false,
+   "tier": null,
+   "insight": null,
+   "nearby": {
+    "counts": {
+     "250": {
+      "school": 0,
+      "kindergarten": 0,
+      "playground": 0,
+      "park": 0,
+      "allotments": 0
+     },
+     "500": {
+      "school": 0,
+      "kindergarten": 0,
+      "playground": 4,
+      "park": 0,
+      "allotments": 0
+     },
+     "1000": {
+      "school": 1,
+      "kindergarten": 9,
+      "playground": 15,
+      "park": 4,
+      "allotments": 0
+     }
+    },
+    "nearest": [
+     {
+      "category": "playground",
+      "name": null,
+      "distance_m": 312
+     },
+     {
+      "category": "playground",
+      "name": null,
+      "distance_m": 347
+     },
+     {
+      "category": "playground",
+      "name": null,
+      "distance_m": 446
+     },
+     {
+      "category": "playground",
+      "name": null,
+      "distance_m": 452
+     },
+     {
+      "category": "kindergarten",
+      "name": "Husebygrenda barnehage",
+      "distance_m": 523
+     },
+     {
+      "category": "kindergarten",
+      "name": "Monoliten familiebarnehage",
+      "distance_m": 559
+     },
+     {
+      "category": "playground",
+      "name": null,
+      "distance_m": 611
+     },
+     {
+      "category": "park",
+      "name": null,
+      "distance_m": 646
+     },
+     {
+      "category": "park",
+      "name": "Gardeparken",
+      "distance_m": 650
+     },
+     {
+      "category": "kindergarten",
+      "name": "Holmen Kanvas-barnehage",
+      "distance_m": 689
+     },
+     {
+      "category": "playground",
+      "name": null,
+      "distance_m": 725
+     },
+     {
+      "category": "playground",
+      "name": null,
+      "distance_m": 727
+     }
+    ],
+    "n_within_1000m": 29
+   }
+  },
+  {
+   "site": "O3",
+   "name": "Gaustadbekken-Slemdalsveien/RH",
+   "city": "Oslo",
+   "lat": 59.9475,
+   "lon": 10.7111,
+   "sampling_month": "2023-09",
+   "scores": {
+    "pathogen": 0.1248,
+    "faecal": 0.3136,
+    "arg": 0.3035,
+    "composite": 0.2473
+   },
+   "percentiles": {
+    "pathogen": 0.458,
+    "faecal": 0.5,
+    "arg": 0.375,
+    "composite": 0.448
+   },
+   "flag_type": "none",
+   "hidden_hazard": null,
+   "flagged": false,
+   "borderline": false,
+   "tier": null,
+   "insight": null,
+   "nearby": {
+    "counts": {
+     "250": {
+      "school": 0,
+      "kindergarten": 1,
+      "playground": 0,
+      "park": 0,
+      "allotments": 0
+     },
+     "500": {
+      "school": 1,
+      "kindergarten": 2,
+      "playground": 1,
+      "park": 0,
+      "allotments": 1
+     },
+     "1000": {
+      "school": 3,
+      "kindergarten": 14,
+      "playground": 11,
+      "park": 4,
+      "allotments": 3
+     }
+    },
+    "nearest": [
+     {
+      "category": "kindergarten",
+      "name": "Heimvang barnehage",
+      "distance_m": 86
+     },
+     {
+      "category": "school",
+      "name": "Ris skole",
+      "distance_m": 319
+     },
+     {
+      "category": "playground",
+      "name": null,
+      "distance_m": 464
+     },
+     {
+      "category": "kindergarten",
+      "name": "Rishaven menighetsbarnehage",
+      "distance_m": 469
+     },
+     {
+      "category": "allotments",
+      "name": null,
+      "distance_m": 480
+     },
+     {
+      "category": "playground",
+      "name": null,
+      "distance_m": 524
+     },
+     {
+      "category": "kindergarten",
+      "name": "Barnebo barnehage",
+      "distance_m": 525
+     },
+     {
+      "category": "kindergarten",
+      "name": "Trosteredet barnehage",
+      "distance_m": 537
+     },
+     {
+      "category": "kindergarten",
+      "name": null,
+      "distance_m": 548
+     },
+     {
+      "category": "playground",
+      "name": null,
+      "distance_m": 559
+     },
+     {
+      "category": "playground",
+      "name": null,
+      "distance_m": 679
+     },
+     {
+      "category": "park",
+      "name": null,
+      "distance_m": 686
+     }
+    ],
+    "n_within_1000m": 35
+   }
+  },
+  {
+   "site": "O4",
+   "name": "Makrellbekken - Dronningfossen",
+   "city": "Oslo",
+   "lat": 59.9308,
+   "lon": 10.6778,
+   "sampling_month": "2023-09",
+   "scores": {
+    "pathogen": 0.0248,
+    "faecal": 0.2344,
+    "arg": 0.5403,
+    "composite": 0.2665
+   },
+   "percentiles": {
+    "pathogen": 0.052,
+    "faecal": 0.312,
+    "arg": 0.885,
+    "composite": 0.51
+   },
+   "flag_type": "none",
+   "hidden_hazard": null,
+   "flagged": false,
+   "borderline": false,
+   "tier": null,
+   "insight": null,
+   "nearby": {
+    "counts": {
+     "250": {
+      "school": 0,
+      "kindergarten": 1,
+      "playground": 0,
+      "park": 0,
+      "allotments": 0
+     },
+     "500": {
+      "school": 1,
+      "kindergarten": 6,
+      "playground": 9,
+      "park": 1,
+      "allotments": 0
+     },
+     "1000": {
+      "school": 4,
+      "kindergarten": 18,
+      "playground": 20,
+      "park": 5,
+      "allotments": 1
+     }
+    },
+    "nearest": [
+     {
+      "category": "kindergarten",
+      "name": "Linden Steinerbarnehage",
+      "distance_m": 125
+     },
+     {
+      "category": "playground",
+      "name": null,
+      "distance_m": 320
+     },
+     {
+      "category": "playground",
+      "name": null,
+      "distance_m": 330
+     },
+     {
+      "category": "kindergarten",
+      "name": "Smestad barnehage",
+      "distance_m": 336
+     },
+     {
+      "category": "school",
+      "name": "Smestad skole",
+      "distance_m": 336
+     },
+     {
+      "category": "kindergarten",
+      "name": "Priorveien barnehage",
+      "distance_m": 342
+     },
+     {
+      "category": "playground",
+      "name": null,
+      "distance_m": 354
+     },
+     {
+      "category": "park",
+      "name": null,
+      "distance_m": 393
+     },
+     {
+      "category": "playground",
+      "name": null,
+      "distance_m": 414
+     },
+     {
+      "category": "playground",
+      "name": null,
+      "distance_m": 415
+     },
+     {
+      "category": "kindergarten",
+      "name": "Nedre Silkestrå barnehage Sti",
+      "distance_m": 444
+     },
+     {
+      "category": "playground",
+      "name": null,
+      "distance_m": 451
+     }
+    ],
+    "n_within_1000m": 48
+   }
+  },
+  {
+   "site": "O5",
+   "name": "Hoffselva - Møllhausen",
+   "city": "Oslo",
+   "lat": 59.9308,
+   "lon": 10.6769,
+   "sampling_month": "2023-09",
+   "scores": {
+    "pathogen": 0.0248,
+    "faecal": 0.385,
+    "arg": 0.2865,
+    "composite": 0.2321
+   },
+   "percentiles": {
+    "pathogen": 0.052,
+    "faecal": 0.635,
+    "arg": 0.302,
+    "composite": 0.354
+   },
+   "flag_type": "none",
+   "hidden_hazard": null,
+   "flagged": false,
+   "borderline": false,
+   "tier": null,
+   "insight": null,
+   "nearby": {
+    "counts": {
+     "250": {
+      "school": 0,
+      "kindergarten": 1,
+      "playground": 0,
+      "park": 0,
+      "allotments": 0
+     },
+     "500": {
+      "school": 1,
+      "kindergarten": 6,
+      "playground": 8,
+      "park": 1,
+      "allotments": 0
+     },
+     "1000": {
+      "school": 4,
+      "kindergarten": 17,
+      "playground": 20,
+      "park": 5,
+      "allotments": 1
+     }
+    },
+    "nearest": [
+     {
+      "category": "kindergarten",
+      "name": "Linden Steinerbarnehage",
+      "distance_m": 104
+     },
+     {
+      "category": "playground",
+      "name": null,
+      "distance_m": 323
+     },
+     {
+      "category": "playground",
+      "name": null,
+      "distance_m": 361
+     },
+     {
+      "category": "kindergarten",
+      "name": "Smestad barnehage",
+      "distance_m": 368
+     },
+     {
+      "category": "kindergarten",
+      "name": "Priorveien barnehage",
+      "distance_m": 377
+     },
+     {
+      "category": "school",
+      "name": "Smestad skole",
+      "distance_m": 377
+     },
+     {
+      "category": "playground",
+      "name": null,
+      "distance_m": 397
+     },
+     {
+      "category": "park",
+      "name": null,
+      "distance_m": 439
+     },
+     {
+      "category": "playground",
+      "name": null,
+      "distance_m": 453
+     },
+     {
+      "category": "playground",
+      "name": null,
+      "distance_m": 460
+     },
+     {
+      "category": "kindergarten",
+      "name": "Skøyen terrasse barnehage Sti",
+      "distance_m": 469
+     },
+     {
+      "category": "kindergarten",
+      "name": "Nedre Silkestrå barnehage Sti",
+      "distance_m": 483
+     }
+    ],
+    "n_within_1000m": 47
+   }
+  },
+  {
+   "site": "O6",
+   "name": "Ljanselva- Skullerud -",
+   "city": "Oslo",
+   "lat": 59.8628,
+   "lon": 10.8458,
+   "sampling_month": "2023-09",
+   "scores": {
+    "pathogen": 0.0752,
+    "faecal": 0.1625,
+    "arg": 0.3025,
+    "composite": 0.18
+   },
+   "percentiles": {
+    "pathogen": 0.276,
+    "faecal": 0.156,
+    "arg": 0.365,
+    "composite": 0.135
+   },
+   "flag_type": "none",
+   "hidden_hazard": null,
+   "flagged": false,
+   "borderline": false,
+   "tier": null,
+   "insight": null,
+   "nearby": {
+    "counts": {
+     "250": {
+      "school": 0,
+      "kindergarten": 0,
+      "playground": 0,
+      "park": 0,
+      "allotments": 0
+     },
+     "500": {
+      "school": 2,
+      "kindergarten": 1,
+      "playground": 4,
+      "park": 0,
+      "allotments": 0
+     },
+     "1000": {
+      "school": 3,
+      "kindergarten": 3,
+      "playground": 8,
+      "park": 4,
+      "allotments": 0
+     }
+    },
+    "nearest": [
+     {
+      "category": "school",
+      "name": "Nyskolen i Oslo, grunnskole",
+      "distance_m": 387
+     },
+     {
+      "category": "playground",
+      "name": null,
+      "distance_m": 441
+     },
+     {
+      "category": "playground",
+      "name": null,
+      "distance_m": 442
+     },
+     {
+      "category": "kindergarten",
+      "name": "Gartnerboligen barnehage",
+      "distance_m": 449
+     },
+     {
+      "category": "playground",
+      "name": null,
+      "distance_m": 456
+     },
+     {
+      "category": "playground",
+      "name": null,
+      "distance_m": 472
+     },
+     {
+      "category": "school",
+      "name": "Oslo voksenopplæring Skullerud",
+      "distance_m": 487
+     },
+     {
+      "category": "playground",
+      "name": null,
+      "distance_m": 589
+     },
+     {
+      "category": "playground",
+      "name": null,
+      "distance_m": 654
+     },
+     {
+      "category": "park",
+      "name": null,
+      "distance_m": 680
+     },
+     {
+      "category": "park",
+      "name": null,
+      "distance_m": 703
+     },
+     {
+      "category": "kindergarten",
+      "name": "Skullerudhøgda barnehage",
+      "distance_m": 710
+     }
+    ],
+    "n_within_1000m": 18
+   }
+  },
+  {
+   "site": "O7",
+   "name": "Ljanselvas mljøpark",
+   "city": "Oslo",
+   "lat": 59.8511,
+   "lon": 10.8164,
+   "sampling_month": "2023-09",
+   "scores": {
+    "pathogen": 0.0993,
+    "faecal": 0.2728,
+    "arg": 0.462,
+    "composite": 0.278
+   },
+   "percentiles": {
+    "pathogen": 0.333,
+    "faecal": 0.385,
+    "arg": 0.771,
+    "composite": 0.521
+   },
+   "flag_type": "none",
+   "hidden_hazard": null,
+   "flagged": false,
+   "borderline": false,
+   "tier": null,
+   "insight": null,
+   "nearby": {
+    "counts": {
+     "250": {
+      "school": 0,
+      "kindergarten": 2,
+      "playground": 2,
+      "park": 0,
+      "allotments": 0
+     },
+     "500": {
+      "school": 0,
+      "kindergarten": 7,
+      "playground": 10,
+      "park": 0,
+      "allotments": 0
+     },
+     "1000": {
+      "school": 6,
+      "kindergarten": 16,
+      "playground": 27,
+      "park": 1,
+      "allotments": 0
+     }
+    },
+    "nearest": [
+     {
+      "category": "playground",
+      "name": null,
+      "distance_m": 155
+     },
+     {
+      "category": "kindergarten",
+      "name": "Munkerudsletta barnehage",
+      "distance_m": 234
+     },
+     {
+      "category": "playground",
+      "name": null,
+      "distance_m": 238
+     },
+     {
+      "category": "kindergarten",
+      "name": null,
+      "distance_m": 245
+     },
+     {
+      "category": "kindergarten",
+      "name": "Kantarellen barnehage",
+      "distance_m": 264
+     },
+     {
+      "category": "playground",
+      "name": null,
+      "distance_m": 268
+     },
+     {
+      "category": "playground",
+      "name": null,
+      "distance_m": 366
+     },
+     {
+      "category": "kindergarten",
+      "name": "Bakketoppen barnehage",
+      "distance_m": 379
+     },
+     {
+      "category": "playground",
+      "name": null,
+      "distance_m": 380
+     },
+     {
+      "category": "kindergarten",
+      "name": "Eventyrlia FUS barnehage",
+      "distance_m": 384
+     },
+     {
+      "category": "playground",
+      "name": null,
+      "distance_m": 385
+     },
+     {
+      "category": "playground",
+      "name": null,
+      "distance_m": 411
+     }
+    ],
+    "n_within_1000m": 50
+   }
+  },
+  {
+   "site": "O8",
+   "name": "Ljanselva – Nedre Ljan Nordstrand",
+   "city": "Oslo",
+   "lat": 59.8433,
+   "lon": 10.7847,
+   "sampling_month": "2023-09",
+   "scores": {
+    "pathogen": 0.149,
+    "faecal": 0.3018,
+    "arg": 0.4616,
+    "composite": 0.3041
+   },
+   "percentiles": {
+    "pathogen": 0.531,
+    "faecal": 0.448,
+    "arg": 0.76,
+    "composite": 0.562
+   },
+   "flag_type": "none",
+   "hidden_hazard": null,
+   "flagged": false,
+   "borderline": false,
+   "tier": null,
+   "insight": null,
+   "nearby": {
+    "counts": {
+     "250": {
+      "school": 0,
+      "kindergarten": 2,
+      "playground": 0,
+      "park": 0,
+      "allotments": 0
+     },
+     "500": {
+      "school": 2,
+      "kindergarten": 3,
+      "playground": 2,
+      "park": 0,
+      "allotments": 0
+     },
+     "1000": {
+      "school": 2,
+      "kindergarten": 8,
+      "playground": 16,
+      "park": 1,
+      "allotments": 0
+     }
+    },
+    "nearest": [
+     {
+      "category": "kindergarten",
+      "name": "Store Ljan barnehage",
+      "distance_m": 235
+     },
+     {
+      "category": "kindergarten",
+      "name": "Ljan kirkes barnehage",
+      "distance_m": 240
+     },
+     {
+      "category": "kindergarten",
+      "name": "Fiskevollen musikkbarnehage",
+      "distance_m": 271
+     },
+     {
+      "category": "school",
+      "name": "Ljan skole",
+      "distance_m": 425
+     },
+     {
+      "category": "playground",
+      "name": null,
+      "distance_m": 436
+     },
+     {
+      "category": "school",
+      "name": "Hallagerbakken skole",
+      "distance_m": 456
+     },
+     {
+      "category": "playground",
+      "name": null,
+      "distance_m": 466
+     },
+     {
+      "category": "playground",
+      "name": null,
+      "distance_m": 519
+     },
+     {
+      "category": "playground",
+      "name": null,
+      "distance_m": 522
+     },
+     {
+      "category": "playground",
+      "name": null,
+      "distance_m": 566
+     },
+     {
+      "category": "kindergarten",
+      "name": "Sloreåsen barnehage",
+      "distance_m": 581
+     },
+     {
+      "category": "kindergarten",
+      "name": "Hallagerstua barnehage",
+      "distance_m": 594
+     }
+    ],
+    "n_within_1000m": 27
+   }
+  },
+  {
+   "site": "O9",
+   "name": "Gaustadbekken -Forskningsparketn",
+   "city": "Oslo",
+   "lat": 59.9425,
+   "lon": 10.7181,
+   "sampling_month": "2023-09",
+   "scores": {
+    "pathogen": 0.0,
+    "faecal": 0.0,
+    "arg": 0.3972,
+    "composite": 0.1324
+   },
+   "percentiles": {
+    "pathogen": 0.016,
+    "faecal": 0.01,
+    "arg": 0.646,
+    "composite": 0.062
+   },
+   "flag_type": "composite_understates",
+   "hidden_hazard": "arg",
+   "flagged": true,
+   "borderline": false,
+   "tier": "secondary",
+   "insight": "O9 (Oslo): antimicrobial-resistance gene (ARG) risk is moderately elevated (the 35th highest of 96), but the composite score of 0.13 ranks only the 91st highest of 96 because the other components are lower. The composite averages this signal away. ARG risk cannot be inferred from faecal indicators or land cover in this dataset.",
+   "nearby": {
+    "counts": {
+     "250": {
+      "school": 0,
+      "kindergarten": 3,
+      "playground": 0,
+      "park": 0,
+      "allotments": 0
+     },
+     "500": {
+      "school": 0,
+      "kindergarten": 9,
+      "playground": 0,
+      "park": 3,
+      "allotments": 0
+     },
+     "1000": {
+      "school": 6,
+      "kindergarten": 33,
+      "playground": 19,
+      "park": 11,
+      "allotments": 2
+     }
+    },
+    "nearest": [
+     {
+      "category": "kindergarten",
+      "name": "Barnebo barnehage",
+      "distance_m": 165
+     },
+     {
+      "category": "kindergarten",
+      "name": "Universitetets barnehage",
+      "distance_m": 219
+     },
+     {
+      "category": "kindergarten",
+      "name": "Forskningsparken Montessori",
+      "distance_m": 221
+     },
+     {
+      "category": "park",
+      "name": null,
+      "distance_m": 361
+     },
+     {
+      "category": "park",
+      "name": "UB-parken",
+      "distance_m": 385
+     },
+     {
+      "category": "kindergarten",
+      "name": null,
+      "distance_m": 409
+     },
+     {
+      "category": "kindergarten",
+      "name": "Eilert Sundt - SiO barnehage",
+      "distance_m": 415
+     },
+     {
+      "category": "kindergarten",
+      "name": null,
+      "distance_m": 474
+     },
+     {
+      "category": "kindergarten",
+      "name": null,
+      "distance_m": 476
+     },
+     {
+      "category": "park",
+      "name": null,
+      "distance_m": 477
+     },
+     {
+      "category": "kindergarten",
+      "name": null,
+      "distance_m": 481
+     },
+     {
+      "category": "kindergarten",
+      "name": "Blindern Barnestuer",
+      "distance_m": 486
+     }
+    ],
+    "n_within_1000m": 71
+   }
+  },
+  {
+   "site": "T1",
+   "name": "Ruisseau du Palays",
+   "city": "Toulouse",
+   "lat": 43.55267,
+   "lon": 1.49147,
+   "sampling_month": "2023-05",
+   "scores": {
+    "pathogen": 0.4012,
+    "faecal": 0.532,
+    "arg": 0.2785,
+    "composite": 0.4039
+   },
+   "percentiles": {
+    "pathogen": 0.885,
+    "faecal": 0.865,
+    "arg": 0.292,
+    "composite": 0.812
+   },
+   "flag_type": "none",
+   "hidden_hazard": null,
+   "flagged": false,
+   "borderline": false,
+   "tier": null,
+   "insight": null,
+   "nearby": {
+    "counts": {
+     "250": {
+      "school": 0,
+      "kindergarten": 0,
+      "playground": 0,
+      "park": 0,
+      "allotments": 0
+     },
+     "500": {
+      "school": 0,
+      "kindergarten": 0,
+      "playground": 0,
+      "park": 0,
+      "allotments": 0
+     },
+     "1000": {
+      "school": 3,
+      "kindergarten": 2,
+      "playground": 2,
+      "park": 1,
+      "allotments": 0
+     }
+    },
+    "nearest": [
+     {
+      "category": "playground",
+      "name": null,
+      "distance_m": 722
+     },
+     {
+      "category": "kindergarten",
+      "name": "Les Petits Mousses",
+      "distance_m": 730
+     },
+     {
+      "category": "kindergarten",
+      "name": "Crèche Babilou Labège Garance",
+      "distance_m": 853
+     },
+     {
+      "category": "school",
+      "name": "Collège André Malraux",
+      "distance_m": 853
+     },
+     {
+      "category": "school",
+      "name": "Section d'enseignement général et professionnel adapté du Collège André Malraux",
+      "distance_m": 857
+     },
+     {
+      "category": "park",
+      "name": null,
+      "distance_m": 889
+     },
+     {
+      "category": "playground",
+      "name": null,
+      "distance_m": 975
+     },
+     {
+      "category": "school",
+      "name": "Institut médico éducatif Montaudran",
+      "distance_m": 978
+     }
+    ],
+    "n_within_1000m": 8
+   }
+  },
+  {
+   "site": "T10",
+   "name": "Canal de Saint Martory",
+   "city": "Toulouse",
+   "lat": 43.5322,
+   "lon": 1.32265,
+   "sampling_month": "2023-05",
+   "scores": {
+    "pathogen": 0.0497,
+    "faecal": 0.0193,
+    "arg": 0.6355,
+    "composite": 0.2348
+   },
+   "percentiles": {
+    "pathogen": 0.177,
+    "faecal": 0.021,
+    "arg": 0.969,
+    "composite": 0.375
+   },
+   "flag_type": "masked_arg",
+   "hidden_hazard": "arg",
+   "flagged": true,
+   "borderline": false,
+   "tier": "primary",
+   "insight": "T10 (Toulouse): faecal risk is low (the 2nd lowest of 96) but resistance-gene (ARG) risk is high (the 4th highest of 96). The composite score of 0.23 ranks the 61st highest of 96, so the composite understates it. In this dataset ARG risk is not predicted by faecal risk or land cover, so this site is a candidate for direct ARG testing.",
+   "nearby": {
+    "counts": {
+     "250": {
+      "school": 0,
+      "kindergarten": 0,
+      "playground": 0,
+      "park": 0,
+      "allotments": 0
+     },
+     "500": {
+      "school": 0,
+      "kindergarten": 0,
+      "playground": 0,
+      "park": 0,
+      "allotments": 0
+     },
+     "1000": {
+      "school": 2,
+      "kindergarten": 0,
+      "playground": 0,
+      "park": 1,
+      "allotments": 1
+     }
+    },
+    "nearest": [
+     {
+      "category": "school",
+      "name": "École maternelle publique Marie et Pierre Curie",
+      "distance_m": 892
+     },
+     {
+      "category": "school",
+      "name": "École primaire publique Marie et Pierre Curie",
+      "distance_m": 896
+     },
+     {
+      "category": "allotments",
+      "name": "Jardins Partagés",
+      "distance_m": 967
+     },
+     {
+      "category": "park",
+      "name": "Parc du Château de Maurens",
+      "distance_m": 989
+     }
+    ],
+    "n_within_1000m": 4
+   }
+  },
+  {
+   "site": "T11",
+   "name": "Fossé de Larramet amont",
+   "city": "Toulouse",
+   "lat": 43.52992,
+   "lon": 1.32597,
+   "sampling_month": "2023-05",
+   "scores": {
+    "pathogen": 0.4285,
+    "faecal": 0.5475,
+    "arg": 0.334,
+    "composite": 0.4367
+   },
+   "percentiles": {
+    "pathogen": 0.927,
+    "faecal": 0.896,
+    "arg": 0.417,
+    "composite": 0.911
+   },
+   "flag_type": "none",
+   "hidden_hazard": null,
+   "flagged": false,
+   "borderline": false,
+   "tier": null,
+   "insight": null,
+   "nearby": {
+    "counts": {
+     "250": {
+      "school": 0,
+      "kindergarten": 0,
+      "playground": 0,
+      "park": 0,
+      "allotments": 0
+     },
+     "500": {
+      "school": 0,
+      "kindergarten": 0,
+      "playground": 0,
+      "park": 0,
+      "allotments": 0
+     },
+     "1000": {
+      "school": 2,
+      "kindergarten": 0,
+      "playground": 1,
+      "park": 5,
+      "allotments": 0
+     }
+    },
+    "nearest": [
+     {
+      "category": "park",
+      "name": null,
+      "distance_m": 667
+     },
+     {
+      "category": "school",
+      "name": "École primaire publique Marie et Pierre Curie",
+      "distance_m": 764
+     },
+     {
+      "category": "school",
+      "name": "École maternelle publique Marie et Pierre Curie",
+      "distance_m": 767
+     },
+     {
+      "category": "park",
+      "name": null,
+      "distance_m": 778
+     },
+     {
+      "category": "playground",
+      "name": null,
+      "distance_m": 824
+     },
+     {
+      "category": "park",
+      "name": "Parc du Château de Maurens",
+      "distance_m": 835
+     },
+     {
+      "category": "park",
+      "name": null,
+      "distance_m": 847
+     },
+     {
+      "category": "park",
+      "name": null,
+      "distance_m": 955
+     }
+    ],
+    "n_within_1000m": 8
+   }
+  },
+  {
+   "site": "T12",
+   "name": "Fossé de Larramet médian",
+   "city": "Toulouse",
+   "lat": 43.54003,
+   "lon": 1.34077,
+   "sampling_month": "2023-05",
+   "scores": {
+    "pathogen": 0.0495,
+    "faecal": 0.0918,
+    "arg": 0.6525,
+    "composite": 0.2646
+   },
+   "percentiles": {
+    "pathogen": 0.135,
+    "faecal": 0.031,
+    "arg": 0.979,
+    "composite": 0.5
+   },
+   "flag_type": "masked_arg",
+   "hidden_hazard": null,
+   "flagged": true,
+   "borderline": true,
+   "tier": "primary",
+   "insight": "T12 (Toulouse): faecal risk is low (the 3rd lowest of 96) but resistance-gene (ARG) risk is high (the 3rd highest of 96). The composite score of 0.26 ranks the 49th highest of 96, so the composite understates it. In this dataset ARG risk is not predicted by faecal risk or land cover, so this site is a candidate for direct ARG testing.",
+   "nearby": {
+    "counts": {
+     "250": {
+      "school": 0,
+      "kindergarten": 1,
+      "playground": 2,
+      "park": 2,
+      "allotments": 0
+     },
+     "500": {
+      "school": 4,
+      "kindergarten": 1,
+      "playground": 6,
+      "park": 3,
+      "allotments": 0
+     },
+     "1000": {
+      "school": 7,
+      "kindergarten": 2,
+      "playground": 15,
+      "park": 10,
+      "allotments": 1
+     }
+    },
+    "nearest": [
+     {
+      "category": "playground",
+      "name": null,
+      "distance_m": 105
+     },
+     {
+      "category": "park",
+      "name": "Parc Simone Veil",
+      "distance_m": 145
+     },
+     {
+      "category": "kindergarten",
+      "name": "Crèche Municipale Collective et Halte-Garderie \"Le Petit Prince\"",
+      "distance_m": 228
+     },
+     {
+      "category": "park",
+      "name": "City Park du Vivier",
+      "distance_m": 233
+     },
+     {
+      "category": "playground",
+      "name": null,
+      "distance_m": 247
+     },
+     {
+      "category": "park",
+      "name": null,
+      "distance_m": 252
+     },
+     {
+      "category": "playground",
+      "name": null,
+      "distance_m": 274
+     },
+     {
+      "category": "school",
+      "name": "École maternelle publique Jean Jaurès",
+      "distance_m": 279
+     },
+     {
+      "category": "playground",
+      "name": null,
+      "distance_m": 296
+     },
+     {
+      "category": "playground",
+      "name": null,
+      "distance_m": 303
+     },
+     {
+      "category": "school",
+      "name": "École élémentaire publique Jean Jaurès",
+      "distance_m": 323
+     },
+     {
+      "category": "school",
+      "name": "École maternelle publique Eugène Montel",
+      "distance_m": 328
+     }
+    ],
+    "n_within_1000m": 35
+   }
+  },
+  {
+   "site": "T13",
+   "name": "Ruisseau du Roussimort aval",
+   "city": "Toulouse",
+   "lat": 43.5353,
+   "lon": 1.37785,
+   "sampling_month": "2023-05",
+   "scores": {
+    "pathogen": 0.1243,
+    "faecal": 0.3044,
+    "arg": 0.6042,
+    "composite": 0.3443
+   },
+   "percentiles": {
+    "pathogen": 0.448,
+    "faecal": 0.458,
+    "arg": 0.958,
+    "composite": 0.646
+   },
+   "flag_type": "none",
+   "hidden_hazard": null,
+   "flagged": false,
+   "borderline": false,
+   "tier": null,
+   "insight": null,
+   "nearby": {
+    "counts": {
+     "250": {
+      "school": 0,
+      "kindergarten": 0,
+      "playground": 0,
+      "park": 0,
+      "allotments": 0
+     },
+     "500": {
+      "school": 0,
+      "kindergarten": 0,
+      "playground": 0,
+      "park": 0,
+      "allotments": 0
+     },
+     "1000": {
+      "school": 0,
+      "kindergarten": 0,
+      "playground": 0,
+      "park": 0,
+      "allotments": 0
+     }
+    },
+    "nearest": [],
+    "n_within_1000m": 0
+   }
+  },
+  {
+   "site": "T14",
+   "name": "Canal agricole (depuis la Saudrune)",
+   "city": "Toulouse",
+   "lat": 43.53855,
+   "lon": 1.42074,
+   "sampling_month": "2023-05",
+   "scores": {
+    "pathogen": 0.2763,
+    "faecal": 0.5787,
+    "arg": 0.525,
+    "composite": 0.46
+   },
+   "percentiles": {
+    "pathogen": 0.74,
+    "faecal": 0.917,
+    "arg": 0.875,
+    "composite": 0.938
+   },
+   "flag_type": "none",
+   "hidden_hazard": null,
+   "flagged": false,
+   "borderline": false,
+   "tier": null,
+   "insight": null,
+   "nearby": {
+    "counts": {
+     "250": {
+      "school": 0,
+      "kindergarten": 0,
+      "playground": 0,
+      "park": 0,
+      "allotments": 0
+     },
+     "500": {
+      "school": 0,
+      "kindergarten": 0,
+      "playground": 0,
+      "park": 0,
+      "allotments": 0
+     },
+     "1000": {
+      "school": 0,
+      "kindergarten": 0,
+      "playground": 2,
+      "park": 1,
+      "allotments": 1
+     }
+    },
+    "nearest": [
+     {
+      "category": "allotments",
+      "name": null,
+      "distance_m": 528
+     },
+     {
+      "category": "playground",
+      "name": null,
+      "distance_m": 783
+     },
+     {
+      "category": "park",
+      "name": null,
+      "distance_m": 796
+     },
+     {
+      "category": "playground",
+      "name": null,
+      "distance_m": 810
+     }
+    ],
+    "n_within_1000m": 4
+   }
+  },
+  {
+   "site": "T16",
+   "name": "Fossé de Larramet aval",
+   "city": "Toulouse",
+   "lat": 43.57895,
+   "lon": 1.35929,
+   "sampling_month": "2023-05",
+   "scores": {
+    "pathogen": 0.0248,
+    "faecal": 0.3325,
+    "arg": 0.2866,
+    "composite": 0.2146
+   },
+   "percentiles": {
+    "pathogen": 0.052,
+    "faecal": 0.562,
+    "arg": 0.312,
+    "composite": 0.24
+   },
+   "flag_type": "none",
+   "hidden_hazard": null,
+   "flagged": false,
+   "borderline": false,
+   "tier": null,
+   "insight": null,
+   "nearby": {
+    "counts": {
+     "250": {
+      "school": 0,
+      "kindergarten": 0,
+      "playground": 0,
+      "park": 0,
+      "allotments": 0
+     },
+     "500": {
+      "school": 0,
+      "kindergarten": 0,
+      "playground": 1,
+      "park": 0,
+      "allotments": 1
+     },
+     "1000": {
+      "school": 1,
+      "kindergarten": 0,
+      "playground": 2,
+      "park": 1,
+      "allotments": 1
+     }
+    },
+    "nearest": [
+     {
+      "category": "allotments",
+      "name": "Jardin des Ramée-Culteurs",
+      "distance_m": 315
+     },
+     {
+      "category": "playground",
+      "name": null,
+      "distance_m": 363
+     },
+     {
+      "category": "playground",
+      "name": null,
+      "distance_m": 613
+     },
+     {
+      "category": "school",
+      "name": "Collège Sabine Weiss",
+      "distance_m": 901
+     },
+     {
+      "category": "park",
+      "name": "Square Antonin Balancy",
+      "distance_m": 967
+     }
+    ],
+    "n_within_1000m": 5
+   }
+  },
+  {
+   "site": "T17",
+   "name": "Fossé de pluvial avant rejet dans fossé de Larramet",
+   "city": "Toulouse",
+   "lat": 43.5786,
+   "lon": 1.35861,
+   "sampling_month": "2023-05",
+   "scores": {
+    "pathogen": 0.2525,
+    "faecal": 0.9979,
+    "arg": 0.3341,
+    "composite": 0.5282
+   },
+   "percentiles": {
+    "pathogen": 0.719,
+    "faecal": 0.99,
+    "arg": 0.427,
+    "composite": 0.948
+   },
+   "flag_type": "none",
+   "hidden_hazard": null,
+   "flagged": false,
+   "borderline": false,
+   "tier": null,
+   "insight": null,
+   "nearby": {
+    "counts": {
+     "250": {
+      "school": 0,
+      "kindergarten": 0,
+      "playground": 0,
+      "park": 0,
+      "allotments": 0
+     },
+     "500": {
+      "school": 0,
+      "kindergarten": 0,
+      "playground": 1,
+      "park": 0,
+      "allotments": 1
+     },
+     "1000": {
+      "school": 1,
+      "kindergarten": 0,
+      "playground": 2,
+      "park": 1,
+      "allotments": 1
+     }
+    },
+    "nearest": [
+     {
+      "category": "allotments",
+      "name": "Jardin des Ramée-Culteurs",
+      "distance_m": 255
+     },
+     {
+      "category": "playground",
+      "name": null,
+      "distance_m": 383
+     },
+     {
+      "category": "playground",
+      "name": null,
+      "distance_m": 664
+     },
+     {
+      "category": "school",
+      "name": "Collège Sabine Weiss",
+      "distance_m": 927
+     },
+     {
+      "category": "park",
+      "name": "Square Antonin Balancy",
+      "distance_m": 937
+     }
+    ],
+    "n_within_1000m": 5
+   }
+  },
+  {
+   "site": "T18",
+   "name": "Ousseau",
+   "city": "Toulouse",
+   "lat": 43.57882,
+   "lon": 1.35262,
+   "sampling_month": "2023-05",
+   "scores": {
+    "pathogen": 0.2995,
+    "faecal": 0.3628,
+    "arg": 0.3494,
+    "composite": 0.3372
+   },
+   "percentiles": {
+    "pathogen": 0.76,
+    "faecal": 0.615,
+    "arg": 0.49,
+    "composite": 0.625
+   },
+   "flag_type": "none",
+   "hidden_hazard": null,
+   "flagged": false,
+   "borderline": false,
+   "tier": null,
+   "insight": null,
+   "nearby": {
+    "counts": {
+     "250": {
+      "school": 0,
+      "kindergarten": 0,
+      "playground": 0,
+      "park": 0,
+      "allotments": 0
+     },
+     "500": {
+      "school": 0,
+      "kindergarten": 0,
+      "playground": 0,
+      "park": 0,
+      "allotments": 1
+     },
+     "1000": {
+      "school": 3,
+      "kindergarten": 1,
+      "playground": 9,
+      "park": 4,
+      "allotments": 1
+     }
+    },
+    "nearest": [
+     {
+      "category": "allotments",
+      "name": "Jardin des Ramée-Culteurs",
+      "distance_m": 450
+     },
+     {
+      "category": "playground",
+      "name": null,
+      "distance_m": 527
+     },
+     {
+      "category": "park",
+      "name": "Square Antonin Balancy",
+      "distance_m": 550
+     },
+     {
+      "category": "playground",
+      "name": null,
+      "distance_m": 586
+     },
+     {
+      "category": "park",
+      "name": null,
+      "distance_m": 590
+     },
+     {
+      "category": "school",
+      "name": "École maternelle publique Le Château",
+      "distance_m": 590
+     },
+     {
+      "category": "playground",
+      "name": null,
+      "distance_m": 591
+     },
+     {
+      "category": "playground",
+      "name": null,
+      "distance_m": 654
+     },
+     {
+      "category": "school",
+      "name": "École élémentaire publique Le Château",
+      "distance_m": 657
+     },
+     {
+      "category": "playground",
+      "name": null,
+      "distance_m": 709
+     },
+     {
+      "category": "playground",
+      "name": null,
+      "distance_m": 710
+     },
+     {
+      "category": "park",
+      "name": "Square Bernard Audigé",
+      "distance_m": 728
+     }
+    ],
+    "n_within_1000m": 18
+   }
+  },
+  {
+   "site": "T19",
+   "name": "Touch",
+   "city": "Toulouse",
+   "lat": 43.58253,
+   "lon": 1.35047,
+   "sampling_month": "2023-05",
+   "scores": {
+    "pathogen": 0.0248,
+    "faecal": 0.1091,
+    "arg": 0.3021,
+    "composite": 0.1453
+   },
+   "percentiles": {
+    "pathogen": 0.052,
+    "faecal": 0.052,
+    "arg": 0.354,
+    "composite": 0.073
+   },
+   "flag_type": "none",
+   "hidden_hazard": null,
+   "flagged": false,
+   "borderline": false,
+   "tier": null,
+   "insight": null,
+   "nearby": {
+    "counts": {
+     "250": {
+      "school": 0,
+      "kindergarten": 0,
+      "playground": 0,
+      "park": 1,
+      "allotments": 0
+     },
+     "500": {
+      "school": 2,
+      "kindergarten": 0,
+      "playground": 4,
+      "park": 4,
+      "allotments": 0
+     },
+     "1000": {
+      "school": 4,
+      "kindergarten": 3,
+      "playground": 11,
+      "park": 4,
+      "allotments": 1
+     }
+    },
+    "nearest": [
+     {
+      "category": "park",
+      "name": "Square Antonin Balancy",
+      "distance_m": 161
+     },
+     {
+      "category": "playground",
+      "name": null,
+      "distance_m": 260
+     },
+     {
+      "category": "park",
+      "name": null,
+      "distance_m": 261
+     },
+     {
+      "category": "playground",
+      "name": null,
+      "distance_m": 266
+     },
+     {
+      "category": "school",
+      "name": "École maternelle publique Le Château",
+      "distance_m": 331
+     },
+     {
+      "category": "park",
+      "name": "Square Bernard Audigé",
+      "distance_m": 357
+     },
+     {
+      "category": "school",
+      "name": "École élémentaire publique Le Château",
+      "distance_m": 388
+     },
+     {
+      "category": "playground",
+      "name": null,
+      "distance_m": 396
+     },
+     {
+      "category": "playground",
+      "name": null,
+      "distance_m": 396
+     },
+     {
+      "category": "park",
+      "name": "Square Paul Camy",
+      "distance_m": 402
+     },
+     {
+      "category": "school",
+      "name": "École maternelle publique Moulin à Vent",
+      "distance_m": 551
+     },
+     {
+      "category": "school",
+      "name": "École élémentaire publique Moulin à Vent",
+      "distance_m": 562
+     }
+    ],
+    "n_within_1000m": 23
+   }
+  },
+  {
+   "site": "T2",
+   "name": "Ruisseau de Bonneval aval",
+   "city": "Toulouse",
+   "lat": 43.53219,
+   "lon": 1.46332,
+   "sampling_month": "2023-05",
+   "scores": {
+    "pathogen": 0.0997,
+    "faecal": 0.126,
+    "arg": 0.414,
+    "composite": 0.2132
+   },
+   "percentiles": {
+    "pathogen": 0.37,
+    "faecal": 0.104,
+    "arg": 0.667,
+    "composite": 0.229
+   },
+   "flag_type": "none",
+   "hidden_hazard": null,
+   "flagged": false,
+   "borderline": false,
+   "tier": null,
+   "insight": null,
+   "nearby": {
+    "counts": {
+     "250": {
+      "school": 0,
+      "kindergarten": 0,
+      "playground": 0,
+      "park": 0,
+      "allotments": 0
+     },
+     "500": {
+      "school": 0,
+      "kindergarten": 0,
+      "playground": 0,
+      "park": 0,
+      "allotments": 1
+     },
+     "1000": {
+      "school": 1,
+      "kindergarten": 0,
+      "playground": 3,
+      "park": 3,
+      "allotments": 1
+     }
+    },
+    "nearest": [
+     {
+      "category": "allotments",
+      "name": "Jardins Familiaux de Montcalm",
+      "distance_m": 381
+     },
+     {
+      "category": "school",
+      "name": "École primaire publique",
+      "distance_m": 581
+     },
+     {
+      "category": "playground",
+      "name": null,
+      "distance_m": 684
+     },
+     {
+      "category": "park",
+      "name": "Parc du château de Soule",
+      "distance_m": 723
+     },
+     {
+      "category": "playground",
+      "name": "Jardin des Senteurs",
+      "distance_m": 748
+     },
+     {
+      "category": "park",
+      "name": null,
+      "distance_m": 914
+     },
+     {
+      "category": "park",
+      "name": "Domaine de Montjoie",
+      "distance_m": 940
+     },
+     {
+      "category": "playground",
+      "name": null,
+      "distance_m": 992
+     }
+    ],
+    "n_within_1000m": 8
+   }
+  },
+  {
+   "site": "T20",
+   "name": "Canal de Moulin",
+   "city": "Toulouse",
+   "lat": 43.5828,
+   "lon": 1.3493,
+   "sampling_month": "2023-05",
+   "scores": {
+    "pathogen": 0.3798,
+    "faecal": 0.431,
+    "arg": 0.5091,
+    "composite": 0.44
+   },
+   "percentiles": {
+    "pathogen": 0.865,
+    "faecal": 0.74,
+    "arg": 0.844,
+    "composite": 0.927
+   },
+   "flag_type": "none",
+   "hidden_hazard": null,
+   "flagged": false,
+   "borderline": false,
+   "tier": null,
+   "insight": null,
+   "nearby": {
+    "counts": {
+     "250": {
+      "school": 0,
+      "kindergarten": 0,
+      "playground": 2,
+      "park": 2,
+      "allotments": 0
+     },
+     "500": {
+      "school": 2,
+      "kindergarten": 0,
+      "playground": 4,
+      "park": 4,
+      "allotments": 0
+     },
+     "1000": {
+      "school": 5,
+      "kindergarten": 3,
+      "playground": 11,
+      "park": 4,
+      "allotments": 1
+     }
+    },
+    "nearest": [
+     {
+      "category": "park",
+      "name": "Square Antonin Balancy",
+      "distance_m": 64
+     },
+     {
+      "category": "playground",
+      "name": null,
+      "distance_m": 171
+     },
+     {
+      "category": "park",
+      "name": null,
+      "distance_m": 172
+     },
+     {
+      "category": "playground",
+      "name": null,
+      "distance_m": 177
+     },
+     {
+      "category": "school",
+      "name": "École maternelle publique Le Château",
+      "distance_m": 254
+     },
+     {
+      "category": "park",
+      "name": "Square Bernard Audigé",
+      "distance_m": 258
+     },
+     {
+      "category": "school",
+      "name": "École élémentaire publique Le Château",
+      "distance_m": 303
+     },
+     {
+      "category": "playground",
+      "name": null,
+      "distance_m": 314
+     },
+     {
+      "category": "playground",
+      "name": null,
+      "distance_m": 314
+     },
+     {
+      "category": "park",
+      "name": "Square Paul Camy",
+      "distance_m": 320
+     },
+     {
+      "category": "school",
+      "name": "École élémentaire publique Moulin à Vent",
+      "distance_m": 505
+     },
+     {
+      "category": "school",
+      "name": "École maternelle publique Moulin à Vent",
+      "distance_m": 506
+     }
+    ],
+    "n_within_1000m": 24
+   }
+  },
+  {
+   "site": "T22",
+   "name": "Ruisseau de l’Armurié",
+   "city": "Toulouse",
+   "lat": 43.59608,
+   "lon": 1.36657,
+   "sampling_month": "2023-05",
+   "scores": {
+    "pathogen": 0.1988,
+    "faecal": 0.3252,
+    "arg": 0.5428,
+    "composite": 0.3556
+   },
+   "percentiles": {
+    "pathogen": 0.635,
+    "faecal": 0.521,
+    "arg": 0.906,
+    "composite": 0.719
+   },
+   "flag_type": "none",
+   "hidden_hazard": null,
+   "flagged": false,
+   "borderline": false,
+   "tier": null,
+   "insight": null,
+   "nearby": {
+    "counts": {
+     "250": {
+      "school": 0,
+      "kindergarten": 0,
+      "playground": 1,
+      "park": 0,
+      "allotments": 0
+     },
+     "500": {
+      "school": 1,
+      "kindergarten": 0,
+      "playground": 1,
+      "park": 1,
+      "allotments": 0
+     },
+     "1000": {
+      "school": 3,
+      "kindergarten": 2,
+      "playground": 7,
+      "park": 1,
+      "allotments": 1
+     }
+    },
+    "nearest": [
+     {
+      "category": "playground",
+      "name": null,
+      "distance_m": 241
+     },
+     {
+      "category": "park",
+      "name": "Parc Fleurance",
+      "distance_m": 276
+     },
+     {
+      "category": "school",
+      "name": "École élémentaire publique Fleurance",
+      "distance_m": 404
+     },
+     {
+      "category": "school",
+      "name": "École primaire publique Émilie du Châtelet",
+      "distance_m": 577
+     },
+     {
+      "category": "school",
+      "name": "École maternelle publique Fleurance",
+      "distance_m": 584
+     },
+     {
+      "category": "kindergarten",
+      "name": "Fleurance Bidibulles",
+      "distance_m": 640
+     },
+     {
+      "category": "playground",
+      "name": null,
+      "distance_m": 680
+     },
+     {
+      "category": "playground",
+      "name": "Labyrinthe",
+      "distance_m": 688
+     },
+     {
+      "category": "playground",
+      "name": "Plateau multifonction et gradins",
+      "distance_m": 714
+     },
+     {
+      "category": "playground",
+      "name": null,
+      "distance_m": 866
+     },
+     {
+      "category": "kindergarten",
+      "name": "Crèche Îlot des Bidibulles",
+      "distance_m": 878
+     },
+     {
+      "category": "allotments",
+      "name": "Aux jardins du Touch",
+      "distance_m": 880
+     }
+    ],
+    "n_within_1000m": 14
+   }
+  },
+  {
+   "site": "T25",
+   "name": "Ruisseau de l’Armurié",
+   "city": "Toulouse",
+   "lat": 43.64862,
+   "lon": 1.51501,
+   "sampling_month": "2023-05",
+   "scores": {
+    "pathogen": 0.1266,
+    "faecal": 0.4027,
+    "arg": 0.5096,
+    "composite": 0.3463
+   },
+   "percentiles": {
+    "pathogen": 0.51,
+    "faecal": 0.677,
+    "arg": 0.854,
+    "composite": 0.667
+   },
+   "flag_type": "none",
+   "hidden_hazard": null,
+   "flagged": false,
+   "borderline": false,
+   "tier": null,
+   "insight": null,
+   "nearby": {
+    "counts": {
+     "250": {
+      "school": 0,
+      "kindergarten": 0,
+      "playground": 0,
+      "park": 0,
+      "allotments": 0
+     },
+     "500": {
+      "school": 0,
+      "kindergarten": 0,
+      "playground": 0,
+      "park": 0,
+      "allotments": 0
+     },
+     "1000": {
+      "school": 3,
+      "kindergarten": 0,
+      "playground": 1,
+      "park": 1,
+      "allotments": 0
+     }
+    },
+    "nearest": [
+     {
+      "category": "playground",
+      "name": null,
+      "distance_m": 515
+     },
+     {
+      "category": "school",
+      "name": "École maternelle publique Jean de la Fontaine",
+      "distance_m": 873
+     },
+     {
+      "category": "school",
+      "name": "Groupe scolaire Jean Moulin",
+      "distance_m": 931
+     },
+     {
+      "category": "park",
+      "name": null,
+      "distance_m": 950
+     },
+     {
+      "category": "school",
+      "name": "École élémentaire publique Jean Moulin",
+      "distance_m": 966
+     }
+    ],
+    "n_within_1000m": 5
+   }
+  },
+  {
+   "site": "T3",
+   "name": "Ruisseau de Bonneval amont",
+   "city": "Toulouse",
+   "lat": 43.52756,
+   "lon": 1.47439,
+   "sampling_month": "2023-05",
+   "scores": {
+    "pathogen": 0.3248,
+    "faecal": 0.3904,
+    "arg": 0.4614,
+    "composite": 0.3922
+   },
+   "percentiles": {
+    "pathogen": 0.802,
+    "faecal": 0.656,
+    "arg": 0.75,
+    "composite": 0.792
+   },
+   "flag_type": "none",
+   "hidden_hazard": null,
+   "flagged": false,
+   "borderline": false,
+   "tier": null,
+   "insight": null,
+   "nearby": {
+    "counts": {
+     "250": {
+      "school": 0,
+      "kindergarten": 0,
+      "playground": 0,
+      "park": 0,
+      "allotments": 0
+     },
+     "500": {
+      "school": 0,
+      "kindergarten": 0,
+      "playground": 0,
+      "park": 0,
+      "allotments": 0
+     },
+     "1000": {
+      "school": 2,
+      "kindergarten": 0,
+      "playground": 3,
+      "park": 1,
+      "allotments": 0
+     }
+    },
+    "nearest": [
+     {
+      "category": "playground",
+      "name": null,
+      "distance_m": 763
+     },
+     {
+      "category": "playground",
+      "name": null,
+      "distance_m": 847
+     },
+     {
+      "category": "school",
+      "name": "École maternelle publique René Goscinny",
+      "distance_m": 885
+     },
+     {
+      "category": "school",
+      "name": "École élémentaire publique René Goscinny",
+      "distance_m": 962
+     },
+     {
+      "category": "playground",
+      "name": null,
+      "distance_m": 968
+     },
+     {
+      "category": "park",
+      "name": "Parc du château de Soule",
+      "distance_m": 988
+     }
+    ],
+    "n_within_1000m": 6
+   }
+  },
+  {
+   "site": "T4",
+   "name": "Hers",
+   "city": "Toulouse",
+   "lat": 43.56499,
+   "lon": 1.49464,
+   "sampling_month": "2023-05",
+   "scores": {
+    "pathogen": 0.1242,
+    "faecal": 0.5135,
+    "arg": 0.1303,
+    "composite": 0.256
+   },
+   "percentiles": {
+    "pathogen": 0.427,
+    "faecal": 0.854,
+    "arg": 0.115,
+    "composite": 0.469
+   },
+   "flag_type": "none",
+   "hidden_hazard": null,
+   "flagged": false,
+   "borderline": false,
+   "tier": null,
+   "insight": null,
+   "nearby": {
+    "counts": {
+     "250": {
+      "school": 0,
+      "kindergarten": 0,
+      "playground": 1,
+      "park": 0,
+      "allotments": 0
+     },
+     "500": {
+      "school": 2,
+      "kindergarten": 0,
+      "playground": 2,
+      "park": 1,
+      "allotments": 0
+     },
+     "1000": {
+      "school": 3,
+      "kindergarten": 0,
+      "playground": 4,
+      "park": 4,
+      "allotments": 0
+     }
+    },
+    "nearest": [
+     {
+      "category": "playground",
+      "name": "Bassin de l'Hers",
+      "distance_m": 221
+     },
+     {
+      "category": "school",
+      "name": "École primaire publique Georges Mailhos",
+      "distance_m": 322
+     },
+     {
+      "category": "playground",
+      "name": null,
+      "distance_m": 351
+     },
+     {
+      "category": "school",
+      "name": "École primaire privée Les sarments",
+      "distance_m": 396
+     },
+     {
+      "category": "park",
+      "name": "Parc Jacques Maziol",
+      "distance_m": 433
+     },
+     {
+      "category": "school",
+      "name": "École primaire publique Marie de Gournay",
+      "distance_m": 631
+     },
+     {
+      "category": "park",
+      "name": null,
+      "distance_m": 778
+     },
+     {
+      "category": "playground",
+      "name": null,
+      "distance_m": 942
+     },
+     {
+      "category": "park",
+      "name": null,
+      "distance_m": 955
+     },
+     {
+      "category": "playground",
+      "name": null,
+      "distance_m": 959
+     },
+     {
+      "category": "park",
+      "name": "Parc de la Marcaissonne",
+      "distance_m": 980
+     }
+    ],
+    "n_within_1000m": 11
+   }
+  },
+  {
+   "site": "T5",
+   "name": "Marcaissonne aval",
+   "city": "Toulouse",
+   "lat": 43.5678,
+   "lon": 1.50937,
+   "sampling_month": "2023-05",
+   "scores": {
+    "pathogen": 0.154,
+    "faecal": 0.8464,
+    "arg": 0.2778,
+    "composite": 0.426
+   },
+   "percentiles": {
+    "pathogen": 0.583,
+    "faecal": 0.979,
+    "arg": 0.281,
+    "composite": 0.875
+   },
+   "flag_type": "none",
+   "hidden_hazard": null,
+   "flagged": false,
+   "borderline": false,
+   "tier": null,
+   "insight": null,
+   "nearby": {
+    "counts": {
+     "250": {
+      "school": 0,
+      "kindergarten": 0,
+      "playground": 0,
+      "park": 0,
+      "allotments": 0
+     },
+     "500": {
+      "school": 0,
+      "kindergarten": 0,
+      "playground": 0,
+      "park": 0,
+      "allotments": 1
+     },
+     "1000": {
+      "school": 4,
+      "kindergarten": 0,
+      "playground": 5,
+      "park": 3,
+      "allotments": 3
+     }
+    },
+    "nearest": [
+     {
+      "category": "allotments",
+      "name": null,
+      "distance_m": 332
+     },
+     {
+      "category": "playground",
+      "name": null,
+      "distance_m": 528
+     },
+     {
+      "category": "school",
+      "name": "École primaire publique Marie de Gournay",
+      "distance_m": 598
+     },
+     {
+      "category": "park",
+      "name": "Parc de la Marcaissonne",
+      "distance_m": 638
+     },
+     {
+      "category": "allotments",
+      "name": null,
+      "distance_m": 644
+     },
+     {
+      "category": "playground",
+      "name": null,
+      "distance_m": 652
+     },
+     {
+      "category": "school",
+      "name": "École primaire publique Catala",
+      "distance_m": 686
+     },
+     {
+      "category": "playground",
+      "name": null,
+      "distance_m": 688
+     },
+     {
+      "category": "school",
+      "name": "École maternelle publique Catala",
+      "distance_m": 716
+     },
+     {
+      "category": "park",
+      "name": "Parc Catala",
+      "distance_m": 765
+     },
+     {
+      "category": "playground",
+      "name": null,
+      "distance_m": 781
+     },
+     {
+      "category": "park",
+      "name": null,
+      "distance_m": 863
+     }
+    ],
+    "n_within_1000m": 15
+   }
+  },
+  {
+   "site": "T6",
+   "name": "Marcaissonne amont",
+   "city": "Toulouse",
+   "lat": 43.56755,
+   "lon": 1.51974,
+   "sampling_month": "2023-05",
+   "scores": {
+    "pathogen": 0.1502,
+    "faecal": 0.5056,
+    "arg": 0.4162,
+    "composite": 0.3573
+   },
+   "percentiles": {
+    "pathogen": 0.573,
+    "faecal": 0.823,
+    "arg": 0.677,
+    "composite": 0.729
+   },
+   "flag_type": "none",
+   "hidden_hazard": null,
+   "flagged": false,
+   "borderline": false,
+   "tier": null,
+   "insight": null,
+   "nearby": {
+    "counts": {
+     "250": {
+      "school": 0,
+      "kindergarten": 0,
+      "playground": 0,
+      "park": 0,
+      "allotments": 0
+     },
+     "500": {
+      "school": 0,
+      "kindergarten": 0,
+      "playground": 2,
+      "park": 1,
+      "allotments": 0
+     },
+     "1000": {
+      "school": 2,
+      "kindergarten": 1,
+      "playground": 3,
+      "park": 2,
+      "allotments": 0
+     }
+    },
+    "nearest": [
+     {
+      "category": "park",
+      "name": "Parc Catala",
+      "distance_m": 398
+     },
+     {
+      "category": "playground",
+      "name": null,
+      "distance_m": 444
+     },
+     {
+      "category": "playground",
+      "name": null,
+      "distance_m": 483
+     },
+     {
+      "category": "playground",
+      "name": null,
+      "distance_m": 502
+     },
+     {
+      "category": "school",
+      "name": "École maternelle publique Catala",
+      "distance_m": 503
+     },
+     {
+      "category": "school",
+      "name": "École primaire publique Catala",
+      "distance_m": 522
+     },
+     {
+      "category": "park",
+      "name": null,
+      "distance_m": 856
+     },
+     {
+      "category": "kindergarten",
+      "name": "Baby Coccinelle",
+      "distance_m": 994
+     }
+    ],
+    "n_within_1000m": 8
+   }
+  },
+  {
+   "site": "T7",
+   "name": "Saune",
+   "city": "Toulouse",
+   "lat": 43.57873,
+   "lon": 1.53609,
+   "sampling_month": "2023-05",
+   "scores": {
+    "pathogen": 0.0758,
+    "faecal": 0.2074,
+    "arg": 0.2231,
+    "composite": 0.1687
+   },
+   "percentiles": {
+    "pathogen": 0.307,
+    "faecal": 0.229,
+    "arg": 0.167,
+    "composite": 0.125
+   },
+   "flag_type": "none",
+   "hidden_hazard": null,
+   "flagged": false,
+   "borderline": false,
+   "tier": null,
+   "insight": null,
+   "nearby": {
+    "counts": {
+     "250": {
+      "school": 0,
+      "kindergarten": 0,
+      "playground": 0,
+      "park": 0,
+      "allotments": 0
+     },
+     "500": {
+      "school": 1,
+      "kindergarten": 0,
+      "playground": 1,
+      "park": 1,
+      "allotments": 0
+     },
+     "1000": {
+      "school": 3,
+      "kindergarten": 1,
+      "playground": 8,
+      "park": 6,
+      "allotments": 0
+     }
+    },
+    "nearest": [
+     {
+      "category": "park",
+      "name": null,
+      "distance_m": 251
+     },
+     {
+      "category": "playground",
+      "name": null,
+      "distance_m": 399
+     },
+     {
+      "category": "school",
+      "name": "Collège Elisabeth Badinter",
+      "distance_m": 472
+     },
+     {
+      "category": "playground",
+      "name": null,
+      "distance_m": 511
+     },
+     {
+      "category": "park",
+      "name": null,
+      "distance_m": 548
+     },
+     {
+      "category": "park",
+      "name": null,
+      "distance_m": 703
+     },
+     {
+      "category": "park",
+      "name": "Espace vert du mail",
+      "distance_m": 707
+     },
+     {
+      "category": "playground",
+      "name": null,
+      "distance_m": 723
+     },
+     {
+      "category": "school",
+      "name": "École élémentaire publique Jean-Marie Fériol",
+      "distance_m": 796
+     },
+     {
+      "category": "school",
+      "name": "École maternelle publique Jean-Marie Fériol",
+      "distance_m": 832
+     },
+     {
+      "category": "kindergarten",
+      "name": "Créche les Quintounets",
+      "distance_m": 858
+     },
+     {
+      "category": "playground",
+      "name": null,
+      "distance_m": 858
+     }
+    ],
+    "n_within_1000m": 18
+   }
+  },
+  {
+   "site": "T8",
+   "name": "Ruisseau du Grand Port de Mer",
+   "city": "Toulouse",
+   "lat": 43.58553,
+   "lon": 1.52861,
+   "sampling_month": "2023-05",
+   "scores": {
+    "pathogen": 0.025,
+    "faecal": 0.1995,
+    "arg": 0.2415,
+    "composite": 0.1554
+   },
+   "percentiles": {
+    "pathogen": 0.109,
+    "faecal": 0.198,
+    "arg": 0.188,
+    "composite": 0.083
+   },
+   "flag_type": "none",
+   "hidden_hazard": null,
+   "flagged": false,
+   "borderline": false,
+   "tier": null,
+   "insight": null,
+   "nearby": {
+    "counts": {
+     "250": {
+      "school": 1,
+      "kindergarten": 0,
+      "playground": 3,
+      "park": 0,
+      "allotments": 0
+     },
+     "500": {
+      "school": 2,
+      "kindergarten": 1,
+      "playground": 5,
+      "park": 2,
+      "allotments": 0
+     },
+     "1000": {
+      "school": 2,
+      "kindergarten": 1,
+      "playground": 12,
+      "park": 7,
+      "allotments": 0
+     }
+    },
+    "nearest": [
+     {
+      "category": "playground",
+      "name": null,
+      "distance_m": 32
+     },
+     {
+      "category": "playground",
+      "name": null,
+      "distance_m": 106
+     },
+     {
+      "category": "playground",
+      "name": null,
+      "distance_m": 111
+     },
+     {
+      "category": "school",
+      "name": "École élémentaire publique Jean-Marie Fériol",
+      "distance_m": 243
+     },
+     {
+      "category": "school",
+      "name": "École maternelle publique Jean-Marie Fériol",
+      "distance_m": 256
+     },
+     {
+      "category": "park",
+      "name": "Espace vert du mail",
+      "distance_m": 281
+     },
+     {
+      "category": "playground",
+      "name": null,
+      "distance_m": 316
+     },
+     {
+      "category": "park",
+      "name": null,
+      "distance_m": 331
+     },
+     {
+      "category": "kindergarten",
+      "name": "Créche les Quintounets",
+      "distance_m": 378
+     },
+     {
+      "category": "playground",
+      "name": null,
+      "distance_m": 470
+     },
+     {
+      "category": "playground",
+      "name": null,
+      "distance_m": 530
+     },
+     {
+      "category": "park",
+      "name": null,
+      "distance_m": 540
+     }
+    ],
+    "n_within_1000m": 22
+   }
+  },
+  {
+   "site": "T9",
+   "name": "Ruisseau du Roussimort amont",
+   "city": "Toulouse",
+   "lat": 43.52152,
+   "lon": 1.34273,
+   "sampling_month": "2023-05",
+   "scores": {
+    "pathogen": 0.025,
+    "faecal": 0.1039,
+    "arg": 0.2561,
+    "composite": 0.1283
+   },
+   "percentiles": {
+    "pathogen": 0.109,
+    "faecal": 0.042,
+    "arg": 0.208,
+    "composite": 0.052
+   },
+   "flag_type": "none",
+   "hidden_hazard": null,
+   "flagged": false,
+   "borderline": false,
+   "tier": null,
+   "insight": null,
+   "nearby": {
+    "counts": {
+     "250": {
+      "school": 1,
+      "kindergarten": 0,
+      "playground": 0,
+      "park": 0,
+      "allotments": 0
+     },
+     "500": {
+      "school": 5,
+      "kindergarten": 0,
+      "playground": 3,
+      "park": 2,
+      "allotments": 0
+     },
+     "1000": {
+      "school": 7,
+      "kindergarten": 0,
+      "playground": 10,
+      "park": 11,
+      "allotments": 0
+     }
+    },
+    "nearest": [
+     {
+      "category": "school",
+      "name": "Institut médico éducatif Centre André Bousquairol",
+      "distance_m": 193
+     },
+     {
+      "category": "school",
+      "name": "École élémentaire publique Maurice Ravel",
+      "distance_m": 281
+     },
+     {
+      "category": "playground",
+      "name": null,
+      "distance_m": 337
+     },
+     {
+      "category": "park",
+      "name": "Parc de l'école",
+      "distance_m": 353
+     },
+     {
+      "category": "school",
+      "name": "École maternelle publique Maurice Ravel",
+      "distance_m": 383
+     },
+     {
+      "category": "park",
+      "name": null,
+      "distance_m": 400
+     },
+     {
+      "category": "school",
+      "name": "École maternelle publique Fernand Bécane",
+      "distance_m": 401
+     },
+     {
+      "category": "school",
+      "name": "École primaire Fernand Bécane",
+      "distance_m": 430
+     },
+     {
+      "category": "playground",
+      "name": null,
+      "distance_m": 443
+     },
+     {
+      "category": "playground",
+      "name": null,
+      "distance_m": 458
+     },
+     {
+      "category": "park",
+      "name": null,
+      "distance_m": 571
+     },
+     {
+      "category": "playground",
+      "name": null,
+      "distance_m": 601
+     }
+    ],
+    "n_within_1000m": 28
+   }
+  }
+ ]
+}

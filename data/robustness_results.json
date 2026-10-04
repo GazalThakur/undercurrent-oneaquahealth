@@ -1,0 +1,297 @@
+{
+ "meta": {
+  "n_sites": 96,
+  "n_effective_df": 91,
+  "n_bootstrap": 2000,
+  "n_permutations": 5000,
+  "family_size_covariates": 18,
+  "seed": 7,
+  "total_distinct_tests_project": 24
+ },
+ "independence": [
+  {
+   "pair": [
+    "arg",
+    "faecal"
+   ],
+   "rho_within_city": -0.027,
+   "ci95": [
+    -0.252,
+    0.178
+   ],
+   "rho_pooled": -0.034,
+   "per_city": {
+    "Benevento": -0.002,
+    "Coimbra": 0.24,
+    "Ghent": -0.096,
+    "Oslo": -0.066,
+    "Toulouse": -0.187
+   },
+   "note": ""
+  },
+  {
+   "pair": [
+    "arg",
+    "pathogen"
+   ],
+   "rho_within_city": 0.184,
+   "ci95": [
+    -0.023,
+    0.36
+   ],
+   "rho_pooled": 0.044,
+   "per_city": {
+    "Benevento": 0.173,
+    "Coimbra": 0.503,
+    "Ghent": -0.211,
+    "Oslo": 0.239,
+    "Toulouse": 0.187
+   },
+   "note": ""
+  },
+  {
+   "pair": [
+    "faecal",
+    "pathogen"
+   ],
+   "rho_within_city": 0.688,
+   "ci95": [
+    0.513,
+    0.795
+   ],
+   "rho_pooled": 0.717,
+   "per_city": {
+    "Benevento": 0.904,
+    "Coimbra": 0.682,
+    "Ghent": 0.493,
+    "Oslo": 0.605,
+    "Toulouse": 0.722
+   },
+   "note": ""
+  },
+  {
+   "pair": [
+    "arg",
+    "composite"
+   ],
+   "rho_within_city": 0.531,
+   "ci95": [
+    0.34,
+    0.641
+   ],
+   "rho_pooled": 0.449,
+   "per_city": {
+    "Benevento": 0.447,
+    "Coimbra": 0.635,
+    "Ghent": 0.64,
+    "Oslo": 0.645,
+    "Toulouse": 0.325
+   },
+   "note": "mechanical (composite contains ARG)"
+  }
+ ],
+ "covariates": [
+  {
+   "covariate": "distChampCulture",
+   "label": "Distance to cropland",
+   "hazard": "pathogen",
+   "rho": -0.08,
+   "p": 0.4367,
+   "q": 0.7451,
+   "n": 96,
+   "evidence": "none",
+   "closer_means_higher": true
+  },
+  {
+   "covariate": "distChampCulture",
+   "label": "Distance to cropland",
+   "hazard": "faecal",
+   "rho": -0.057,
+   "p": 0.5827,
+   "q": 0.8165,
+   "n": 96,
+   "evidence": "none",
+   "closer_means_higher": true
+  },
+  {
+   "covariate": "distChampCulture",
+   "label": "Distance to cropland",
+   "hazard": "arg",
+   "rho": 0.138,
+   "p": 0.1884,
+   "q": 0.7451,
+   "n": 96,
+   "evidence": "none",
+   "closer_means_higher": false
+  },
+  {
+   "covariate": "distanceToMotorwayRoad",
+   "label": "Distance to motorways",
+   "hazard": "pathogen",
+   "rho": -0.079,
+   "p": 0.4553,
+   "q": 0.7451,
+   "n": 96,
+   "evidence": "none",
+   "closer_means_higher": true
+  },
+  {
+   "covariate": "distanceToMotorwayRoad",
+   "label": "Distance to motorways",
+   "hazard": "faecal",
+   "rho": 0.05,
+   "p": 0.6351,
+   "q": 0.8165,
+   "n": 96,
+   "evidence": "none",
+   "closer_means_higher": false
+  },
+  {
+   "covariate": "distanceToMotorwayRoad",
+   "label": "Distance to motorways",
+   "hazard": "arg",
+   "rho": -0.102,
+   "p": 0.3293,
+   "q": 0.7451,
+   "n": 96,
+   "evidence": "none",
+   "closer_means_higher": true
+  },
+  {
+   "covariate": "distanceToLivingStreetRoad",
+   "label": "Distance to living-street roads",
+   "hazard": "pathogen",
+   "rho": 0.129,
+   "p": 0.2188,
+   "q": 0.7451,
+   "n": 96,
+   "evidence": "none",
+   "closer_means_higher": false
+  },
+  {
+   "covariate": "distanceToLivingStreetRoad",
+   "label": "Distance to living-street roads",
+   "hazard": "faecal",
+   "rho": -0.015,
+   "p": 0.8904,
+   "q": 0.9556,
+   "n": 96,
+   "evidence": "none",
+   "closer_means_higher": true
+  },
+  {
+   "covariate": "distanceToLivingStreetRoad",
+   "label": "Distance to living-street roads",
+   "hazard": "arg",
+   "rho": 0.013,
+   "p": 0.9068,
+   "q": 0.9556,
+   "n": 96,
+   "evidence": "none",
+   "closer_means_higher": false
+  },
+  {
+   "covariate": "altitude",
+   "label": "Altitude",
+   "hazard": "pathogen",
+   "rho": -0.108,
+   "p": 0.3763,
+   "q": 0.7451,
+   "n": 75,
+   "evidence": "none",
+   "closer_means_higher": true
+  },
+  {
+   "covariate": "altitude",
+   "label": "Altitude",
+   "hazard": "faecal",
+   "rho": -0.006,
+   "p": 0.9556,
+   "q": 0.9556,
+   "n": 75,
+   "evidence": "none",
+   "closer_means_higher": true
+  },
+  {
+   "covariate": "altitude",
+   "label": "Altitude",
+   "hazard": "arg",
+   "rho": 0.009,
+   "p": 0.9394,
+   "q": 0.9556,
+   "n": 75,
+   "evidence": "none",
+   "closer_means_higher": false
+  },
+  {
+   "covariate": "distanceToHospitals",
+   "label": "Distance to hospitals",
+   "hazard": "pathogen",
+   "rho": 0.096,
+   "p": 0.3623,
+   "q": 0.7451,
+   "n": 96,
+   "evidence": "none",
+   "closer_means_higher": false
+  },
+  {
+   "covariate": "distanceToHospitals",
+   "label": "Distance to hospitals",
+   "hazard": "faecal",
+   "rho": -0.187,
+   "p": 0.0772,
+   "q": 0.6743,
+   "n": 96,
+   "evidence": "none",
+   "closer_means_higher": true
+  },
+  {
+   "covariate": "distanceToHospitals",
+   "label": "Distance to hospitals",
+   "hazard": "arg",
+   "rho": 0.054,
+   "p": 0.6101,
+   "q": 0.8165,
+   "n": 96,
+   "evidence": "none",
+   "closer_means_higher": false
+  },
+  {
+   "covariate": "distanceToSewageStations",
+   "label": "Distance to sewage stations",
+   "hazard": "pathogen",
+   "rho": -0.166,
+   "p": 0.1124,
+   "q": 0.6743,
+   "n": 96,
+   "evidence": "none",
+   "closer_means_higher": true
+  },
+  {
+   "covariate": "distanceToSewageStations",
+   "label": "Distance to sewage stations",
+   "hazard": "faecal",
+   "rho": -0.094,
+   "p": 0.3629,
+   "q": 0.7451,
+   "n": 96,
+   "evidence": "none",
+   "closer_means_higher": true
+  },
+  {
+   "covariate": "distanceToSewageStations",
+   "label": "Distance to sewage stations",
+   "hazard": "arg",
+   "rho": -0.176,
+   "p": 0.0954,
+   "q": 0.6743,
+   "n": 96,
+   "evidence": "none",
+   "closer_means_higher": true
+  }
+ ],
+ "min_detectable_abs_rho_80pct_power": {
+  "alpha_0.05": 0.29,
+  "alpha_0.01": 0.349
+ }
+}
