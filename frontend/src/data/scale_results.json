@@ -1,0 +1,1026 @@
+{
+ "meta": {
+  "n_sites": 96,
+  "cities": [
+   "Benevento",
+   "Coimbra",
+   "Ghent",
+   "Oslo",
+   "Toulouse"
+  ],
+  "radii_m": [
+   50,
+   100,
+   250,
+   500,
+   750,
+   1000,
+   1500,
+   2000
+  ],
+  "seed": 42,
+  "n_bootstrap": 1000,
+  "n_permutations": 2000,
+  "method": "Spearman within city (ranks computed per city). Best radius = argmax |rho| over 8 nested buffers. p adjusted for radius selection via within-city permutation of max|rho|; BH across 12 hazard x metric tests. Radius stability via city-stratified bootstrap. Cross-sectional, one sampling date per site: association, not causation.",
+  "thresholds": {
+   "supported_q": 0.1,
+   "suggestive_p": 0.05
+  }
+ },
+ "seasonality": {
+  "Benevento": {
+   "2023-06": 12,
+   "2023-07": 7,
+   "2024-08": 1
+  },
+  "Coimbra": {
+   "2023-06": 18
+  },
+  "Ghent": {
+   "2023-05": 17
+  },
+  "Oslo": {
+   "2023-09": 20
+  },
+  "Toulouse": {
+   "2023-05": 21
+  }
+ },
+ "combos": [
+  {
+   "hazard": "pathogen",
+   "family": "imperviousPct",
+   "label": "Impervious cover",
+   "rho_by_radius": [
+    0.043,
+    0.086,
+    0.083,
+    0.026,
+    -0.012,
+    0.03,
+    0.123,
+    0.12
+   ],
+   "rho_pooled_by_radius": [
+    -0.181,
+    -0.132,
+    -0.116,
+    -0.128,
+    -0.154,
+    -0.122,
+    -0.073,
+    -0.066
+   ],
+   "best_radius": 1500,
+   "rho_best": 0.123,
+   "p_adj_radius": 0.6287,
+   "q": 0.6287,
+   "evidence": "none",
+   "boot_freq": [
+    0.076,
+    0.161,
+    0.121,
+    0.04,
+    0.151,
+    0.045,
+    0.213,
+    0.193
+   ],
+   "scale_label": "unresolved",
+   "scale_range": null,
+   "loco": {
+    "Benevento": {
+     "best_radius": 750,
+     "rho": -0.081
+    },
+    "Coimbra": {
+     "best_radius": 250,
+     "rho": 0.153
+    },
+    "Ghent": {
+     "best_radius": 2000,
+     "rho": 0.204
+    },
+    "Oslo": {
+     "best_radius": 1500,
+     "rho": 0.095
+    },
+    "Toulouse": {
+     "best_radius": 100,
+     "rho": 0.176
+    }
+   },
+   "loco_same_sign": 4
+  },
+  {
+   "hazard": "pathogen",
+   "family": "urbanPct",
+   "label": "Urban cover",
+   "rho_by_radius": [
+    -0.061,
+    -0.059,
+    -0.123,
+    -0.08,
+    -0.091,
+    -0.048,
+    0.03,
+    0.07
+   ],
+   "rho_pooled_by_radius": [
+    -0.128,
+    -0.167,
+    -0.218,
+    -0.195,
+    -0.183,
+    -0.163,
+    -0.141,
+    -0.139
+   ],
+   "best_radius": 250,
+   "rho_best": -0.123,
+   "p_adj_radius": 0.5902,
+   "q": 0.6287,
+   "evidence": "none",
+   "boot_freq": [
+    0.109,
+    0.079,
+    0.269,
+    0.061,
+    0.125,
+    0.038,
+    0.081,
+    0.238
+   ],
+   "scale_label": "unresolved",
+   "scale_range": null,
+   "loco": {
+    "Benevento": {
+     "best_radius": 750,
+     "rho": -0.188
+    },
+    "Coimbra": {
+     "best_radius": 250,
+     "rho": -0.149
+    },
+    "Ghent": {
+     "best_radius": 250,
+     "rho": -0.113
+    },
+    "Oslo": {
+     "best_radius": 2000,
+     "rho": 0.137
+    },
+    "Toulouse": {
+     "best_radius": 250,
+     "rho": -0.113
+    }
+   },
+   "loco_same_sign": 4
+  },
+  {
+   "hazard": "pathogen",
+   "family": "vegCoverFrac",
+   "label": "Vegetation cover",
+   "rho_by_radius": [
+    0.244,
+    0.194,
+    0.076,
+    0.193,
+    0.297,
+    0.297,
+    0.218,
+    0.207
+   ],
+   "rho_pooled_by_radius": [
+    -0.12,
+    -0.133,
+    -0.184,
+    -0.128,
+    -0.111,
+    -0.13,
+    -0.185,
+    -0.205
+   ],
+   "best_radius": 1000,
+   "rho_best": 0.297,
+   "p_adj_radius": 0.025,
+   "q": 0.1499,
+   "evidence": "suggestive",
+   "boot_freq": [
+    0.267,
+    0.027,
+    0.012,
+    0.021,
+    0.309,
+    0.29,
+    0.022,
+    0.052
+   ],
+   "scale_label": "unresolved",
+   "scale_range": null,
+   "loco": {
+    "Benevento": {
+     "best_radius": 1000,
+     "rho": 0.311
+    },
+    "Coimbra": {
+     "best_radius": 750,
+     "rho": 0.313
+    },
+    "Ghent": {
+     "best_radius": 750,
+     "rho": 0.345
+    },
+    "Oslo": {
+     "best_radius": 750,
+     "rho": 0.235
+    },
+    "Toulouse": {
+     "best_radius": 1000,
+     "rho": 0.333
+    }
+   },
+   "loco_same_sign": 5
+  },
+  {
+   "hazard": "pathogen",
+   "family": "humanDensityProxy",
+   "label": "Human density proxy",
+   "rho_by_radius": [
+    -0.006,
+    -0.003,
+    0.044,
+    0.102,
+    0.1,
+    0.128,
+    0.137,
+    0.039
+   ],
+   "rho_pooled_by_radius": [
+    -0.19,
+    -0.228,
+    -0.219,
+    -0.179,
+    -0.182,
+    -0.149,
+    -0.135,
+    -0.166
+   ],
+   "best_radius": 1500,
+   "rho_best": 0.137,
+   "p_adj_radius": 0.5412,
+   "q": 0.6287,
+   "evidence": "none",
+   "boot_freq": [
+    0.114,
+    0.088,
+    0.056,
+    0.151,
+    0.057,
+    0.152,
+    0.309,
+    0.073
+   ],
+   "scale_label": "unresolved",
+   "scale_range": null,
+   "loco": {
+    "Benevento": {
+     "best_radius": 2000,
+     "rho": -0.096
+    },
+    "Coimbra": {
+     "best_radius": 1500,
+     "rho": 0.179
+    },
+    "Ghent": {
+     "best_radius": 1500,
+     "rho": 0.139
+    },
+    "Oslo": {
+     "best_radius": 1500,
+     "rho": 0.217
+    },
+    "Toulouse": {
+     "best_radius": 1500,
+     "rho": 0.127
+    }
+   },
+   "loco_same_sign": 4
+  },
+  {
+   "hazard": "faecal",
+   "family": "imperviousPct",
+   "label": "Impervious cover",
+   "rho_by_radius": [
+    0.038,
+    0.139,
+    0.041,
+    0.032,
+    0.048,
+    0.089,
+    0.194,
+    0.202
+   ],
+   "rho_pooled_by_radius": [
+    -0.117,
+    -0.051,
+    -0.042,
+    -0.005,
+    -0.005,
+    0.024,
+    0.074,
+    0.079
+   ],
+   "best_radius": 2000,
+   "rho_best": 0.202,
+   "p_adj_radius": 0.1919,
+   "q": 0.5085,
+   "evidence": "none",
+   "boot_freq": [
+    0.044,
+    0.253,
+    0.036,
+    0.046,
+    0.038,
+    0.006,
+    0.243,
+    0.334
+   ],
+   "scale_label": "unresolved",
+   "scale_range": null,
+   "loco": {
+    "Benevento": {
+     "best_radius": 2000,
+     "rho": 0.142
+    },
+    "Coimbra": {
+     "best_radius": 2000,
+     "rho": 0.16
+    },
+    "Ghent": {
+     "best_radius": 2000,
+     "rho": 0.283
+    },
+    "Oslo": {
+     "best_radius": 2000,
+     "rho": 0.208
+    },
+    "Toulouse": {
+     "best_radius": 1500,
+     "rho": 0.222
+    }
+   },
+   "loco_same_sign": 5
+  },
+  {
+   "hazard": "faecal",
+   "family": "urbanPct",
+   "label": "Urban cover",
+   "rho_by_radius": [
+    -0.042,
+    -0.032,
+    -0.115,
+    -0.051,
+    -0.023,
+    0.03,
+    0.147,
+    0.194
+   ],
+   "rho_pooled_by_radius": [
+    -0.051,
+    -0.039,
+    -0.087,
+    -0.024,
+    -0.002,
+    0.014,
+    0.041,
+    0.042
+   ],
+   "best_radius": 2000,
+   "rho_best": 0.194,
+   "p_adj_radius": 0.2119,
+   "q": 0.5085,
+   "evidence": "none",
+   "boot_freq": [
+    0.064,
+    0.028,
+    0.236,
+    0.027,
+    0.01,
+    0.006,
+    0.14,
+    0.489
+   ],
+   "scale_label": "unresolved",
+   "scale_range": null,
+   "loco": {
+    "Benevento": {
+     "best_radius": 250,
+     "rho": -0.129
+    },
+    "Coimbra": {
+     "best_radius": 2000,
+     "rho": 0.122
+    },
+    "Ghent": {
+     "best_radius": 2000,
+     "rho": 0.292
+    },
+    "Oslo": {
+     "best_radius": 250,
+     "rho": -0.199
+    },
+    "Toulouse": {
+     "best_radius": 2000,
+     "rho": 0.28
+    }
+   },
+   "loco_same_sign": 3
+  },
+  {
+   "hazard": "faecal",
+   "family": "vegCoverFrac",
+   "label": "Vegetation cover",
+   "rho_by_radius": [
+    0.216,
+    0.155,
+    0.092,
+    0.178,
+    0.224,
+    0.236,
+    0.153,
+    0.117
+   ],
+   "rho_pooled_by_radius": [
+    0.016,
+    -0.053,
+    -0.107,
+    -0.084,
+    -0.076,
+    -0.086,
+    -0.127,
+    -0.158
+   ],
+   "best_radius": 1000,
+   "rho_best": 0.236,
+   "p_adj_radius": 0.1149,
+   "q": 0.4598,
+   "evidence": "none",
+   "boot_freq": [
+    0.31,
+    0.03,
+    0.028,
+    0.103,
+    0.179,
+    0.285,
+    0.027,
+    0.038
+   ],
+   "scale_label": "unresolved",
+   "scale_range": null,
+   "loco": {
+    "Benevento": {
+     "best_radius": 50,
+     "rho": 0.242
+    },
+    "Coimbra": {
+     "best_radius": 50,
+     "rho": 0.222
+    },
+    "Ghent": {
+     "best_radius": 750,
+     "rho": 0.224
+    },
+    "Oslo": {
+     "best_radius": 1000,
+     "rho": 0.279
+    },
+    "Toulouse": {
+     "best_radius": 1000,
+     "rho": 0.276
+    }
+   },
+   "loco_same_sign": 5
+  },
+  {
+   "hazard": "faecal",
+   "family": "humanDensityProxy",
+   "label": "Human density proxy",
+   "rho_by_radius": [
+    0.007,
+    0.067,
+    0.084,
+    0.16,
+    0.224,
+    0.247,
+    0.324,
+    0.25
+   ],
+   "rho_pooled_by_radius": [
+    -0.12,
+    -0.094,
+    -0.067,
+    -0.003,
+    0.018,
+    0.06,
+    0.077,
+    0.053
+   ],
+   "best_radius": 1500,
+   "rho_best": 0.324,
+   "p_adj_radius": 0.011,
+   "q": 0.1319,
+   "evidence": "suggestive",
+   "boot_freq": [
+    0.039,
+    0.012,
+    0.01,
+    0.027,
+    0.052,
+    0.041,
+    0.753,
+    0.066
+   ],
+   "scale_label": "well-defined",
+   "scale_range": [
+    1500,
+    1500
+   ],
+   "loco": {
+    "Benevento": {
+     "best_radius": 1500,
+     "rho": 0.247
+    },
+    "Coimbra": {
+     "best_radius": 1500,
+     "rho": 0.312
+    },
+    "Ghent": {
+     "best_radius": 1500,
+     "rho": 0.343
+    },
+    "Oslo": {
+     "best_radius": 1500,
+     "rho": 0.343
+    },
+    "Toulouse": {
+     "best_radius": 1500,
+     "rho": 0.378
+    }
+   },
+   "loco_same_sign": 5
+  },
+  {
+   "hazard": "arg",
+   "family": "imperviousPct",
+   "label": "Impervious cover",
+   "rho_by_radius": [
+    -0.074,
+    -0.023,
+    -0.058,
+    0.049,
+    0.073,
+    0.141,
+    0.155,
+    0.133
+   ],
+   "rho_pooled_by_radius": [
+    -0.024,
+    0.024,
+    0.035,
+    0.115,
+    0.167,
+    0.208,
+    0.233,
+    0.243
+   ],
+   "best_radius": 1500,
+   "rho_best": 0.155,
+   "p_adj_radius": 0.4433,
+   "q": 0.6287,
+   "evidence": "none",
+   "boot_freq": [
+    0.165,
+    0.053,
+    0.112,
+    0.036,
+    0.023,
+    0.218,
+    0.261,
+    0.132
+   ],
+   "scale_label": "unresolved",
+   "scale_range": null,
+   "loco": {
+    "Benevento": {
+     "best_radius": 1500,
+     "rho": 0.109
+    },
+    "Coimbra": {
+     "best_radius": 1000,
+     "rho": 0.245
+    },
+    "Ghent": {
+     "best_radius": 50,
+     "rho": -0.123
+    },
+    "Oslo": {
+     "best_radius": 1000,
+     "rho": 0.159
+    },
+    "Toulouse": {
+     "best_radius": 1500,
+     "rho": 0.202
+    }
+   },
+   "loco_same_sign": 4
+  },
+  {
+   "hazard": "arg",
+   "family": "urbanPct",
+   "label": "Urban cover",
+   "rho_by_radius": [
+    -0.066,
+    -0.018,
+    -0.059,
+    -0.012,
+    0.013,
+    0.062,
+    0.107,
+    0.137
+   ],
+   "rho_pooled_by_radius": [
+    0.047,
+    0.095,
+    0.108,
+    0.148,
+    0.207,
+    0.252,
+    0.291,
+    0.308
+   ],
+   "best_radius": 2000,
+   "rho_best": 0.137,
+   "p_adj_radius": 0.5042,
+   "q": 0.6287,
+   "evidence": "none",
+   "boot_freq": [
+    0.154,
+    0.057,
+    0.155,
+    0.053,
+    0.022,
+    0.053,
+    0.132,
+    0.374
+   ],
+   "scale_label": "unresolved",
+   "scale_range": null,
+   "loco": {
+    "Benevento": {
+     "best_radius": 2000,
+     "rho": 0.08
+    },
+    "Coimbra": {
+     "best_radius": 2000,
+     "rho": 0.211
+    },
+    "Ghent": {
+     "best_radius": 2000,
+     "rho": 0.136
+    },
+    "Oslo": {
+     "best_radius": 2000,
+     "rho": 0.127
+    },
+    "Toulouse": {
+     "best_radius": 50,
+     "rho": -0.165
+    }
+   },
+   "loco_same_sign": 4
+  },
+  {
+   "hazard": "arg",
+   "family": "vegCoverFrac",
+   "label": "Vegetation cover",
+   "rho_by_radius": [
+    0.12,
+    0.053,
+    0.05,
+    -0.042,
+    -0.11,
+    -0.137,
+    -0.104,
+    -0.159
+   ],
+   "rho_pooled_by_radius": [
+    0.276,
+    0.219,
+    0.17,
+    0.07,
+    0.015,
+    0.018,
+    0.032,
+    0.043
+   ],
+   "best_radius": 2000,
+   "rho_best": -0.159,
+   "p_adj_radius": 0.4053,
+   "q": 0.6287,
+   "evidence": "none",
+   "boot_freq": [
+    0.239,
+    0.043,
+    0.082,
+    0.042,
+    0.085,
+    0.167,
+    0.032,
+    0.31
+   ],
+   "scale_label": "unresolved",
+   "scale_range": null,
+   "loco": {
+    "Benevento": {
+     "best_radius": 2000,
+     "rho": -0.146
+    },
+    "Coimbra": {
+     "best_radius": 50,
+     "rho": 0.131
+    },
+    "Ghent": {
+     "best_radius": 50,
+     "rho": 0.158
+    },
+    "Oslo": {
+     "best_radius": 1000,
+     "rho": -0.229
+    },
+    "Toulouse": {
+     "best_radius": 2000,
+     "rho": -0.213
+    }
+   },
+   "loco_same_sign": 3
+  },
+  {
+   "hazard": "arg",
+   "family": "humanDensityProxy",
+   "label": "Human density proxy",
+   "rho_by_radius": [
+    -0.028,
+    -0.087,
+    -0.057,
+    0.062,
+    0.113,
+    0.133,
+    0.105,
+    0.049
+   ],
+   "rho_pooled_by_radius": [
+    0.053,
+    0.067,
+    0.111,
+    0.17,
+    0.218,
+    0.241,
+    0.275,
+    0.273
+   ],
+   "best_radius": 1000,
+   "rho_best": 0.133,
+   "p_adj_radius": 0.5512,
+   "q": 0.6287,
+   "evidence": "none",
+   "boot_freq": [
+    0.045,
+    0.229,
+    0.133,
+    0.034,
+    0.117,
+    0.268,
+    0.113,
+    0.061
+   ],
+   "scale_label": "unresolved",
+   "scale_range": null,
+   "loco": {
+    "Benevento": {
+     "best_radius": 100,
+     "rho": -0.098
+    },
+    "Coimbra": {
+     "best_radius": 1000,
+     "rho": 0.23
+    },
+    "Ghent": {
+     "best_radius": 100,
+     "rho": -0.14
+    },
+    "Oslo": {
+     "best_radius": 1000,
+     "rho": 0.121
+    },
+    "Toulouse": {
+     "best_radius": 1000,
+     "rho": 0.229
+    }
+   },
+   "loco_same_sign": 3
+  }
+ ],
+ "primary": {
+  "pathogen": {
+   "hazard": "pathogen",
+   "family": "vegCoverFrac",
+   "label": "Vegetation cover",
+   "rho_by_radius": [
+    0.244,
+    0.194,
+    0.076,
+    0.193,
+    0.297,
+    0.297,
+    0.218,
+    0.207
+   ],
+   "rho_pooled_by_radius": [
+    -0.12,
+    -0.133,
+    -0.184,
+    -0.128,
+    -0.111,
+    -0.13,
+    -0.185,
+    -0.205
+   ],
+   "best_radius": 1000,
+   "rho_best": 0.297,
+   "p_adj_radius": 0.025,
+   "q": 0.1499,
+   "evidence": "suggestive",
+   "boot_freq": [
+    0.267,
+    0.027,
+    0.012,
+    0.021,
+    0.309,
+    0.29,
+    0.022,
+    0.052
+   ],
+   "scale_label": "unresolved",
+   "scale_range": null,
+   "loco": {
+    "Benevento": {
+     "best_radius": 1000,
+     "rho": 0.311
+    },
+    "Coimbra": {
+     "best_radius": 750,
+     "rho": 0.313
+    },
+    "Ghent": {
+     "best_radius": 750,
+     "rho": 0.345
+    },
+    "Oslo": {
+     "best_radius": 750,
+     "rho": 0.235
+    },
+    "Toulouse": {
+     "best_radius": 1000,
+     "rho": 0.333
+    }
+   },
+   "loco_same_sign": 5
+  },
+  "faecal": {
+   "hazard": "faecal",
+   "family": "humanDensityProxy",
+   "label": "Human density proxy",
+   "rho_by_radius": [
+    0.007,
+    0.067,
+    0.084,
+    0.16,
+    0.224,
+    0.247,
+    0.324,
+    0.25
+   ],
+   "rho_pooled_by_radius": [
+    -0.12,
+    -0.094,
+    -0.067,
+    -0.003,
+    0.018,
+    0.06,
+    0.077,
+    0.053
+   ],
+   "best_radius": 1500,
+   "rho_best": 0.324,
+   "p_adj_radius": 0.011,
+   "q": 0.1319,
+   "evidence": "suggestive",
+   "boot_freq": [
+    0.039,
+    0.012,
+    0.01,
+    0.027,
+    0.052,
+    0.041,
+    0.753,
+    0.066
+   ],
+   "scale_label": "well-defined",
+   "scale_range": [
+    1500,
+    1500
+   ],
+   "loco": {
+    "Benevento": {
+     "best_radius": 1500,
+     "rho": 0.247
+    },
+    "Coimbra": {
+     "best_radius": 1500,
+     "rho": 0.312
+    },
+    "Ghent": {
+     "best_radius": 1500,
+     "rho": 0.343
+    },
+    "Oslo": {
+     "best_radius": 1500,
+     "rho": 0.343
+    },
+    "Toulouse": {
+     "best_radius": 1500,
+     "rho": 0.378
+    }
+   },
+   "loco_same_sign": 5
+  },
+  "arg": null
+ },
+ "mechanistic": [
+  {
+   "hazard": "pathogen",
+   "variable": "distanceToHospitals",
+   "label": "Distance to hospitals",
+   "rho": 0.096,
+   "p": 0.3618,
+   "q": 0.4456,
+   "closer_means_higher": false
+  },
+  {
+   "hazard": "pathogen",
+   "variable": "distanceToSewageStations",
+   "label": "Distance to sewage stations",
+   "rho": -0.166,
+   "p": 0.1139,
+   "q": 0.2279,
+   "closer_means_higher": true
+  },
+  {
+   "hazard": "faecal",
+   "variable": "distanceToHospitals",
+   "label": "Distance to hospitals",
+   "rho": -0.187,
+   "p": 0.0655,
+   "q": 0.2279,
+   "closer_means_higher": true
+  },
+  {
+   "hazard": "faecal",
+   "variable": "distanceToSewageStations",
+   "label": "Distance to sewage stations",
+   "rho": -0.094,
+   "p": 0.3713,
+   "q": 0.4456,
+   "closer_means_higher": true
+  },
+  {
+   "hazard": "arg",
+   "variable": "distanceToHospitals",
+   "label": "Distance to hospitals",
+   "rho": 0.054,
+   "p": 0.6157,
+   "q": 0.6157,
+   "closer_means_higher": false
+  },
+  {
+   "hazard": "arg",
+   "variable": "distanceToSewageStations",
+   "label": "Distance to sewage stations",
+   "rho": -0.176,
+   "p": 0.085,
+   "q": 0.2279,
+   "closer_means_higher": true
+  }
+ ]
+}

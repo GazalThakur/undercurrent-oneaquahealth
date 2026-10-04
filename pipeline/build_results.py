@@ -2,7 +2,7 @@
 
 Reads: data/snapshot/*.json, data/scale_results.json, data/robustness_results.json,
        data/osm_exposure.json (optional)
-Writes: data/results.json and web/public/results.json
+Writes: data/results.json and frontend/src/data/results.json
 
 Every number shown in the UI comes from this file. Insight sentences are deterministic templates.
 
@@ -14,7 +14,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 SNAP, DATA = Path("data/snapshot"), Path("data")
-OUT_PATHS = [DATA / "results.json", Path("web/public/results.json")]
+OUT_PATHS = [DATA / "results.json", Path("frontend/src/data/results.json")]
 
 HAZ = {"pathogen": "scaledPathogenRisk", "faecal": "scaledFecalRisk", "arg": "scaledArgRisk"}
 HAZ_LABEL = {"pathogen": "pathogen risk", "faecal": "faecal risk",

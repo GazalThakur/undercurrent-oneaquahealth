@@ -1,0 +1,26 @@
+{
+  "sites": {
+    "url": "https://api.enora-oah.eu/api/sites/all",
+    "fetched_utc": "2026-10-03T09:52:52.911096+00:00",
+    "bytes": 128541,
+    "sha256": "c0272962378fbe64befae344acb410386fbb71b94777d03c9ad4fe795cf0c632"
+  },
+  "health_risks": {
+    "url": "https://api.enora-oah.eu/api/resilience-map/health-risks",
+    "fetched_utc": "2026-10-03T09:52:54.144036+00:00",
+    "bytes": 16576,
+    "sha256": "3aee00272cc6ff02a3a5bcdf6975372875ef4056d37f2ebb0253bc12edbf5aa8"
+  },
+  "urban_parameters": {
+    "url": "https://api.enora-oah.eu/api/resilience-map/urban-parameters",
+    "fetched_utc": "2026-10-03T09:52:55.818301+00:00",
+    "bytes": 149435,
+    "sha256": "b83169cee0d6a4be9ff88136ec4de9cedb45da7d07eb46673019c47fee89cf54"
+  },
+  "cities": {
+    "url": "https://api.enora-oah.eu/api/cities/all",
+    "fetched_utc": "2026-10-03T09:52:57.041565+00:00",
+    "bytes": 357,
+    "sha256": "14fac66444658ee557e385b105cb4aff6a9550cf261a655770aa24f7889d0920"
+  }
+}

@@ -19,6 +19,25 @@ Thumbs.db
 .env.*
 !.env.example
 
-   
+# Node / frontend
 node_modules/
+frontend/node_modules/
+dist/
+.vercel/
+frontend/.vercel/
+frontend/.grok/
+.tanstack/
+frontend/.tanstack/
+.node_modules.lock
+frontend/.node_modules.lock
 web/dist/
+
+# Logs and local tool state
+*.log
+frontend/.grok/preview.pid
+frontend/.grok/preview.log
+frontend/.grok/og-pending
+frontend/screenshots/
+
+# Private notes (never commit)
+frontend/attachments/
