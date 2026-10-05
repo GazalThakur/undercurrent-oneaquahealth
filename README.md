@@ -7,8 +7,7 @@
 **IEEE OneAquaHealth Global Hackathon 2026 · Track 2: Data-to-Insight**
 
 - **Live demo:** https://undercurrent-oneaquahealth.vercel.app/
-- **Demo video:** [add link]
-- **Team:** [add names]
+- **Demo video:** https://youtu.be/p-zv8WdWXUQ
 
 <!-- Add 3-4 screenshots here after the final UI pass (store in docs/images/):
      hero, ARG lens on the map, ARG vs faecal scatter, site panel for T10. -->
